@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["createMany"]
 }
 
 datasource db {
@@ -13,7 +12,7 @@ model Order {
   userId     Int
   totalAmt   Decimal
   created_at DateTime    @default(now())
-  updated_at DateTime
+  updated_at DateTime?
   User       User        @relation(fields: [userId], references: [id])
   OrderItem  OrderItem[]
 
@@ -27,7 +26,7 @@ model OrderItem {
   qty        Int
   unit       String
   created_at DateTime @default(now())
-  updated_at DateTime
+  updated_at DateTime?
   productId  Int
   Order      Order    @relation(fields: [orderId], references: [id])
   Product    Product  @relation(fields: [productId], references: [id])
@@ -38,13 +37,15 @@ model OrderItem {
 
 model Product {
   id         Int         @id @default(autoincrement())
+  description String?
   prod_id    String
   name       String?
   price      Decimal
-  categry    String?
+  category   String?
+  image      String?
   brand      String?
   created_at DateTime    @default(now())
-  updated_at DateTime
+  updated_at DateTime?
   OrderItem  OrderItem[]
 }
 
@@ -56,7 +57,7 @@ model User {
   is_approved Boolean   @default(false)
   password    String
   role        User_role @default(USER)
-  updated_at  DateTime
+  updated_at  DateTime?
   Order       Order[]
 }
 

@@ -11,20 +11,30 @@ export default async function handler(req, res) {
       return res.status(500).json({ msg: "Something went wrong" });
     }
   } else if (req.method === "POST") {
-    const product = req.body.product({
-      data: {
-        id: 23121,
-        prod_id: "43121",
-        name: "Mi"
-      },
-    });
-    // const product = req.body.product;
-    // const newProduct = {
-    //   newData: product,
-    // };
-    // data.push(newProduct);
-    res.status(200).json(product);
-  } else {
-    return res.status(405).json({ msg: "Method not allowed" });
-  }
+    // const prod =  prisma.product
+    const data = req.body.product;
+    console.log("Response", req.body);
+    //data.prod_id = nanoid();
+    // console.log(data);
+    const dataResp = await prisma.product.create(req.body);
+
+  
+
+  // const dataResp = await prisma.product.create({
+  //   data: {
+  //     prod_id: "1222151",
+  //     name: "Tv",
+  //     price: "1600",
+  //     category: "tv",
+  //     brand: "samsung"
+  //   },
+  // })
+  // const dataResp = await prod.create(data);
+  //const data = await prisma.product.create({  prod_id, name, price, categry, brand});
+  //    console.log(dataResp);
+  return res.status(201).json(dataResp);
+  //return res.status(201).json(req.body.data);
+} else {
+  return res.status(405).json({ msg: "Method not allowed" });
+}
 }
