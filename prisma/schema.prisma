@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["createMany"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Order {
+  id         Int         @id @default(autoincrement())
+  userId     Int
+  totalAmt   Decimal
+  created_at DateTime    @default(now())
+  updated_at DateTime
+  User       User        @relation(fields: [userId], references: [id])
+  OrderItem  OrderItem[]
+
+  @@index([userId], map: "Order_userId_fkey")
+}
+
+model OrderItem {
+  id         Int      @id @default(autoincrement())
+  amount     Decimal
+  orderId    Int
+  qty        Int
+  unit       String
+  created_at DateTime @default(now())
+  updated_at DateTime
+  productId  Int
+  Order      Order    @relation(fields: [orderId], references: [id])
+  Product    Product  @relation(fields: [productId], references: [id])
+
+  @@index([orderId], map: "OrderItem_orderId_fkey")
+  @@index([productId], map: "OrderItem_productId_fkey")
+}
+
+model Product {
+  id         Int         @id @default(autoincrement())
+  prod_id    String
+  name       String?
+  price      Decimal
+  categry    String?
+  brand      String?
+  created_at DateTime    @default(now())
+  updated_at DateTime
+  OrderItem  OrderItem[]
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  email       String    @unique
+  name        String
+  created_at  DateTime  @default(now())
+  is_approved Boolean   @default(false)
+  password    String
+  role        User_role @default(USER)
+  updated_at  DateTime
+  Order       Order[]
+}
+
+enum User_role {
+  USER
+  ADMIN
+}
