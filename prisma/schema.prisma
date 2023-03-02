@@ -20,33 +20,33 @@ model Order {
 }
 
 model OrderItem {
-  id         Int      @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   amount     Decimal
   orderId    Int
   qty        Int
   unit       String
-  created_at DateTime @default(now())
+  created_at DateTime  @default(now())
   updated_at DateTime?
   productId  Int
-  Order      Order    @relation(fields: [orderId], references: [id])
-  Product    Product  @relation(fields: [productId], references: [id])
+  Order      Order     @relation(fields: [orderId], references: [id])
+  Product    Product   @relation(fields: [productId], references: [id])
 
   @@index([orderId], map: "OrderItem_orderId_fkey")
   @@index([productId], map: "OrderItem_productId_fkey")
 }
 
 model Product {
-  id         Int         @id @default(autoincrement())
+  id          Int         @id @default(autoincrement())
+  prod_id     String
+  name        String?
+  price       Decimal     @db.Decimal(6, 2)
+  brand       String?
+  created_at  DateTime    @default(now())
+  updated_at  DateTime?
+  category    String?
+  image       String?
   description String?
-  prod_id    String
-  name       String?
-  price      Decimal
-  category   String?
-  image      String?
-  brand      String?
-  created_at DateTime    @default(now())
-  updated_at DateTime?
-  OrderItem  OrderItem[]
+  OrderItem   OrderItem[]
 }
 
 model User {
