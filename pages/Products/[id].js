@@ -5,36 +5,37 @@ import { FaRegStar } from "react-icons/fa";
 import Router from "next/router";
 import { productData } from "./index";
 import Link from "next/link";
-import { PrismaClient } from "@prisma/client";
+import prisma from "../../lib/prisma";
+
 import { useRouter } from 'next/router'
 
-const Productdetails = () => {
+const Productdetails = ({data}) => {
 
 
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
-  const router = useRouter()
-  const id = router.query.Productdetails
-  console.log(id,"querryyyyy");
+  // const router = useRouter()
+  // const prod_id = router.query.Productdetails
+  // console.log(prod_id,"querryyyyy");
 
 
 
   // console.log(data3)
   const [cart, setCart] = useState(0);
 
-  const fetchProducts = async () => {
-    const response = await fetch(`/api/products/${prod_id}`);
-    const data1 = await response.json();
-    setData(data1)
-    console.log(data1,"dfjgfhsgdhfg")
-  };
+  // const fetchProducts = async () => {
+  //   const response = await fetch(`/api/products/${prod_id}`);
+  //   const data1 = await response.json();
+  //   setData(data1)
+  //   console.log(data1,"dfjgfhsgdhfg")
+  // };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
 
-
+    console.log(data);
 
   return (
     <>
@@ -49,7 +50,7 @@ const Productdetails = () => {
         <div className="products-detail-page">
           {/* <img src={`.${data1.img}`} alt="product" /> */}
           <div className="products-detail-page-inner-1">
-            {/* <h1>{data.title}</h1> */}
+            <h1>{data.name}</h1>
             <p>
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> <FaRegStar />
@@ -92,13 +93,12 @@ const Productdetails = () => {
 export default Productdetails;
 
 export async function getStaticPaths() {
-  const prisma = new PrismaClient();
   const productData1 = await prisma.product.findMany();
 
   // const productData1 = productData;
   const paths = productData1.map((item) => {
     return {
-      params: { Productdetails: item.id.toString() },
+      params: { id: item.prod_id.toString() },
     };
   });
 
@@ -109,25 +109,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const prisma = new PrismaClient();
-  const id = context.params.Productdetails;
-  // const data1 = productData[id];
 
-
-
-  const data1 = prisma.product.findUnique({
+  const product = await prisma.product.findUnique({
     where: {
-      prod_id: String(id),
+        prod_id: String(context.params.id),
     },
-  });
+});
 
-
-  const data2 = JSON.stringify(data1);
-  const data3 = JSON.parse(data2) 
-
+ const data = JSON.stringify(product);
+ console.log(data);
   return {
     props: {
-      data3,
+      data,
     },
   };
 }
