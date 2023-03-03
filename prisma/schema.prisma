@@ -37,7 +37,7 @@ model OrderItem {
 
 model Product {
   id          Int         @id @default(autoincrement())
-  prod_id     String
+  prod_id     String      @unique
   name        String?
   price       Decimal     @db.Decimal(6, 2)
   brand       String?
