@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { FaEdit, FaTrash, FaTimes } from "react-icons/fa";
-import { productData } from "../Products/index";
+// import { productData } from "../Products/index";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Link from "next/link";
-// import { PrismaClient } from "@prisma/client";
-// import prisma from "../../lib/prisma";
 
 const Products = () => {
   const [prodData, setProdData] = useState("");
+
+  // console.log(prodData,"zdfsjfgsgfjgsdfjg")
+
+
   const fetchProducts = async () => {
-    const response = await fetch("/api/product");
+    const response = await fetch("/api/products");
     const data1 = await response.json();
     setProdData(data1);
   };
@@ -19,22 +21,42 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  const deleteProduct = async id => {
+  const deleteProduct = async (prod_id) => {
     try {
-        fetch (`/api/product/${id}`, {
-            headers:{
-                "Content-Type": "application/json",
-            },
-            method: 'DELETE'
-        }).then(()=>{
-            fetchProducts()
-        })
+      fetch(`/api/products/${prod_id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "DELETE",
+      }).then(() => {
+        fetchProducts();
+      });
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-
-
   };
+
+
+  const editProduct = async prod_id =>{
+    try {
+      fetch(`/api/products/${prod_id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "PUT",
+      }).then(() => {
+        fetchProducts();
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+
+
+
 
   return (
     <>
@@ -69,10 +91,10 @@ const Products = () => {
             </tr>
           </thead>
           {Array.isArray(prodData)
-            ? prodData?.map((item, index) => {
+            ? prodData?.map((item) => {
                 return (
                   <>
-                    <tbody style={{ textAlign: "center" }} key={item.id}>
+                    <tbody style={{ textAlign: "center" }} key={item.prod_id}>
                       <tr>
                         <td>{item.id}</td>
                         <td>{item.name}</td>
@@ -84,13 +106,12 @@ const Products = () => {
                           <FaTimes />
                         </td>
                         <td>
-                          <button className="cart-btn">
+                          <Link  href={`/Addproduct/${item.prod_id}`} className="cart-btn" onClick={() => editProduct(item.prod_id)}>
                             <FaEdit />
-                          </button>
+                          </Link>
                           <button
-                            href=""
                             className="cart-btn"
-                            onClick={() => deleteProduct(item.id)}
+                            onClick={() => deleteProduct(item.prod_id)}
                           >
                             <FaTrash />
                           </button>

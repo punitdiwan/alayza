@@ -7,6 +7,7 @@ export default async function handler(req, res) {
   // console.log(prodId)
 
   // console.log(req.params,"id");
+  const { slug } = req.query
  
 
   if (req.method === "GET") {
@@ -17,7 +18,17 @@ export default async function handler(req, res) {
       console.error(err);
       return res.status(500).json({ msg: "Something went wrong" });
     }
-  } else if (req.method === "POST") {
+  }
+  else if (method === 'GET') {
+    const data = await prisma.product.findUnique({
+        where: {
+            prod_id: req.query,
+        },
+    });
+    console.log(data);
+    return res.status(200).json(data);
+}
+   else if (req.method === "POST") {
     const dataResp = await prisma.product.create(req.body);
     return res.status(201).json(dataResp);
 

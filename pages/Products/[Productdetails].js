@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import { FaRegStar } from "react-icons/fa";
@@ -6,11 +6,35 @@ import Router from "next/router";
 import { productData } from "./index";
 import Link from "next/link";
 import { PrismaClient } from "@prisma/client";
+import { useRouter } from 'next/router'
 
-const Productdetails = ({ data3 }) => {
+const Productdetails = () => {
 
-  console.log(data3)
+
+  const [data, setData] = useState(null);
+
+  const router = useRouter()
+  const id = router.query.Productdetails
+  console.log(id,"querryyyyy");
+
+
+
+  // console.log(data3)
   const [cart, setCart] = useState(0);
+
+  const fetchProducts = async () => {
+    const response = await fetch(`/api/products/${prod_id}`);
+    const data1 = await response.json();
+    setData(data1)
+    console.log(data1,"dfjgfhsgdhfg")
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+
+
 
   return (
     <>
@@ -23,15 +47,15 @@ const Productdetails = ({ data3 }) => {
         <br />
         <br />
         <div className="products-detail-page">
-          <img src={`.${data3.img}`} alt="product" />
+          {/* <img src={`.${data1.img}`} alt="product" /> */}
           <div className="products-detail-page-inner-1">
-            <h1>{data3.title}</h1>
+            {/* <h1>{data.title}</h1> */}
             <p>
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> 5 Reviews
             </p>
-            <p>{data3.price} </p>
+            {/* <p>{data1.price} </p> */}
             <p>
               Description: Introducing the iPhone 11 Pro. A transformative
               triple-camera system that adds tons of capability without
@@ -39,7 +63,7 @@ const Productdetails = ({ data3 }) => {
             </p>
           </div>
           <div className="products-detail-page-inner-2">
-            <p>{data3.price}</p>
+            {/* <p>{data3.price}</p> */}
             <p>Status: In Stock</p>
             <p>
               Qty: <input type="number" />

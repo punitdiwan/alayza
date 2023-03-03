@@ -8,20 +8,24 @@ import { PrismaClient } from "@prisma/client";
 export async function getStaticProps() {
   const prisma = new PrismaClient();
   const data1 = await prisma.product.findMany();
+  console.log(data1,"data-1")
   const data2 = JSON.stringify(data1);
   const data3 = JSON.parse(data2);
 
   return {
     props: {
-      data3,
+      // data1,
+      // data2,
+      data3
     },
     revalidate: 20,
   };
 }
 
-const Products = (data3) => {
-  const [prodData, setProdData] = useState("");
+const Products = ({ data3}) => {
 
+  const [prodData, setProdData] = useState("");
+  // console.log(data1)
 
   // console.log(data3,"data33333")
   // const fetchProducts = async () => {
@@ -33,6 +37,7 @@ const Products = (data3) => {
     setProdData(data3);
     // fetchProducts();
   }, []);
+  console.log(prodData)
 
   return (
     <>
@@ -72,7 +77,8 @@ const Products = (data3) => {
             prodData?.map((item) => {
               return (
                 <ul className="cards" key={item.id}>
-                  <Link className="cards_item" href={`Products/${item.id}`}>
+                  {/* {console.log(item.prod_id)} */}
+                  <Link className="cards_item" href={`Products/${item.prod_id}`}>
                     <div className="card">
                       <div className="card_image">
                         <img src={item.img} />
@@ -90,7 +96,8 @@ const Products = (data3) => {
                   </Link>
                 </ul>
               );
-            }) : "" }
+            }) 
+            : "" } 
           </div>
         </section>
       </Layout>

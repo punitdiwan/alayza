@@ -5,6 +5,9 @@ import prisma from "../../../lib/prisma";
 
 export default async function handler(req, res) {
     const { query, method, body } = req;
+
+
+    
     if (method === 'DELETE') {
         const product = await prisma.product.findUnique({
             where: {
@@ -22,7 +25,7 @@ export default async function handler(req, res) {
     else if (method === 'GET') {
         const product = await prisma.product.findUnique({
             where: {
-                prod_id: query.id,
+                prod_id: String(query.id),
             },
         });
         console.log(product);
