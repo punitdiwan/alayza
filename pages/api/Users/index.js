@@ -12,7 +12,9 @@ export default async function handler(req, res) {
       console.error(err);
       return res.status(500).json({ msg: "Something went wrong" });
     }
-  } else if (req.method === "POST") {
+  } 
+ 
+  else if (req.method === "POST") {
     const dataResp = await prisma.user.create(req.body);
     return res.status(201).json(dataResp);
 

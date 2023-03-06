@@ -8,9 +8,6 @@ import Link from "next/link";
 const Products = () => {
   const [prodData, setProdData] = useState("");
 
-  // console.log(prodData,"zdfsjfgsgfjgsdfjg")
-
-
   const fetchProducts = async () => {
     const response = await fetch("/api/products");
     const data1 = await response.json();
@@ -21,9 +18,9 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  const deleteProduct = async (prod_id) => {
+  const deleteProduct = async (id) => {
     try {
-      fetch(`/api/products/${prod_id}`, {
+      fetch(`/api/products/${id}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -36,27 +33,26 @@ const Products = () => {
     }
   };
 
+  // const updatedData = {
+  //   name : "Rahul Meena",
+  //   price: 200
+  // }
 
-  const editProduct = async prod_id =>{
-    try {
-      fetch(`/api/products/${prod_id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "PUT",
-      }).then(() => {
-        fetchProducts();
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  const editProduct = async () => {
+    // try {
+    //   fetch(`/api/products/${143}`, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     method: "PUT",
+    //     body : JSON.stringify(updatedData)
+    //   }).then(() => {
+    //     fetchProducts();
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
-
-
-
-
-
-
 
   return (
     <>
@@ -94,7 +90,7 @@ const Products = () => {
             ? prodData?.map((item) => {
                 return (
                   <>
-                    <tbody style={{ textAlign: "center" }} key={item.prod_id}>
+                    <tbody style={{ textAlign: "center" }} key={item.id}>
                       <tr>
                         <td>{item.id}</td>
                         <td>{item.name}</td>
@@ -106,12 +102,16 @@ const Products = () => {
                           <FaTimes />
                         </td>
                         <td>
-                          <Link  href={`/Addproduct/${item.prod_id}`} className="cart-btn" onClick={() => editProduct(item.prod_id)}>
+                          <button
+                            // href={`/Addproduct/${item.prod_id}`}
+                            className="cart-btn"
+                            onClick={() => editProduct(item.prod_id)}
+                          >
                             <FaEdit />
-                          </Link>
+                          </button>
                           <button
                             className="cart-btn"
-                            onClick={() => deleteProduct(item.prod_id)}
+                            onClick={() => deleteProduct(item.id)}
                           >
                             <FaTrash />
                           </button>

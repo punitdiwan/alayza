@@ -20,11 +20,7 @@ const Login = () => {
       setData({ ...data, [e.target.name]: e.target.value });
     };
 
-    console.log(data)
-
-
-
-
+    // console.log(data)
 
 
   const [toggleState, setToggleState] = useState(1);

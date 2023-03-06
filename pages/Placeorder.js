@@ -24,7 +24,7 @@ const Placeorder = () => {
                 <h3>Cart Items</h3>
                 <div className="place-order-inner">
                     <img src="./images/mouse.jpg"/>
-                    <Link href="">sfdssfsfsf</Link>
+                    <Link href="">About Product</Link>
                     <p>1 x 92500 = ₹92,500.00</p>
                 </div>
             </div>
@@ -38,7 +38,7 @@ const Placeorder = () => {
             <p>Tax ₹16,650.00</p>
             <p>Total ₹1,09,650.00</p>
             <Link
-              href="/Shoppingcart"
+              href="/Myorder"
               type="button"
               className="global-btn"
               style={{ width: "100%",textAlign:"center",textDecoration:"none",color:"black" }}>

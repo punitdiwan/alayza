@@ -7,8 +7,8 @@ import { nanoid } from "nanoid";
 import { useRouter } from "next/router";
 
 const Addproduct = () => {
-  const router = useRouter();
-  console.log(router.query);
+  // const router = useRouter();
+  // console.log(router.query);
 
   const [prodData, setProdData] = useState("");
 
@@ -25,6 +25,7 @@ const Addproduct = () => {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+console.log(data,"add-data");
 
   const submitData = async () => {
     const response = await fetch("/api/products", {
@@ -39,8 +40,8 @@ const Addproduct = () => {
   const fetchProducts = async () => {
     const response = await fetch(`api/products`);
     const productData = await response.json();
-    console.log(productData, "Data from API response");
-    setProdData(productData);
+    // console.log(productData, "Data from API response");
+    setProdData(data);
   };
   useEffect(() => {
     fetchProducts();
@@ -107,7 +108,7 @@ const Addproduct = () => {
             }}
           />
           <Link
-            href="Admin/AdminProducts"
+            href="Admin/AdminProduct"
             className="login-btn"
             style={{ margin: "0.3rem" }}
             onClick={submitData}

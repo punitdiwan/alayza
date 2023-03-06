@@ -16,7 +16,7 @@ export async function getStaticProps() {
 const index = ({ data }) => {
   return (
     <>
-          <Products data={data}/>
+      <Products data={data} />
     </>
   );
 };

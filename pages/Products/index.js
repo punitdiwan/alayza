@@ -78,13 +78,13 @@ const Products = ({ data3}) => {
               return (
                 <ul className="cards" key={item.id}>
                   {/* {console.log(item.prod_id)} */}
-                  <Link className="cards_item" href={`Products/${item.prod_id}`}>
+                  <Link className="cards_item" href={`Products/${item.id}`}>
                     <div className="card">
                       <div className="card_image">
-                        <img src={item.img} />
+                        <img src ="https://picsum.photos/200"  />
                       </div>
                       <div className="card_content">
-                        <h2 className="card_title">{item.description}</h2>
+                        <h2 className="card_title">{item.name}</h2>
                         <p className="card_text">
                           <FaRegStar /> <FaRegStar /> <FaRegStar />
                           <FaRegStar />

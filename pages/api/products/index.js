@@ -4,11 +4,11 @@ import prisma from "../../../lib/prisma.js";
 export default async function handler(req, res) {
   // const postId = parseInt(req.query.id);
   // console.log(postId, "iddddd");
-  // console.log(prodId)
+  console.log(req.body, "req.bodyyyy");
 
   // console.log(req.params,"id");
-  const { slug } = req.query
- 
+  const slug = req.query;
+  console.log(slug);
 
   if (req.method === "GET") {
     try {
@@ -19,20 +19,19 @@ export default async function handler(req, res) {
       return res.status(500).json({ msg: "Something went wrong" });
     }
   }
-  else if (method === 'GET') {
-    const data = await prisma.product.findUnique({
-        where: {
-            prod_id: req.query,
-        },
-    });
-    console.log(data);
-    return res.status(200).json(data);
-}
-   else if (req.method === "POST") {
+  //   else if (method === 'GET') {
+  //     const data = await prisma.product.findUnique({
+  //         where: {
+  //             prod_id: req.query,
+  //         },
+  //     });
+  //     console.log(data);
+  //     return res.status(200).json(data);
+  // }
+  else if (req.method === "POST") {
     const dataResp = await prisma.product.create(req.body);
     return res.status(201).json(dataResp);
-
-  }  else {
+  } else {
     return res.status(405).json({ msg: "Method not allowed" });
   }
 }
