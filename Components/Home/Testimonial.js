@@ -49,7 +49,7 @@ const Testimonial = () => {
               </em>
             </h6>
             <p>✱ Results may vary person to person.</p>
-            <h4>Naveen Kumar</h4>
+            <h4>Roshan Patel</h4>
           </div>
           <div className="carousel-inner-1-main">
             <h6>
@@ -60,7 +60,7 @@ const Testimonial = () => {
               </em>
             </h6>
             <p>✱ Results may vary person to person.</p>
-            <h4>Naveen Kumar</h4>
+            <h4>Rohit Suman</h4>
             {/* <img src="https://picsum.photos/1200/400" /> */}
           </div>
           <div className="carousel-inner-1-main">
@@ -74,7 +74,7 @@ const Testimonial = () => {
               </em>
             </h6>
             <p>✱ Results may vary person to person.</p>
-            <h4>Naveen Kumar</h4>
+            <h4>Pradeep Shrivastava</h4>
             {/* <img src="https://picsum.photos/1200/400" /> */}
           </div>
           <div className="carousel-inner-1-main">

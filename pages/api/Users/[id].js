@@ -3,7 +3,7 @@ import prisma from "../../../lib/prisma";
 export default async function handler(req, res) {
   const { query, method, body } = req;
   const deletedId = query.id;
-  console.log(query.id, "body-userid");
+  // console.log(query.id, "body-userid");
 
   if (method === "DELETE") {
     // const product = await prisma.product.findUnique({

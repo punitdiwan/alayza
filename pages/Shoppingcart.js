@@ -10,6 +10,11 @@ import {productData} from "./Products/index";
 
 const Shoppingcart = () => {
 
+
+  const Increament = () => {
+    setCart(cart+1)
+  }
+
     const [cart, setCart] = useState(1);
 
     function decrement(){
@@ -19,7 +24,7 @@ const Shoppingcart = () => {
         // console.log("hello")
     }
     const data =  productData;
-    console.log(data)
+    // console.log(data)
   return (
     <>
     <Header cart={cart} /><br/>
@@ -34,7 +39,7 @@ const Shoppingcart = () => {
                     <h5 >Cannon EOS 80D DSLR Camera</h5>
                     <p >{  data[0].price} <FaTimes/> {cart}</p>
                     <div className='cart-btn-div'>
-                    <button className="cart-btn" onClick={()=>setCart(cart+1)} > <FaPlus/> </button>
+                    <button className="cart-btn" onClick={Increament} > <FaPlus/> </button>
                     <button className="cart-btn" onClick={decrement}><FaMinus/></button>
                     </div>
                     <button className="cart-btn"><FaTrash/></button>

@@ -4,11 +4,11 @@ import prisma from "../../../lib/prisma.js";
 export default async function handler(req, res) {
   // const postId = parseInt(req.query.id);
   // console.log(postId, "iddddd");
-  console.log(req.body, "req.bodyyyy");
+  // console.log(req.body, "req.bodyyyy");
 
   // console.log(req.params,"id");
   const slug = req.query;
-  console.log(slug);
+  // console.log(slug);
 
   if (req.method === "GET") {
     try {

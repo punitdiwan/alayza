@@ -14,32 +14,32 @@ const Ourresults = () => {
             <li className="cards_item-1">
               <div className="card_new-1">
                 <div className="card_image">
-                  <img src="https://picsum.photos/200" />
-                  <h1>Acne Scars</h1>
+                  <img src="./images/result-4.png" />
+                  <h5>Tatoo removal</h5>
                 </div>
               </div>
             </li>
             <li className="cards_item-1">
               <div className="card_new-1">
                 <div className="card_image">
-                  <img src="https://picsum.photos/200" />
-                  <h1>Acne Treatments</h1>
+                  <img src="./images/result-1.png" />
+                  <h5>Acne Treatments</h5>
                 </div>
               </div>
             </li>
             <li className="cards_item-1">
               <div className="card_new-1">
                 <div className="card_image">
-                  <img src="https://picsum.photos/200" />
-                  <h1>Anti-Wrinkle</h1>
+                  <img src="./images/result-2.png" />
+                  <h5>Laser Hair Reduction</h5>
                 </div>
               </div>
             </li>
             <li className="cards_item-1">
               <div className="card_new-1">
                 <div className="card_image">
-                  <img src="https://picsum.photos/200" />
-                  <h1>Anti-Wrinkle</h1>
+                  <img src="./images/result-3.png" />
+                  <h5>Hair pro</h5>
                 </div>
               </div>
             </li>
