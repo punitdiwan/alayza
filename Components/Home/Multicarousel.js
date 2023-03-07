@@ -33,28 +33,28 @@ const Multicarousel = () => {
         showDots={true}
       >
         <div className="multi-carousel-image">
-          <img src="https://picsum.photos/450/600" className="image" />
-          <div className="middle">
+          <img src="./images/gallery-1.jpeg" className="image" />
+          {/* <div className="middle">
             <div className="text">Read More</div>
-          </div>
+          </div> */}
         </div>
         <div className="multi-carousel-image">
-          <img src="https://picsum.photos/450/600" className="image" />
-          <div className="middle">
+          <img src="./images/gallery-2.jpeg" className="image" />
+          {/* <div className="middle">
             <div className="text">Read More</div>
-          </div>
+          </div> */}
         </div>
         <div className="multi-carousel-image">
-          <img src="https://picsum.photos/450/600" className="image" />
-          <div className="middle">
+          <img src="./images/gallery-3.jpeg" className="image" />
+          {/* <div className="middle">
             <div className="text">Read More</div>
-          </div>
+          </div> */}
         </div>
         <div className="multi-carousel-image">
-          <img src="https://picsum.photos/450/600" className="image" />
-          <div className="middle">
+          <img src="./images/gallery-4.jpeg" className="image" />
+          {/* <div className="middle">
             <div className="text">Read More</div>
-          </div>
+          </div> */}
         </div>
       </Carousel>
     </>

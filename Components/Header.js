@@ -80,14 +80,14 @@ function Header() {
                 <NavDropdown.Item className="dropdown1">
                   <Link href="/Myprofile">My Profile</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item className="dropdown1">
+                {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Myorder">My Orders</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item className="dropdown1">
+                </NavDropdown.Item> */}
+                {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Admin" onClick={() => setAdmin(true)}>
                     Admin
                   </Link>
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
               </NavDropdown>
               <Link
                 href="/Shoppingcart"

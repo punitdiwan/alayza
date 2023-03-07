@@ -51,21 +51,21 @@ const Products = ({ data3}) => {
             <Carousel.Item className="carousel_image_new">
               <img
                 className="d-block w-30 center"
-                src="./images/alexa.jpg"
+                src="./images/product-1.jpeg"
                 alt="First slide"
               />
             </Carousel.Item>
             <Carousel.Item className="carousel_image_new">
               <img
                 className="d-block w-30"
-                src="./images/airpods.jpg"
+                src="./images/product-3.jpeg"
                 alt="Second slide"
               />
             </Carousel.Item>
             <Carousel.Item className="carousel_image_new">
               <img
                 className="d-block w-30"
-                src="https://picsum.photos/0/"
+                src="./images/product-2.jpeg"
                 alt="Third slide"
               />
             </Carousel.Item>
@@ -81,16 +81,17 @@ const Products = ({ data3}) => {
                   <Link className="cards_item" href={`Products/${item.id}`}>
                     <div className="card">
                       <div className="card_image">
-                        <img src ="https://picsum.photos/200"  />
+                        <img src ="./images/product-2.jpeg"  />
                       </div>
                       <div className="card_content">
+                        <h3>{item.brand}</h3>
                         <h2 className="card_title">{item.name}</h2>
                         <p className="card_text">
                           <FaRegStar /> <FaRegStar /> <FaRegStar />
                           <FaRegStar />
                           <FaRegStar /> {item.rating} Reviews
                         </p>
-                        <h5>{item.price}</h5>
+                        <h5>Rs. {item.price}</h5>
                       </div>
                     </div>
                   </Link>

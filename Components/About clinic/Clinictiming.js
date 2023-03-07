@@ -25,13 +25,13 @@ const Clinictiming = () => {
             website.
           </p>
           <h2>Clinic Timings :</h2>
-          <li>Thursday 10:30AM–8:30PM</li>
-          <li>Friday 10:30AM–8:30PM</li>
-          <li>Saturday 10:30AM–8:30PM</li>
+          <li>Thursday 11 Am to 9 pm</li>
+          <li>Friday 11 Am to 9 pm</li>
+          <li>Saturday 11 Am to 9 pm</li>
           <li>Sunday 11AM–3PM</li>
-          <li>Monday 10:30AM–8:30PM</li>
-          <li>Tuesday 10:30AM–8:30PM</li>
-          <li>Wednesday 10:30AM–8:30PM</li>
+          <li>Monday 11 Am to 9 pm</li>
+          <li>Tuesday 11 Am to 9 pm</li>
+          <li>Wednesday 11 Am to 9 pm</li>
           <p>Sunday with appointment.</p>
         </div>
         <img src="./images/about-us-service-middle-woman.png" alt="timing"/>

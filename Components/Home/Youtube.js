@@ -1,20 +1,26 @@
 import React from "react";
 // import "./styles.css";
 import YoutubeEmbed from "./YoutubeEmbed";
+import Link  from 'next/link';
 
 export default function Youtube() {
   return (
     <>
       <section className="youtube-main">
-        <div className="App">
-          <YoutubeEmbed embedId="rokGy0huYEA" />
-          <YoutubeEmbed embedId="rokGy0huYEA" />
-          <YoutubeEmbed embedId="rokGy0huYEA" />
-          <YoutubeEmbed embedId="rokGy0huYEA" />
-          <YoutubeEmbed embedId="rokGy0huYEA" />
-          <YoutubeEmbed embedId="rokGy0huYEA" />
+        <div className="product-1">
+          <p>Good at work</p>
+          <h1>Our Products</h1>
+          <img src="./images/heading-art-01.svg" />
         </div>
-        <button className="global-btn">View All</button>
+        <div className="App">
+          <YoutubeEmbed embedId="./images/product-1.jpeg" />
+          <YoutubeEmbed embedId="./images/product-2.jpeg" />
+          <YoutubeEmbed embedId="./images/product-3.jpeg" />
+          <YoutubeEmbed embedId="./images/product-4.jpeg" />
+          <YoutubeEmbed embedId="./images/product-5.jpeg" />
+          <YoutubeEmbed embedId="./images/product-6.jpeg" />
+        </div>
+        <Link href= "/Products" className="global-btn">View All</Link>
       </section>
     </>
   );

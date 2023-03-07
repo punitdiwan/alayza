@@ -30,7 +30,7 @@ export default async function handler(req, res) {
   // }
   else if (method === "PUT") {
     const records = body.data;
-    console.log(records, "record");
+    // console.log(records, "record");
     const updateProduct = await prisma.product.update({
       where: {
         // prod_id: query.id,

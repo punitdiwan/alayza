@@ -5,7 +5,7 @@ import Footer from "../Components/Footer";
 const Gallery = () => {
   return (
     <>
-          <section classname="gallery-main">
+          <section className="gallery-main">
             <Header/>
             <div className="about-header">
           <h1>Gallery</h1>
@@ -34,33 +34,33 @@ export default Gallery;
 
 export const data = [
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/gallery-1.jpeg"
     },
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/gallery-2.jpeg"
     },
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/gallery-3.jpeg"
     },
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/gallery-4.jpeg"
     },
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/tattoo-1.jpeg"
     },
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/intense-pulse.jpeg"
     },
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/laser.jpeg"
     },
     {
-        img: "https://picsum.photos/200/300"
+        img: "./images/about-zeba.jpeg"
     },
-    {
-        img: "https://picsum.photos/200/300"
-    },
-    {
-        img: "https://picsum.photos/200/300"
-    }
+    // {
+    //     img: "https://picsum.photos/200/300"
+    // },
+    // {
+    //     img: "https://picsum.photos/200/300"
+    // }
 ] 
