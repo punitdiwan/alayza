@@ -9,11 +9,7 @@ import { useState } from "react";
 
 function Header() {
   const [cart, setCart] = useState(0);
-  const [admin, setAdmin] = useState(true); 
-
-
-
-  // console.log(cart)
+  const [admin, setAdmin] = useState(false);
 
   return (
     <Navbar bg="light" expand="lg" id="navbar">
@@ -34,7 +30,7 @@ function Header() {
                     <Link href="/Admin/Users" className="dropdown1">
                       Users
                     </Link>
-                    <Link href="/Admin/AdminProducts" className="dropdown1">
+                    <Link href="/Admin/AdminProduct" className="dropdown1">
                       Products
                     </Link>
                     <Link href="/Admin/Orders" className="dropdown1">
@@ -86,6 +82,11 @@ function Header() {
                 </NavDropdown.Item>
                 <NavDropdown.Item className="dropdown1">
                   <Link href="/Myorder">My Orders</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item className="dropdown1">
+                  <Link href="/Admin" onClick={() => setAdmin(true)}>
+                    Admin
+                  </Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Link

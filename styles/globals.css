@@ -364,7 +364,7 @@ li{
 }
 .footer-inner-1{
   /* width: auto; */
-  /* color: #151414; */
+  color: black;
 
   margin-top: -20px;
   padding: 2rem;
@@ -955,7 +955,7 @@ li{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
    }
    .shipping-1{
     display: flex;
@@ -964,6 +964,7 @@ li{
     display: flex;
     flex-direction: column;
     align-items:center;
+    margin-right: 1rem;
    }
    .payment-main .login-btn{
     border-radius: 5px;

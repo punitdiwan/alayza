@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import { FaRegStar } from "react-icons/fa";
 import Router from "next/router";
-import { productData } from "./index";
+// import { productData } from "./index";
 import Link from "next/link";
-import { PrismaClient } from "@prisma/client";
+import prisma from "../../lib/prisma";
 
-const Productdetails = ({ data3 }) => {
+import { useRouter } from "next/router";
 
-  console.log(data3)
+const Productdetails = ({ parsed }) => {
   const [cart, setCart] = useState(0);
+
+  console.log(parsed, "slug-data");
 
   return (
     <>
@@ -23,15 +25,15 @@ const Productdetails = ({ data3 }) => {
         <br />
         <br />
         <div className="products-detail-page">
-          <img src={`.${data3.img}`} alt="product" />
+          {/* <img src={`.${data1.img}`} alt="product" /> */}
           <div className="products-detail-page-inner-1">
-            <h1>{data3.title}</h1>
+            <h1>{parsed.name}</h1>
             <p>
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> 5 Reviews
             </p>
-            <p>{data3.price} </p>
+            <p>Rs. {parsed.price} </p>
             <p>
               Description: Introducing the iPhone 11 Pro. A transformative
               triple-camera system that adds tons of capability without
@@ -39,10 +41,10 @@ const Productdetails = ({ data3 }) => {
             </p>
           </div>
           <div className="products-detail-page-inner-2">
-            <p>{data3.price}</p>
+            {/* <p>{data3.price}</p> */}
             <p>Status: In Stock</p>
             <p>
-              Qty: <input type="number" />
+              Qty: <input type="number" value="1" />
             </p>
             <Link
               href="/Shoppingcart"
@@ -68,10 +70,7 @@ const Productdetails = ({ data3 }) => {
 export default Productdetails;
 
 export async function getStaticPaths() {
-  const prisma = new PrismaClient();
   const productData1 = await prisma.product.findMany();
-
-  // const productData1 = productData;
   const paths = productData1.map((item) => {
     return {
       params: { Productdetails: item.id.toString() },
@@ -85,25 +84,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const prisma = new PrismaClient();
-  const id = context.params.Productdetails;
-  // const data1 = productData[id];
-
-
-
-  const data1 = prisma.product.findUnique({
+  const product = await prisma.product.findUnique({
     where: {
-      prod_id: String(id),
+      id: parseInt(context.params.Productdetails),
     },
   });
 
-
-  const data2 = JSON.stringify(data1);
-  const data3 = JSON.parse(data2) 
-
+  const data = JSON.stringify(product);
+  const parsed = JSON.parse(data);
+  console.log(data);
   return {
     props: {
-      data3,
+      parsed,
     },
   };
 }

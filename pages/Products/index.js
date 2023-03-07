@@ -3,49 +3,44 @@ import Carousel from "react-bootstrap/Carousel";
 import { FaRegStar, FaCartPlus } from "react-icons/fa";
 import Link from "next/link";
 import Layout from "../../Components/Layout";
-// import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
-// export async function getStaticProps() {
-//   const prisma = new PrismaClient();
-//   const data1 = await prisma.product.findMany();
-//   const data2 = JSON.stringify(data1);
-//   const data3 = JSON.parse(data2);
+export async function getStaticProps() {
+  const prisma = new PrismaClient();
+  const data1 = await prisma.product.findMany();
+  console.log(data1,"data-1")
+  const data2 = JSON.stringify(data1);
+  const data3 = JSON.parse(data2);
 
-//   return {
-//     props: {
-//       data3,
-//     },
-//   };
-// }
+  return {
+    props: {
+      // data1,
+      // data2,
+      data3
+    },
+    revalidate: 20,
+  };
+}
 
-const Products = () => {
-  const [data, setData] = useState("");
+const Products = ({ data3}) => {
+
+  const [prodData, setProdData] = useState("");
+  // console.log(data1)
+
+  // console.log(data3,"data33333")
+  // const fetchProducts = async () => {
+  //   const response = await fetch("/api/product");
+  //   const data1 = await response.json();
+  // };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch("/api/product");
-      const data1 = await response.json();
-      // console.log(data1.data)
-      setData(data1.data);
-    };
-    fetchProducts();
+    setProdData(data3);
+    // fetchProducts();
   }, []);
-
-  console.log(data, "dataaaaaaaaaa");
-
-  // fetchProducts();
+  console.log(prodData)
 
   return (
     <>
-      {/* {
-      data?.map((item)=>{
-        return(
-          <div>
-            {item.id}
-          </div>
-        )
-      })
-    } */}
       <Layout>
         <section className="products-main">
           <Carousel
@@ -77,16 +72,19 @@ const Products = () => {
           </Carousel>
           <div className="products-main-1">
             {/* <button onClick={fetchProducts}>Click</button> */}
-            {/* {data?.map((item) => {
+            {
+            Array.isArray(prodData) ?
+            prodData?.map((item) => {
               return (
                 <ul className="cards" key={item.id}>
+                  {/* {console.log(item.prod_id)} */}
                   <Link className="cards_item" href={`Products/${item.id}`}>
                     <div className="card">
                       <div className="card_image">
-                        <img src={item.img} />
+                        <img src ="https://picsum.photos/200"  />
                       </div>
                       <div className="card_content">
-                        <h2 className="card_title">{item.title}</h2>
+                        <h2 className="card_title">{item.name}</h2>
                         <p className="card_text">
                           <FaRegStar /> <FaRegStar /> <FaRegStar />
                           <FaRegStar />
@@ -98,7 +96,8 @@ const Products = () => {
                   </Link>
                 </ul>
               );
-            })} */}
+            }) 
+            : "" } 
           </div>
         </section>
       </Layout>

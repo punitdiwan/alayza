@@ -2,7 +2,7 @@ import React from "react";
 // import Header from "../../Components/Header";
 // import Footer from "../../Components/Footer";
 import Products from "../Products";
-import Layout from "../../Components/Layout";
+// import Layout from "../../Components/Layout";
 
 export async function getStaticProps() {
   const data = productData;
@@ -16,7 +16,7 @@ export async function getStaticProps() {
 const index = ({ data }) => {
   return (
     <>
-          <Products data={data}/>
+      <Products data={data} />
     </>
   );
 };

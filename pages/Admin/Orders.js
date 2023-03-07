@@ -1,6 +1,5 @@
 import React from "react";
 import {FaEdit,FaTrash,FaTimes} from "react-icons/fa";
-import {productData} from "../Products/index"; 
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 
@@ -25,7 +24,7 @@ const Orders =()=>{
                 </tr>
 
             </thead>
-            {
+            {/* {
                 productData.slice(0,2).map((item)=>{
                     return(
                         <>
@@ -46,7 +45,7 @@ const Orders =()=>{
                         </>
                     )
                 })
-            }
+            } */}
       </table>
       </section>
       <Footer/>
