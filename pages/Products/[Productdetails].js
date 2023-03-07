@@ -10,25 +10,7 @@ import prisma from "../../lib/prisma";
 import { useRouter } from "next/router";
 
 const Productdetails = ({ parsed }) => {
-  // const [data, setData] = useState(null);
-
-  // const router = useRouter()
-  // const prod_id = router.query.Productdetails
-  // console.log(prod_id,"querryyyyy");
-
-  // console.log(data3)
   const [cart, setCart] = useState(0);
-
-  // const fetchProducts = async () => {
-  //   const response = await fetch(`/api/products/${prod_id}`);
-  //   const data1 = await response.json();
-  //   setData(data1)
-  //   console.log(data1,"dfjgfhsgdhfg")
-  // };
-
-  // useEffect(() => {
-  //   fetchProducts();
-  // }, []);
 
   console.log(parsed, "slug-data");
 
@@ -62,7 +44,7 @@ const Productdetails = ({ parsed }) => {
             {/* <p>{data3.price}</p> */}
             <p>Status: In Stock</p>
             <p>
-              Qty: <input type="number" value="1"/>
+              Qty: <input type="number" value="1" />
             </p>
             <Link
               href="/Shoppingcart"
@@ -89,11 +71,9 @@ export default Productdetails;
 
 export async function getStaticPaths() {
   const productData1 = await prisma.product.findMany();
-
-  // const productData1 = productData;
   const paths = productData1.map((item) => {
     return {
-      params: { id: item.id.toString() },
+      params: { Productdetails: item.id.toString() },
     };
   });
 
@@ -106,13 +86,12 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const product = await prisma.product.findUnique({
     where: {
-      // prod_id: String(context.params.id),
-      id: parseInt(context.params.id)
+      id: parseInt(context.params.Productdetails),
     },
   });
 
   const data = JSON.stringify(product);
-  const parsed = JSON.parse(data)
+  const parsed = JSON.parse(data);
   console.log(data);
   return {
     props: {

@@ -11,8 +11,6 @@ function Header() {
   const [cart, setCart] = useState(0);
   const [admin, setAdmin] = useState(false);
 
-  // console.log(cart)
-
   return (
     <Navbar bg="light" expand="lg" id="navbar">
       {admin ? (
@@ -32,10 +30,7 @@ function Header() {
                     <Link href="/Admin/Users" className="dropdown1">
                       Users
                     </Link>
-                    <Link
-                      href="/Admin/AdminProduct"
-                      className="dropdown1"
-                    >
+                    <Link href="/Admin/AdminProduct" className="dropdown1">
                       Products
                     </Link>
                     <Link href="/Admin/Orders" className="dropdown1">
@@ -89,7 +84,9 @@ function Header() {
                   <Link href="/Myorder">My Orders</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item className="dropdown1">
-                  <Link href="/Admin" onClick={()=>setAdmin(true)}>Admin</Link>
+                  <Link href="/Admin" onClick={() => setAdmin(true)}>
+                    Admin
+                  </Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Link

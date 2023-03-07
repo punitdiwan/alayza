@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaEdit, FaTrash, FaTimes } from "react-icons/fa";
 import { productData } from "../../pages/Products/index";
 
-const Table = () => {
+const Table = ({ function1 }) => {
   const [user, setUsers] = useState();
   const [data, setData] = useState();
 
@@ -10,7 +10,7 @@ const Table = () => {
     const response = await fetch("/api/Users");
     const data1 = await response.json();
     setUsers(data1);
-    // console.log(data1, "dshfjfjvb");
+    function1(data1.length)
   };
 
   useEffect(() => {
