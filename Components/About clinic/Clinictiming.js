@@ -7,7 +7,7 @@ const Clinictiming = () => {
         <div className="clinic-timing-1">
           <p>
             We are professional "skin, hair & oral care" centre, running it
-            succesfully for more than 12 years in the heart of west delhi. We
+            succesfully for more than 12 years. We
             are providing all skin & hair care services such as skin peelings
             and skin polishings for treatment of blemishes, acne & acne scars,
             pigmentation & skin rejuvenation for improvement of skin complexion
@@ -24,14 +24,17 @@ const Clinictiming = () => {
             information on common skin conditions can be accessed in the
             website.
           </p>
+          <em>
+          <h4>Virtual Clinic -   Aesthetic Clinic Set up Feel free to contact </h4>
+          </em>
           <h2>Clinic Timings :</h2>
-          <li>Thursday 11 Am to 9 pm</li>
-          <li>Friday 11 Am to 9 pm</li>
-          <li>Saturday 11 Am to 9 pm</li>
-          <li>Sunday 11AM–3PM</li>
-          <li>Monday 11 Am to 9 pm</li>
-          <li>Tuesday 11 Am to 9 pm</li>
-          <li>Wednesday 11 Am to 9 pm</li>
+           <span> Thursday<li> 11 Am to 9 pm</li>  </span>
+           <span> Friday<li> 11 Am to 9 pm</li>  </span>
+           <span> Saturday<li> 11 Am to 9 pm</li>  </span>
+           <span> Sunday<li> 11 AM to 3 PM</li>  </span>
+           <span> Monday<li> 11 Am to 9 pm</li>  </span>
+           <span> Tuesday<li> 11 Am to 9 pm</li>  </span>
+           <span> Wednesday<li> 11 Am to 9 pm</li>  </span>
           <p>Sunday with appointment.</p>
         </div>
         <img src="./images/about-us-service-middle-woman.png" alt="timing"/>

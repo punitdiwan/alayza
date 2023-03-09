@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import {FaEdit,FaTrash,FaTimes} from "react-icons/fa";
-import {productData} from "./Products/index"; 
+// import {productData} from "./Products/index"; 
 
 
 const Myorder=()=>{
@@ -24,7 +24,7 @@ const Myorder=()=>{
               </tr>
 
             </thead>
-            {
+            {/* {
                 productData.map((item)=>{
                     return(
                         <>
@@ -37,7 +37,7 @@ const Myorder=()=>{
                 <td><FaTimes/></td>
                 <td><FaTimes/></td>
                 <td> <button className='cart-btn'> <FaEdit/> </button>
-                {/* <button className='cart-btn'> <FaTrash/> </button> */}
+                <button className='cart-btn'> <FaTrash/> </button>
                  </td>
                 </tr>
             </tbody>
@@ -45,7 +45,7 @@ const Myorder=()=>{
                         </>
                     )
                 })
-            }
+            } */}
       </table>
 
     </section>

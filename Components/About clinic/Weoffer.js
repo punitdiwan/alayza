@@ -37,16 +37,16 @@ const Weoffer = () => {
             <div className="offer-inner">
               <h4>Tattoo Removal</h4>
               <p>
-              Tattoo removal is a process that involves the removal of unwanted tattoos from the skin. Tattoos are a popular form of body art, but some people regret getting them for various reasons.
+                Tattoo removal is a process that involves the removal of
+                unwanted tattoos from the skin. Tattoos are a popular form of
+                body art, but some people regret getting them for various
+                reasons.
               </p>
             </div>
             <div className="offer-inner">
-              <h4>Acne treatment</h4>
+              <h4>Hydra facial</h4>
               <p>
-                Acne or pimples are regarded as one of the most frustrating
-                chronic inflammatory problem with tendency to scar in young
-                adults and may bepersistent in older adults though the severity
-                may vary.
+              HydraFacial is a non-invasive facial treatment that uses patented technology to deeply cleanse, exfoliate, and hydrate the skin. The treatment involves a multi-step process that uses a series of serums and suction-based tools to remove impurities, while also infusing the skin with hydrating and nourishing ingredients.
               </p>
             </div>
           </div>

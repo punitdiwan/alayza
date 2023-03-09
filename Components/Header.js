@@ -5,11 +5,41 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 // import Header from './Admin/Header';
 
-function Header() {
-  const [cart, setCart] = useState(0);
+function Header({cart}) {
+
+
+  const router = useRouter();
+
+  // const [cart, setCart] = useState(0);
   const [admin, setAdmin] = useState(false);
+  const [token,setToken] = useState(false)
+
+
+  const checkToken =()=>{
+    const tokenData = localStorage.getItem("Token")
+    if(tokenData){
+
+      setToken(true)
+    }
+    console.log(tokenData,"token")
+  }
+
+  useEffect(()=>{
+    checkToken()
+  })
+
+
+  const clearToken = ()=>{
+    localStorage.removeItem("Token")
+    router.push("/Login")
+    setToken(false)
+  }
+
+    
 
   return (
     <Navbar bg="light" expand="lg" id="navbar">
@@ -79,6 +109,9 @@ function Header() {
               <NavDropdown title="MORE" id="basic-nav-dropdown">
                 <NavDropdown.Item className="dropdown1">
                   <Link href="/Myprofile">My Profile</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item className="dropdown1">
+                  <Link  href="" onClick={clearToken} >{token ? "Logout" : "Login"}</Link>
                 </NavDropdown.Item>
                 {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Myorder">My Orders</Link>

@@ -47,6 +47,7 @@ model Product {
   category    String?
   image       String?
   description String?
+  qty        Int
   OrderItem   OrderItem[]
 }
 
@@ -57,6 +58,7 @@ model User {
   created_at  DateTime  @default(now())
   is_approved Boolean   @default(false)
   password    String
+  confirmpassword   String
   role        User_role @default(USER)
   updated_at  DateTime?
   Order       Order[]
