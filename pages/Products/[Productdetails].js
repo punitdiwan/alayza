@@ -12,12 +12,31 @@ import { useRouter } from "next/router";
 const Productdetails = ({ parsed }) => {
   const [cart, setCart] = useState(0);
 
-  console.log(parsed, "slug-data");
+  // console.log(parsed, "slug-data");
+
+  const setCartItem = () => {
+    const id = parsed.id;
+    var cartItems = JSON.parse(localStorage.getItem("cart-value") || "[]");
+
+    const existingData = cartItems.find((item) => item.id === id);
+
+    if (existingData) {
+      // If the id is found, return the corresponding value
+      return existingData;
+    } else {
+      // If the id is not found, push a new object with the given id and value
+      cartItems.push(parsed);
+      // Update localStorage with the updated data array
+      localStorage.setItem("cart-value", JSON.stringify(cartItems));
+      // Return the new value
+      return parsed;
+    }
+  };
 
   return (
     <>
       <section className="products-details-main">
-        <Header cart={cart} />
+        <Header  />
         <br />
         <button className="global-btn" onClick={() => Router.back()}>
           Go Back
@@ -55,7 +74,7 @@ const Productdetails = ({ parsed }) => {
                 textAlign: "center",
                 textDecoration: "none",
               }}
-              // onClick={validateUser}
+              onClick={setCartItem}
             >
               Add To Cart
             </Link>

@@ -434,9 +434,18 @@ li{
 .clinic-timing-main{
   display: flex;
   padding: 3rem;
-  background-color: #404040;
-  color: #fff;
+  background-color: #C5AA7E;
+  /* color: #fff; */
 }
+.clinic-timing-1 span{
+  font-weight: bold;
+  width: 30%;
+  display :flex;
+  justify-content: space-between;
+}
+/* .clinic-timing-1 h4{
+ border-bottom: 2px solid #3795BD;
+} */
 
 
 /* ********* About doctor ******* */
@@ -907,10 +916,12 @@ li{
   }
   .shopping-cart-1-inner{
     display: flex;
+    justify-content: space-between;
     padding: 1rem;
     gap: 1rem;
     border-bottom: 1px solid grey;
     align-items:center;
+    /* border: 2px solid red;  */
   }
   .cart-btn{
     border-radius: 5px;
@@ -931,6 +942,7 @@ li{
    }
    .cart-btn-div{
     display: flex;
+    /* border: 2px solid red;  */
    }
    .shopping-cart-1-inner img{
     width: 80px;
@@ -1156,6 +1168,7 @@ li{
     width: 100%;
     flex-direction: column;
     margin-bottom: 3rem;
+    height: auto;
   }
   .shopping-cart-1{
     width: 100%;
@@ -1235,6 +1248,7 @@ li{
   .clinic-timing-main{
     flex-direction: column;
   }
+
   .offer-1{
     flex-direction: column;
     align-items: center;

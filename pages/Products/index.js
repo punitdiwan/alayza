@@ -8,14 +8,11 @@ import { PrismaClient } from "@prisma/client";
 export async function getStaticProps() {
   const prisma = new PrismaClient();
   const data1 = await prisma.product.findMany();
-  console.log(data1,"data-1")
   const data2 = JSON.stringify(data1);
   const data3 = JSON.parse(data2);
 
   return {
     props: {
-      // data1,
-      // data2,
       data3
     },
     revalidate: 20,
@@ -24,20 +21,7 @@ export async function getStaticProps() {
 
 const Products = ({ data3}) => {
 
-  const [prodData, setProdData] = useState("");
-  // console.log(data1)
-
-  // console.log(data3,"data33333")
-  // const fetchProducts = async () => {
-  //   const response = await fetch("/api/product");
-  //   const data1 = await response.json();
-  // };
-
-  useEffect(() => {
-    setProdData(data3);
-    // fetchProducts();
-  }, []);
-  console.log(prodData)
+  const [prodData, setProdData] = useState(data3);
 
   return (
     <>
@@ -108,47 +92,47 @@ const Products = ({ data3}) => {
 
 export default Products;
 
-export const productData = [
-  {
-    id: 0,
-    img: "./images/airpods.jpg",
-    title: " Airpods Wireless Bluetooth Headphones",
-    rating: "1",
-    price: "₹2,495.00",
-  },
-  {
-    id: 1,
-    img: "./images/phone.jpg",
-    title: " IPhone 11 Pro 256GB Memory",
-    rating: "4",
-    price: "₹1,949.00",
-  },
-  {
-    id: 2,
-    img: "./images/camera.jpg",
-    title: " Cannon EOS 80D DSLR Camera",
-    rating: "6",
-    price: "₹92,500.00",
-  },
-  {
-    id: 3,
-    img: "./images/camera.jpg",
-    title: "Cannon EOS 80D DSLR Camera ",
-    rating: "2",
-    price: "₹24,500.00",
-  },
-  {
-    id: 4,
-    img: "./images/mouse.jpg",
-    title: "Logitech G-Series Gaming Mouse ",
-    rating: "4",
-    price: "₹92,500.00",
-  },
-  {
-    id: 5,
-    img: "./images/alexa.jpg",
-    title: " Amazon Echo Dot 3rd Generation",
-    rating: "5",
-    price: "₹49,990.00",
-  },
-];
+// export const productData = [
+//   {
+//     id: 0,
+//     img: "./images/airpods.jpg",
+//     title: " Airpods Wireless Bluetooth Headphones",
+//     rating: "1",
+//     price: "₹2,495.00",
+//   },
+//   {
+//     id: 1,
+//     img: "./images/phone.jpg",
+//     title: " IPhone 11 Pro 256GB Memory",
+//     rating: "4",
+//     price: "₹1,949.00",
+//   },
+//   {
+//     id: 2,
+//     img: "./images/camera.jpg",
+//     title: " Cannon EOS 80D DSLR Camera",
+//     rating: "6",
+//     price: "₹92,500.00",
+//   },
+//   {
+//     id: 3,
+//     img: "./images/camera.jpg",
+//     title: "Cannon EOS 80D DSLR Camera ",
+//     rating: "2",
+//     price: "₹24,500.00",
+//   },
+//   {
+//     id: 4,
+//     img: "./images/mouse.jpg",
+//     title: "Logitech G-Series Gaming Mouse ",
+//     rating: "4",
+//     price: "₹92,500.00",
+//   },
+//   {
+//     id: 5,
+//     img: "./images/alexa.jpg",
+//     title: " Amazon Echo Dot 3rd Generation",
+//     rating: "5",
+//     price: "₹49,990.00",
+//   },
+// ];

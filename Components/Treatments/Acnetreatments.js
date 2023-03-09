@@ -68,4 +68,16 @@ export const treatmentData = [
       "Q-Switch treatment is a popular procedure for the treatment of pigmentation on the skin. It is a non-invasive and safe procedure that uses a high-intensity pulsed beam of light to remove unwanted pigmentation from the skin. The treatment is called Q-switch because it uses a specific type of laser that emits short, high-energy pulses in the nanosecond range.",
     image: "./images/switch.jpeg",
   },
+  {
+    title: "Intense pulse light treatment for rosacea",
+    detail:
+      "Intense Pulsed Light (IPL) therapy is a popular non-invasive treatment for rosacea that uses pulses of light to target the redness and flushing associated with the condition. The light penetrates the skin and is absorbed by the blood vessels, causing them to collapse and reduce the appearance of redness.",
+    image: "./images/intense-pulse.jpeg",
+  },
+  {
+    title: "Hair Pro",
+    detail:
+      "Hair Pro is a software program designed for professional hair salons and stylists. It provides tools for managing appointments, tracking inventory, creating custom services and pricing, and generating reports. Hair Pro also includes features such as photo galleries, customer profiles, and marketing tools.",
+    image: "./images/hair-pro-1.jpeg",
+  },
 ];

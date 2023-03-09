@@ -57,10 +57,16 @@ export const data = [
     {
         img: "./images/about-zeba.jpeg"
     },
-    // {
-    //     img: "https://picsum.photos/200/300"
-    // },
-    // {
-    //     img: "https://picsum.photos/200/300"
-    // }
+    {
+        img: "./images/acne.jpeg"
+    },
+    {
+        img: "./images/dr-zeba.jpeg"
+    },
+    {
+        img:"./images/hair-pro-1.jpeg"
+    },
+    {
+        img:"./images/switch.jpeg"
+    }
 ] 

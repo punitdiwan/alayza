@@ -40,17 +40,17 @@ const Testimonial = () => {
           autoPlaySpeed={3000}
           className="carousel-main-1"
         >
-          <div className="carousel-inner-1-main">
+          {/* <div className="carousel-inner-1-main"> */}
             {/* <img src="https://picsum.photos/1200/400" /> */}
-            <h6>
+            {/* <h6>
               <em>
                 Good work and results of my laser hair removal , pretty
                 satisfied, thank you Doctor . I was recommended by my sister
               </em>
             </h6>
             <p>✱ Results may vary person to person.</p>
-            <h4>Roshan Patel</h4>
-          </div>
+            <h4>Roshan Patel</h4> */}
+          {/* </div> */}
           <div className="carousel-inner-1-main">
             <h6>
               <em>

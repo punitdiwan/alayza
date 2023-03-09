@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   } else if (req.method === "GET") {
     const dataUser = await prisma.user.findUnique({
       where: {
-        id: 1329,
+        email: query.id,
       },
     });
     return res.status(200).json(dataUser);

@@ -20,12 +20,13 @@ const Addproduct = () => {
     brand: "",
     category: "",
     description: "",
+    qty: 1,
   });
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-console.log(data,"add-data");
+  // console.log(data,"add-data");
 
   const submitData = async () => {
     const response = await fetch("/api/products", {
