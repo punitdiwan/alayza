@@ -111,7 +111,7 @@ function Header({cart}) {
                   <Link href="/Myprofile">My Profile</Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item className="dropdown1">
-                  <Link  href="" onClick={clearToken} >{token ? "Logout" : "Login"}</Link>
+                  <Link  href={token ? "" : "/Login"} onClick={clearToken} >{token ? "Logout" : "Login"}</Link>
                 </NavDropdown.Item>
                 {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Myorder">My Orders</Link>
