@@ -11,7 +11,7 @@ const AppProvider = ({ children }) => {
 
 
   return (
-    <AppContext.Provider value={{cart,setCart}}>{children}</AppContext.Provider>
+    <AppContext.Provider value="Ravindra Meena">{children}</AppContext.Provider>
   );
 };
 

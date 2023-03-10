@@ -11,17 +11,59 @@ export async function getStaticProps() {
   const data2 = JSON.stringify(data1);
   const data3 = JSON.parse(data2);
 
+  // const data1 = await prisma.product.findMany({
+    
+  //     where:{
+  //     category:{
+  //       contains:"powder"
+  //     }
+  // }
+  // }) 
+  // const data2 = JSON.stringify(data1);
+  // const data3 = JSON.parse(data2);
+
   return {
     props: {
-      data3
+      data3,
     },
     revalidate: 20,
   };
 }
 
-const Products = ({ data3}) => {
+const Products = ({ data3 }) => {
+
+  const categoryData1 = [
+    {
+      name: "All",
+      id:"0"
+    },
+    {
+    name: "cream",
+    id:"1"
+  },
+  {
+    name: "lotion",
+    id:"2"
+  },
+  {
+    name: "powder",
+    id:"3"
+  },
+ 
+]
+
+const handleChange = (e) => {
+  setCategoryData({ ...categoryData, [e.target.name]: e.target.value });
+};
 
   const [prodData, setProdData] = useState(data3);
+  const [categoryData,setCategoryData] = useState(false);
+
+
+  const filteredData =  data3?.filter(item=>item.category === categoryData?.category );
+  if(categoryData?.category == "All"){
+    setCategoryData(false);
+  }
 
   return (
     <>
@@ -54,35 +96,72 @@ const Products = ({ data3}) => {
               />
             </Carousel.Item>
           </Carousel>
-          <div className="products-main-1">
-            {/* <button onClick={fetchProducts}>Click</button> */}
+          <div className="dropdown">
+          <label >Category</label>
+          <select onChange={(e) => {
+                    handleChange(e);
+                  }}  name="category" >
             {
-            Array.isArray(prodData) ?
-            prodData?.map((item) => {
-              return (
-                <ul className="cards" key={item.id}>
-                  {/* {console.log(item.prod_id)} */}
-                  <Link className="cards_item" href={`Products/${item.id}`}>
-                    <div className="card">
-                      <div className="card_image">
-                        <img src ="./images/product-2.jpeg"  />
-                      </div>
-                      <div className="card_content">
-                        <h3>{item.brand}</h3>
-                        <h2 className="card_title">{item.name}</h2>
-                        <p className="card_text">
-                          <FaRegStar /> <FaRegStar /> <FaRegStar />
-                          <FaRegStar />
-                          <FaRegStar /> {item.rating} Reviews
-                        </p>
-                        <h5>Rs. {item.price}</h5>
-                      </div>
-                    </div>
-                  </Link>
-                </ul>
-              );
-            }) 
-            : "" } 
+              categoryData1.map((item)=>{
+                return(
+                  <option value={item.name} key={item.id}  >{item.name  }</option>
+
+                )
+              })
+            }
+            </select>
+            </div>
+          <div className="products-main-1">
+         
+            {
+              categoryData ?
+               filteredData?.map((item) => {
+                  return (
+                    <ul className="cards" key={item.id}>
+                      {/* {console.log(item.prod_id)} */}
+                      <Link className="cards_item" href={`Products/${item.id}`}>
+                        <div className="card">
+                          <div className="card_image">
+                            <img src={item.image} />
+                          </div>
+                          <div className="card_content">
+                            <h3>{item.brand}</h3>
+                            <h2 className="card_title">{item.name}</h2>
+                            <p className="card_text">
+                              <FaRegStar /> <FaRegStar /> <FaRegStar />
+                              <FaRegStar />
+                              <FaRegStar /> {item.rating} Reviews
+                            </p>
+                            <h5>Rs. {item.price}</h5>
+                          </div>
+                        </div>
+                      </Link>
+                    </ul>
+                  );
+                }) : prodData?.map((item) => {
+                  return (
+                    <ul className="cards" key={item.id}>
+                      <Link className="cards_item" href={`Products/${item.id}`}>
+                        <div className="card">
+                          <div className="card_image">
+                            <img src={item.image} />
+                          </div>
+                          <div className="card_content">
+                            <h3>{item.brand}</h3>
+                            <h2 className="card_title">{item.name}</h2>
+                            <p className="card_text">
+                              <FaRegStar /> <FaRegStar /> <FaRegStar />
+                              <FaRegStar />
+                              <FaRegStar /> {item.rating} Reviews
+                            </p>
+                            <h5>Rs. {item.price}</h5>
+                          </div>
+                        </div>
+                      </Link>
+                    </ul>
+                  );
+                })
+              }
           </div>
         </section>
       </Layout>

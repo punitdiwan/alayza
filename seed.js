@@ -8,7 +8,7 @@ const load = async () => {
     await prisma.product.createMany({
       data: products,
     });
-    console.log('Added product data');
+    // console.log('Added product data');
   } catch (e) {
     console.error(e);
     process.exit(1);

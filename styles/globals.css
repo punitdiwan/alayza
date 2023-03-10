@@ -6,7 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
+a { 
   color: inherit;
   text-decoration: none;
 }
@@ -779,9 +779,7 @@ li{
   margin: 0 auto;
   margin-top: 2rem;
   margin-bottom: 3rem;
-  width: 80%; 
-  /* border: 2px solid red; */
-  /* height: 30vh; */
+  width: 88%; 
 
 
 }
@@ -796,6 +794,8 @@ li{
   flex-wrap: wrap;
   justify-content: left;
   padding-left: 5%;
+  align-items:center;
+  margin-bottom: 3rem;
   width: 100%;
   gap: 2rem;
   /* border: 2px solid red; */
@@ -804,7 +804,12 @@ li{
   width: 22%;
 }
 .products-main-1 .cards_item{
+  /* border: 2px solid red; */
   height: 420px auto;
+  width: 100%;
+}
+.products-main-1 .card{
+  /* border: 2px solid red; */
   width: 100%;
 }
 .products-main-1 .card_image img{ 
@@ -872,6 +877,17 @@ li{
   .products-main{
     display: flex;
     flex-direction: column;
+  }
+  .products-main select,label {
+    width: 10%;
+    padding: 0.5rem;
+    float: right;
+  }
+  .products-main .dropdown{
+    display : flex;
+    flex-direction: column;
+    align-items: end;  
+    padding-right: 5.4%; 
   }
 
   .cart{
@@ -1034,6 +1050,7 @@ li{
    .place-order-inner{
     display: flex;
     justify-content: space-around;
+    margin: 1rem;
    }
    .place-order-inner img{
     border-radius:5px;
@@ -1060,6 +1077,10 @@ li{
     margin-bottom: 3rem;
    }
 
+   .add-product-main select{
+    padding: 1rem;
+      margin: 0.3rem;
+   }
    .add-product-main input{
       padding: 1rem;
       margin: 0.3rem;
@@ -1135,6 +1156,9 @@ li{
 /* @media only screen and (min-width: 1200px) {...} */
 
 @media only screen and (max-width: 992px) {
+  .products-main .dropdown select,label{
+    width: 30%;
+  }
   .treatment-maped{
     flex-direction: column;
   }

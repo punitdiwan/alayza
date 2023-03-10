@@ -1,9 +1,28 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Link from "next/link";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 const Placeorder = () => {
+  const [data,setData] = useState()
+  const [amount, setAmount] = useState();
+  const [addressData,setAddressData] = useState();
+
+
+
+  useEffect(() => {
+    const prodData = localStorage.getItem("cart-value");
+    const totalAmount = localStorage.getItem("totalAmount")
+    const address = localStorage.getItem("addressData")
+    setAddressData(JSON.parse(address))
+    setAmount(totalAmount)
+    setData(JSON.parse(prodData))
+  }, [])
+  
+  let total = +amount + 50 + 18;
+
+
+
   return (
     <>
     <Header/>
@@ -12,7 +31,7 @@ const Placeorder = () => {
         <div className="place-order-2">
             <div>
             <h3>Shipping</h3>
-            <p>Address: aadsad, bhopal-462030, india</p>
+            <p>Address: {addressData?.address}</p>
             </div>
             <hr/>
             <div>
@@ -22,21 +41,29 @@ const Placeorder = () => {
             <hr/>
             <div>
                 <h3>Cart Items</h3>
-                <div className="place-order-inner">
+                {
+                  data?.map((item)=>{
+                    return(
+                      <div className="place-order-inner">
                     <img src="./images/mouse.jpg"/>
-                    <Link href="">About Product</Link>
-                    <p>1 x 92500 = ₹92,500.00</p>
+                    <Link href="">{item.name}</Link>
+                    <p>{item.qty} x {item.price} </p>
                 </div>
+                    )
+                  })
+                }
+              
+                
             </div>
             <hr/>
             
         </div>
         <div className="products-detail-page-inner-2">
             <h3>Order Summary</h3>
-            <p>Subtotal ₹92,500.00c</p>
-            <p>Shipping ₹500.00</p>
-            <p>Tax ₹16,650.00</p>
-            <p>Total ₹1,09,650.00</p>
+            <p>Subtotal ₹{amount}</p>
+            <p>Shipping ₹50.00</p>
+            <p>Tax ₹18.00</p>
+            <p>Total ₹{total}</p>
             <Link
               href="/Myorder"
               type="button"

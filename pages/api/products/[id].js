@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         id: parseInt(deletedId),
       },
     });
-    console.log(deleteProduct);
+    // console.log(deleteProduct);
     return res.status(200).json({});
   }
   // else if (method === "GET") {
