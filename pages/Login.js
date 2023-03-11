@@ -3,7 +3,11 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Link from "next/link";
 import { useRouter } from "next/router";
+// import jwt from "next/jwt";
+
 // import { nanoid } from "nanoid";
+
+// const bcrypt = require('bcrypt');
 
 const Login = () => {
   const router = useRouter();
@@ -24,6 +28,7 @@ const Login = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+
   };
 
   useEffect(() => {
@@ -40,14 +45,21 @@ const Login = () => {
   const submitData = async (e) => {
     e.preventDefault();
     if (data.password === data.confirmpassword) {
-      const response = await fetch("/api/Users", {
-        method: "POST",
-        body: JSON.stringify({ data }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      setToggleState(1);
+      const existingUSer = await fetch(`/api/Users/${data.email}`);
+      const resData = await existingUSer.json();
+      if (resData?.user?.email === data.email) {
+        setError("User already register with this email");
+      } else {
+        const response = await fetch("/api/Users", {
+          method: "POST",
+          body: JSON.stringify({ data }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        setToggleState(1);
+        setError("");
+      }
     } else {
       setError("The password and confirmation password do not match. ");
     }
@@ -62,11 +74,10 @@ const Login = () => {
       },
     });
     const data1 = await res.json();
-    // console.log(data1?.password, "pass");
-    console.log(password, "data-pass");
-    if (password === data1?.password && email === data1?.email) {
-      localStorage.setItem("Token", "sfddsfdsf43245sdfxzxzce");
-      if (data1?.role === "ADMIN") {
+
+    if (password === data1?.user?.password && email === data1?.user?.email) {
+      localStorage.setItem("Token", data1.token);
+      if (data1?.user.role === "ADMIN") {
         setAdmin(true);
         router.push("/Admin/AdminProduct");
       } else {
@@ -79,9 +90,11 @@ const Login = () => {
 
   const handleChange1 = (e) => {
     setEmail(e.target.value);
+    setNewError(" ");
   };
   const handleChange2 = (e) => {
     setPassword(e.target.value);
+    setNewError(" ");
   };
 
   return (

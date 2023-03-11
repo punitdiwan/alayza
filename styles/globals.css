@@ -886,7 +886,7 @@ li{
   .products-main .dropdown{
     display : flex;
     flex-direction: column;
-    align-items: end;  
+    align-items: flex-end;  
     padding-right: 5.4%; 
   }
 
@@ -1042,10 +1042,12 @@ li{
     margin: 3rem;
     height: 200px ;
    }
+   .payment-1 label{
+    width: auto;
+   }
    .payment-1{
-    padding: 1rem;
-    gap:0.5rem;
     display: flex;
+    justify-content: space-between;
    }
    .place-order-inner{
     display: flex;

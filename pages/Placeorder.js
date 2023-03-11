@@ -18,8 +18,10 @@ const Placeorder = () => {
     setAmount(totalAmount)
     setData(JSON.parse(prodData))
   }, [])
+
+  let dataPrice = data?.map((item)=>item.price)
   
-  let total = +amount + 50 + 18;
+  let total = +amount  + 50  +18;
 
 
 
