@@ -23,7 +23,6 @@ export default function Youtube() {
         <Link
           href="/Products"
           className="global-btn"
-          style={{ textDecoration: "none", color:"black" }}
         >
           View All
         </Link>

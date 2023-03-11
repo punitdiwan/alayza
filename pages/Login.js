@@ -28,7 +28,6 @@ const Login = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    
   };
 
   useEffect(() => {
@@ -44,7 +43,7 @@ const Login = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
-    let minimumLength = 8
+    let minimumLength = 8;
     if (data.password.length < minimumLength) {
       setError("password must be of 8 characters");
     } else {
@@ -68,10 +67,7 @@ const Login = () => {
       } else {
         setError("The password and confirmation password do not match. ");
       }
-      
     }
-    
-    
   };
   // console.log(data, "data");
 
@@ -136,7 +132,7 @@ const Login = () => {
               </button>
             </div>
             {toggleState === 1 ? (
-              <form autoComplete="off" >
+              <form autoComplete="off">
                 <label>
                   <input
                     type="email"
@@ -159,15 +155,37 @@ const Login = () => {
                     required
                   />
                 </label>
-                <div style={{ color: "red" }}>{newError}</div>
-                <button
-                  className="login-btn"
-                  // href="/Products"
-                  style={{ margin: "0.5rem" }}
-                  onClick={CheckAdmin}
-                >
-                  Login
-                </button>
+                <div style={{ color: "red", marginLeft: "1rem" }}>
+                  {newError}
+                </div>
+                <div className="login-btn-div-1">
+                  <Link
+                    href=""
+                    style={{
+                      margin: "1rem",
+                      color: "black",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Forgot Password?
+                  </Link>
+                  <Link href="" style={{ margin: "1rem", color: "black" }}>
+                    Dont Have Account?
+                  </Link>
+                </div>
+
+                <div className="login-btn-div-1">
+                  <button
+                    className="login-btn-new"
+                    // href="/Products"
+                    style={{
+                      width: "95%",
+                    }}
+                    onClick={CheckAdmin}
+                  >
+                    Login
+                  </button>
+                </div>
               </form>
             ) : (
               ""
@@ -230,7 +248,7 @@ const Login = () => {
                   type="submit"
                   value="Register"
                   className="login-btn"
-                  style={{ margin: "0.5rem" }}
+                  style={{ marginLeft: "1rem" }}
                 />
               </form>
             ) : (
