@@ -15,12 +15,12 @@ const Myprofile=()=>{
                 <img src="./images/mouse.jpg" style={{width:"80px",height:"80px", borderRadius:"50%"}} />
 
             </div>
-            <form>
+            <form className="profile-form">
                 <input type="text" placeholder="Name"/>
                 <input type="email" placeholder="Email"/>
                 <input type="password" placeholder="Password"/>
                 <input type="password" placeholder="Confirm Password"/>
-                <button className="login-btn" style={{marginLeft:"0.5rem",borderRadius:"5px"}}>Update Profile</button>
+                <button className="profile-btn" style={{marginLeft:"0.5rem",borderRadius:"5px"}}>Update Profile</button>
 
             </form>
     </section>

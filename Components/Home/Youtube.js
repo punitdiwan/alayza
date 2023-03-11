@@ -1,7 +1,7 @@
 import React from "react";
 // import "./styles.css";
 import YoutubeEmbed from "./YoutubeEmbed";
-import Link  from 'next/link';
+import Link from "next/link";
 
 export default function Youtube() {
   return (
@@ -20,7 +20,13 @@ export default function Youtube() {
           <YoutubeEmbed embedId="./images/product-5.jpeg" />
           <YoutubeEmbed embedId="./images/product-6.jpeg" />
         </div>
-        <Link href= "/Products" className="global-btn">View All</Link>
+        <Link
+          href="/Products"
+          className="global-btn"
+          style={{ textDecoration: "none", color:"black" }}
+        >
+          View All
+        </Link>
       </section>
     </>
   );
