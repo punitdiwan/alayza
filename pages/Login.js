@@ -120,7 +120,7 @@ const Login = () => {
             <div className="login-btn-div">
               <button
                 className={
-                  toggleState === 1 ? "login-btn active-btn" : "login-btn"
+                  toggleState === 1 ? "login-btn-1 active-btn" : "login-btn-1"
                 }
                 onClick={() => toggleTab(1)}
               >
@@ -128,7 +128,7 @@ const Login = () => {
               </button>
               <button
                 className={
-                  toggleState === 2 ? "login-btn active-btn" : "login-btn"
+                  toggleState === 2 ? "login-btn-1 active-btn" : "login-btn-1"
                 }
                 onClick={() => toggleTab(2)}
               >
