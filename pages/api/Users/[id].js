@@ -1,4 +1,6 @@
 import prisma from "../../../lib/prisma";
+var jwt = require("jsonwebtoken");
+const SECRET_KEY = "USERSAPI";
 
 export default async function handler(req, res) {
   const { query, method, body } = req;
@@ -24,6 +26,7 @@ export default async function handler(req, res) {
         email: query.id,
       },
     });
-    return res.status(200).json(dataUser);
+    const token = jwt.sign({ email: dataUser?.email, name:dataUser?.name }, SECRET_KEY);
+    return res.status(200).json({user: dataUser, token: token});
   }
 }

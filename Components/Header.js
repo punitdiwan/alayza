@@ -25,7 +25,7 @@ function Header({cart}) {
 
       setToken(true)
     }
-    console.log(tokenData,"token")
+    // console.log(tokenData,"token")
   }
 
   useEffect(()=>{
@@ -43,7 +43,7 @@ function Header({cart}) {
 
   return (
     <Navbar bg="light" expand="lg" id="navbar">
-      {admin ? (
+      {/* {admin ? (
         <Navbar bg="light" expand="lg" id="navbar">
           <Container>
             <Navbar.Brand href="/Admin" className="logo">
@@ -80,7 +80,9 @@ function Header({cart}) {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-      ) : (
+      ) */}
+      {/* : */}
+      {/* ( */}
         <Container>
           <Navbar.Brand href="/" className="logo">
             <img
@@ -111,7 +113,7 @@ function Header({cart}) {
                   <Link href="/Myprofile">My Profile</Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item className="dropdown1">
-                  <Link  href={token ? "" : "/Login"} onClick={clearToken} >{token ? "Logout" : "Login"}</Link>
+                  <Link  href="/Login" onClick={clearToken} >{token ? "Logout" : "Login/SignUp"}</Link>
                 </NavDropdown.Item>
                 {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Myorder">My Orders</Link>
@@ -133,7 +135,7 @@ function Header({cart}) {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      )}
+      {/* )} */}
     </Navbar>
   );
 }

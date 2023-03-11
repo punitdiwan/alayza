@@ -3,10 +3,16 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { FaTrash, FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import Router from "next/router";
+import { useRouter } from "next/router";
 import Link from "next/link";
+
 // import { productData } from "./Products/index";
 
 const Shoppingcart = () => {
+
+
+  const router = useRouter();
+
   const [items, setItems] = useState([
     { id: 1, name: "Item 1", price: 10, quantity: 1 },
     { id: 2, name: "Item 2", price: 20, quantity: 2 },
@@ -18,12 +24,13 @@ const Shoppingcart = () => {
     setLocalData(
       localData.map((item) => {
         if (item.id === itemId) {
-          return { ...item, qty: item.qty + 1 };
+          return { ...item, qty: item.qty + 1  };
         } else {
           return item;
         }
       })
     );
+    localStorage.setItem("cart-value", JSON.stringify(localData));
   };
   const handleDecrement = (itemId) => {
     setLocalData(
@@ -35,12 +42,48 @@ const Shoppingcart = () => {
         }
       })
     );
+  localStorage.setItem("cart-value", JSON.stringify(localData));
   };
+
+
+  // const handleDecrement = (item) => {
+  //   const index = localData.findIndex((i) => i.id === item.id);
+  //   const newItems = [...localData];
+  //   const updatedItem = { ...newItems[index] };
+  //   if (updatedItem.qty > 1) {
+  //     updatedItem.qty--;
+  //     newItems[index] = updatedItem;
+  //     setLocalData(newItems);
+  //     localStorage.setItem("cart-value", JSON.stringify(localData));
+  //   }
+  // };
+
+  // const handleIncrement = (item) => {
+  //   const index = localData.findIndex((i) => i.id === item.id);
+  //   const newItems = [...localData];
+  //   const updatedItem = { ...newItems[index] };
+  //   updatedItem.qty++;
+  //   newItems[index] = updatedItem;
+  //   setLocalData(newItems);
+  //   localStorage.setItem("cart-value", JSON.stringify(localData));
+  // };
+
+
   const getTotalAmount = () => {
     return localData?.reduce((total, item) => {
       return total + item.price * item.qty;
     }, 0);
   };
+
+  useEffect(()=>{
+    const totalAmount = getTotalAmount() 
+    localStorage.setItem("totalAmount",JSON.stringify(totalAmount))
+  },[getTotalAmount])
+ 
+  // 
+
+
+
   const removeFromCart = (id) => {
     const updatedData = localData.filter((item) => item.id !== id);
     localStorage.setItem("cart-value", JSON.stringify(updatedData));
@@ -58,6 +101,16 @@ const Shoppingcart = () => {
     fetchData();
   }, []);
 
+
+  const checkToken = () => {
+    const token = localStorage.getItem('Token');
+    if (token) {
+      router.push("/Shipping")
+    } else {
+      router.push("/Login")
+    }
+
+  }
   
 
 
@@ -119,7 +172,7 @@ const Shoppingcart = () => {
         <div className="shopping-cart-2">
           <h4>Subtotal ({localData?.length}) Items</h4>
           <p>Price {getTotalAmount()} </p>
-          <Link href="/Login" className="global-btn">
+          <Link href="/Login" className="global-btn" onClick={checkToken}>
             Proceed to Checkout
           </Link>
         </div>

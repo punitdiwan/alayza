@@ -1,6 +1,6 @@
 import React from "react";
 import {FaEdit,FaTrash,FaTimes} from "react-icons/fa";
-import Header from "../../Components/Header";
+import Header from "../../Components/Admin/Header";
 import Footer from "../../Components/Footer";
 
 

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import Header from "../../Components/Header";
+import Header from "../../Components/Admin/Header";
 import Footer from "../../Components/Footer";
 import Table from "../../Components/Admin/Table";
 const Users = () => {

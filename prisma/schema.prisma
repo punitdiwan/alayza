@@ -64,6 +64,15 @@ model User {
   Order       Order[]
 }
 
+model Category {
+  id      Int 
+  name    String    @unique
+  description   String?
+  created_at  DateTime  @default(now())
+  updated_at  DateTime?
+
+}
+
 enum User_role {
   USER
   ADMIN

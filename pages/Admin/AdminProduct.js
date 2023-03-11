@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaEdit, FaTrash, FaTimes } from "react-icons/fa";
 // import { productData } from "../Products/index";
-import Header from "../../Components/Header";
+import Header from "../../Components/Admin/Header";
 import Footer from "../../Components/Footer";
 import Link from "next/link";
 
@@ -66,7 +66,7 @@ const Products = () => {
             marginBottom: "2rem",
           }}
         >
-          <h2>Products(2)</h2>
+          <h2>Products({prodData?.length})</h2>
           <Link
             className="login-btn"
             href="/Addproduct"

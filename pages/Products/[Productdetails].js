@@ -63,7 +63,8 @@ const Productdetails = ({ parsed }) => {
             {/* <p>{data3.price}</p> */}
             <p>Status: In Stock</p>
             <p>
-              Qty: <input type="number" value="1" />
+              Qty: 1
+              {/* <input type="number" value="1" /> */}
             </p>
             <Link
               href="/Shoppingcart"
@@ -111,7 +112,7 @@ export async function getStaticProps(context) {
 
   const data = JSON.stringify(product);
   const parsed = JSON.parse(data);
-  console.log(data);
+  // console.log(data);
   return {
     props: {
       parsed,

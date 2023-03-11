@@ -16,9 +16,9 @@ const Cart = () => {
   }, []);
 
   // Save cart items to local storage whenever cartItems changes
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+  // useEffect(() => {
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // }, [cartItems]);
 
   const addToCart = (item) => {
     // Check if item is already in cart
@@ -51,6 +51,7 @@ const Cart = () => {
       updatedItem.qty--;
       newItems[index] = updatedItem;
       setCartItems(newItems);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
   };
 
@@ -61,10 +62,12 @@ const Cart = () => {
     updatedItem.qty++;
     newItems[index] = updatedItem;
     setCartItems(newItems);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
   const calculateTotal = () => {
     let total = 0;
+    // localStorage.setItem("totalAmount", JSON.stringify(total));
     cartItems.forEach((item) => {
       total += item.price * item.qty;
     });
@@ -98,3 +101,18 @@ const Cart = () => {
 };
 
 export default Cart;
+
+// const [selectedData, setSelectedData] = useState([
+
+// ])
+
+//     const handleAdd = (selectedItem)=>{
+//         setSelectedData([...selectedData, selectedItem])
+//         localStorage.setItem("products", JSON.stringify(selectedData))
+//     }
+
+//     useEffect(()=>{
+//         let products = localStorage.getItem("products")
+//         products = JSON.parse(products)
+//         setSelectedData(products)
+//     },[])

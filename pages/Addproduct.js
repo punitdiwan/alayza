@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "../Components/Header";
+import Header from "../Components/Admin/Header";
 import Footer from "../Components/Footer";
 import Router from "next/router";
 import Link from "next/link";
@@ -12,9 +12,25 @@ const Addproduct = () => {
 
   const [prodData, setProdData] = useState("");
 
+
+  const categoryData = [
+    {
+    name: "cream",
+    id:"1"
+  },
+  {
+    name: "lotion",
+    id:"2"
+  },
+  {
+    name: "powder",
+    id:"3"
+  },
+]
+
   const [data, setData] = useState({
     prod_id: nanoid(),
-    image: "",
+    image: "https://picsum.photos/200/300",
     name: "",
     price: "",
     brand: "",
@@ -79,7 +95,7 @@ const Addproduct = () => {
           <input
             type="file"
             placeholder="Image URL"
-            name="file"
+            name="image"
             onChange={(e) => {
               handleChange(e);
             }}
@@ -92,22 +108,46 @@ const Addproduct = () => {
               handleChange(e);
             }}
           />
-          <input
+          <label >Category</label>
+          <select onChange={(e) => {
+                    handleChange(e);
+                  }}  name="category" >
+            {
+              categoryData.map((item)=>{
+                return(
+                  <option value={item.name} key={item.id}  >{item.name}</option>
+
+                )
+              })
+            }
+            
+            {/* <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option> */}
+          </select>
+          {/* <input
             type="text"
             placeholder="Category"
             name="category"
             onChange={(e) => {
               handleChange(e);
             }}
-          />
+          /> */}
           <input
-            type="text"
+            type="text-area"
             placeholder="Description"
             name="description"
             onChange={(e) => {
               handleChange(e);
             }}
           />
+
+         {/* <textarea  rows="5" cols="60"  placeholder="Description"
+            name="description"
+            onChange={(e) => {
+              handleChange(e);
+            }} >
+            </textarea> */}
           <Link
             href="Admin/AdminProduct"
             className="login-btn"
