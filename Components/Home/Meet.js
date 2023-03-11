@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Meet = () => {
   return (
@@ -28,7 +29,9 @@ const Meet = () => {
               Medical College and had her thesis on drug therapy in Male
               Androgenetic Alopecia at LNJP HOSPITAL DELHI. */}
             </p>
-            <button className="meet-btn">Read More</button>
+            <Link href="/Aboutdr" className="meet-btn" >
+              Read More
+            </Link>
           </div>
         </div>
       </div>

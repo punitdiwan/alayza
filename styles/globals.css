@@ -49,7 +49,7 @@ a {
   width: 60%;
   padding: 3rem;
   text-align: left;
-  background-color: #C5AA7E;
+  background-color: #E6B859;
 }
 .meet-btn{
   border: 2px solid #3795BD;
@@ -57,12 +57,14 @@ a {
   color: #fff;
   border-radius: 5px;
   padding: 0.5rem;
+  text-decoration: none;
   /* border: none; */
 }
 .meet-btn:hover{
   transition: 0.2s; 
   background-color: #3795BD;
 opacity:1;
+color: black;
 }
 .card_image{
   position:relative;
@@ -173,8 +175,9 @@ opacity:1;
 .global-btn{
   border: none;
   padding: 0.4rem 1rem;
-  background-color: #C5AA7E;
-  color: white;
+  background-color: #E6B859;
+  border-radius: 5px;
+  /* color: white; */
   opacity: 0.9;
   width: 10% auto;
 }
@@ -247,10 +250,11 @@ opacity:1;
 }
 form{
   width: 50%;
-  background-color: #F3E9DD;
+  background-color: #E6B859;
   /* margin: 2rem; */
   display: flex;
   flex-direction: column;
+  align-items:center;
   padding: 2rem;
   /* border: 2px solid red; */
 }
@@ -265,27 +269,26 @@ form>label{
   padding: 0.6rem;
   width: 130px;
   cursor: pointer;
-  background-color: #B6987A;
+  background-color: #3795BD;
   border:none;
   color: #fff;
+  border-radius: 5px;
+  /* opacity: ; */
 }
 .form-btn:hover{
   transition: .3s ease-in-out;
-  opacity: 0.9;
-  color: #fff;
-  background-color: #3795BD;
+  opacity: 1;
+  /* color: #fff; */
+  background-color: black;
 }
 form>h2{
   margin-bottom: 2rem;
 }
 form input{
+  border-radius: 5px;
   border: none;
   padding: 0.5rem;
 }
-/* .form-div>img{
-  width:45vw; 
-  height: 90vh;
-} */
 
 
 
@@ -379,7 +382,7 @@ li{
 
   margin-top: -20px;
   padding: 2rem;
-  background-color: #C5AA7E ;
+  background-color: #E6B859 ;
   /* border: 5px solid #3795BD; */
 }
 
@@ -434,7 +437,7 @@ li{
 .clinic-timing-main{
   display: flex;
   padding: 3rem;
-  background-color: #C5AA7E;
+  background-color: #E6B859;
   /* color: #fff; */
 }
 .clinic-timing-1 span{
@@ -474,7 +477,8 @@ li{
 }
 
 .about-doctor-3 form {
-  height: 100vh;
+  height: 100vh auto;
+  background-color: #E6B859;
   width: 40%;
 }
 
@@ -667,7 +671,7 @@ li{
 }
 .treatments img {
  width: 70%;
- height: 90vh;
+ height: 120vh;
 }
 .acne-treatment{
   padding: 2rem;
@@ -944,7 +948,7 @@ li{
     border: none;
     border-right: 2px solid #fff;
     padding: 0.4rem 1rem;
-    background-color: #C5AA7E;
+    background-color: #E6B859;
     color: #fff;
     opacity: 0.9;
     width: 60px; 
@@ -994,7 +998,7 @@ li{
     text-align:center;
     border: none;
   padding: 0.8rem 1rem;
-  background-color: #C5AA7E;
+  background-color: #E6B859;
   color: black;
   opacity: 0.9;
   width: 50% ;
@@ -1098,16 +1102,34 @@ li{
    }
 
    .profile-main form{
+   
+   }
+   .profile-form{
     padding: 0;
-    /* border: 2px solid red; */
+    border: 2px solid red;
       margin: 0 auto;
       background-color: #fff;
    }
+   .profile-btn{
+    border: none;
+    padding: 0.4rem 1rem;
+    background-color: #E6B859;
+    /* color: white; */
+    opacity: 0.9;
+    width: 10% auto;
+  }
+  .profile-btn:hover{
+    transition: all 0.3s ease;
+    color: #fff;
+    background-color: #3795BD;
+    opacity: 1.5;
+  }
    .profile-main form input{
     border: 1px solid grey;
     padding:1rem; 
     margin: 0.5rem;
     border-radius: 5px;
+    text-align:left;
    }
    .profile-1{
     display: flex;
@@ -1158,6 +1180,9 @@ li{
 /* @media only screen and (min-width: 1200px) {...} */
 
 @media only screen and (max-width: 992px) {
+  .clinic-timing-1 span{
+    width: auto;
+  }
   .products-main .dropdown select,label{
     width: 30%;
   }
@@ -1302,7 +1327,7 @@ li{
     gap: 2rem;
   }
   .about-doctor-3 form{
-    height: 120vh;
+    height: 120vh auto;
     width: 100%;
   }
 
