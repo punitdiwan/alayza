@@ -15,7 +15,7 @@ const Myprofile=()=>{
                 <img src="./images/mouse.jpg" style={{width:"80px",height:"80px", borderRadius:"50%"}} />
 
             </div>
-            <form className="profile-form">
+            <form className="profile-form" >
                 <input type="text" placeholder="Name"/>
                 <input type="email" placeholder="Email"/>
                 <input type="password" placeholder="Password"/>
