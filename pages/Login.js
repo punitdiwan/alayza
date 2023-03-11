@@ -28,7 +28,7 @@ const Login = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-
+    
   };
 
   useEffect(() => {
@@ -44,25 +44,34 @@ const Login = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
-    if (data.password === data.confirmpassword) {
-      const existingUSer = await fetch(`/api/Users/${data.email}`);
-      const resData = await existingUSer.json();
-      if (resData?.user?.email === data.email) {
-        setError("User already register with this email");
-      } else {
-        const response = await fetch("/api/Users", {
-          method: "POST",
-          body: JSON.stringify({ data }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        setToggleState(1);
-        setError("");
-      }
+    let minimumLength = 8
+    if (data.password.length < minimumLength) {
+      setError("password must be of 8 characters");
     } else {
-      setError("The password and confirmation password do not match. ");
+      if (data.password === data.confirmpassword) {
+        const existingUSer = await fetch(`/api/Users/${data.email}`);
+        const resData = await existingUSer.json();
+        if (resData?.user?.email === data.email) {
+          setError("User already register with this email");
+        } else {
+          const response = await fetch("/api/Users", {
+            method: "POST",
+            body: JSON.stringify({ data }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          setToggleState(1);
+          setError("");
+          setNewError("");
+        }
+      } else {
+        setError("The password and confirmation password do not match. ");
+      }
+      
     }
+    
+    
   };
   // console.log(data, "data");
 
@@ -127,7 +136,7 @@ const Login = () => {
               </button>
             </div>
             {toggleState === 1 ? (
-              <form autoComplete="off">
+              <form autoComplete="off" >
                 <label>
                   <input
                     type="email"
@@ -164,7 +173,7 @@ const Login = () => {
               ""
             )}
             {toggleState === 2 ? (
-              <form autoComplete="off">
+              <form autoComplete="off" onSubmit={submitData}>
                 <label>
                   <input
                     type="text"
@@ -195,6 +204,7 @@ const Login = () => {
                     onChange={(e) => {
                       handleChange(e);
                     }}
+                    required
                   />
                 </label>
                 <label>
@@ -209,13 +219,19 @@ const Login = () => {
                   />
                 </label>
                 <div style={{ color: "red" }}>{error}</div>
-                <button
+                {/* <button
                   className="login-btn"
                   style={{ margin: "0.5rem" }}
                   onClick={submitData}
                 >
                   Register
-                </button>
+                </button> */}
+                <input
+                  type="submit"
+                  value="Register"
+                  className="login-btn"
+                  style={{ margin: "0.5rem" }}
+                />
               </form>
             ) : (
               ""
