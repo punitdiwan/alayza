@@ -989,6 +989,8 @@ li{
    }
    .login-1 form input{
     padding : 1rem; 
+    /* width: 100%;
+    border: 5px solid red; */
    }
    .login-1{
     width: 100%;

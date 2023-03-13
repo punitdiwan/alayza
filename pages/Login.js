@@ -25,9 +25,11 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [newError, setNewError] = useState(false);
   const [validate, setValidate] = useState(false);
+  const [message, setMessage] = useState();
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    setMessage("");
   };
 
   useEffect(() => {
@@ -43,6 +45,10 @@ const Login = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
+    const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+    if (!regEx.test(data.email)) {
+      setMessage("Enter a valid Email");
+    }
     let minimumLength = 8;
     if (data.password.length < minimumLength) {
       setError("password must be of 8 characters");
@@ -73,6 +79,10 @@ const Login = () => {
 
   const CheckAdmin = async (e) => {
     e.preventDefault();
+    // const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+    // if (!regEx.test(email)) {
+    //   setMessage("Enter a valid Email");
+    // }
     const res = await fetch(`/api/Users/${email}`, {
       headers: {
         "Content-Type": "application/json",
@@ -144,6 +154,7 @@ const Login = () => {
                     required
                   />
                 </label>
+                {<div>{message}</div>}
                 <label>
                   <input
                     type="password"
@@ -160,7 +171,7 @@ const Login = () => {
                 </div>
                 <div className="login-btn-div-1">
                   <Link
-                    href=""
+                    href="/forgot"
                     style={{
                       margin: "1rem",
                       color: "black",
@@ -169,7 +180,11 @@ const Login = () => {
                   >
                     Forgot Password?
                   </Link>
-                  <Link href="" style={{ margin: "1rem", color: "black" }}>
+                  <Link
+                    href=""
+                    onClick={() => setToggleState(2)}
+                    style={{ margin: "1rem", color: "black" }}
+                  >
                     Dont Have Account?
                   </Link>
                 </div>
@@ -203,6 +218,7 @@ const Login = () => {
                     required
                   />
                 </label>
+
                 <label>
                   <input
                     type="email"
@@ -214,6 +230,7 @@ const Login = () => {
                     required
                   />
                 </label>
+                {<div>{message}</div>}
                 <label>
                   <input
                     type="password"
@@ -247,8 +264,8 @@ const Login = () => {
                 <input
                   type="submit"
                   value="Register"
-                  className="login-btn"
-                  style={{ marginLeft: "1rem" }}
+                  className="login-btn-new"
+                  // style={{ marginLeft: "1rem" }}
                 />
               </form>
             ) : (
