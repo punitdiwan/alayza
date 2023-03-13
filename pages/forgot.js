@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { verify, decode } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const forgot = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const forgot = () => {
 
   //   console.log(newPassword,"password")
   const token = router.query.token;
-  console.log(router.query);
+  //   console.log(router.query);
 
   const handleChange1 = (e) => {
     setNewPassword({ ...newPassword, [e.target.name]: e.target.value });
@@ -36,10 +37,10 @@ const forgot = () => {
       newPassword.password === newPassword.confirmpassword &&
       newPassword.password.length > 0
     ) {
-      //   const claims = verify(token, "USERSAPI");
-      //   console.log(claims, "tokendata");
+      //   console.log(newPassword, "sdfjghgf");
+      const json = jwt.decode(token);
 
-      fetch(`api/User/${email}`, {
+      fetch(`/api/Users/${json.email}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -47,7 +48,12 @@ const forgot = () => {
         body: JSON.stringify(newPassword),
       });
       setNewError("");
-      console.log("match");
+      setNewPassword({
+        password: "",
+        confirmpassword: "",
+      });
+      alert("password updated succesfully");
+      //   console.log("match");
     } else {
       setNewError("Passwords dont match");
     }
@@ -93,6 +99,7 @@ const forgot = () => {
             onChange={(e) => {
               handleChange1(e);
             }}
+            value={newPassword.password}
           />
           <input
             type="password"
@@ -101,6 +108,7 @@ const forgot = () => {
             onChange={(e) => {
               handleChange1(e);
             }}
+            value={newPassword.confirmpassword}
           />
           {<div>{newError}</div>}
           <button onClick={handleSubmit}> Update New Password</button>

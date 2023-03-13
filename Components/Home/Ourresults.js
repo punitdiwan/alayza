@@ -45,7 +45,7 @@ const Ourresults = () => {
             </li>
           </ul>
         </div>
-        <button className="global-btn">View All</button>
+        <button className="btn-grad">View All</button>
       </section>
     </>
   );

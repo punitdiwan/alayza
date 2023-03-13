@@ -1,12 +1,13 @@
 import prisma from "../../../lib/prisma";
 var jwt = require("jsonwebtoken");
 const SECRET_KEY = "USERSAPI";
-const nodemailer = require("nodemailer");
+var nodemailer = require("nodemailer");
+let Mailjet = require("node-mailjet");
 
 export default async function handler(req, res) {
   const { query, method, body } = req;
   const deletedId = query.id;
-  console.log(query.id, "body-userid");
+  console.log(body, "body-userid");
 
   if (method === "DELETE") {
     // const product = await prisma.product.findUnique({
@@ -32,40 +33,31 @@ export default async function handler(req, res) {
       SECRET_KEY
     );
     if (dataUser) {
-      let link = `http://localhost:3000/forgot?token=${token}`;
+      let link = `http://localhost:3001/forgot?token=${token}`;
 
-      let testAccount = await nodemailer.createTestAccount();
-
-      // create reusable transporter object using the default SMTP transport
-      let transporter = nodemailer.createTransport({
-        // driver: "smtp",
-        // pool: true,
-        host: "in-v3.mailjet.com",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-          user: process.env.MAIL_USERNAME, // generated ethereal user
-          pass: process.env.MAIL_PASSWORD, // generated ethereal password
-          // clientSecret: process.env.DO_SPACE_SECRET,
-        },
+      const mailjet = Mailjet.apiConnect(
+        "9cc1335e98c4ec0281b2d9f1d5aaeccb",
+        "147dc0800206e55d654467f8923bdba9"
+      );
+      const request = mailjet.post("send", { version: "v3.1" }).request({
+        Messages: [
+          {
+            From: { Email: "no-reply@maitretech.com", Name: "Support" },
+            To: [{ Email: "ravindra.064464@gmail.com" }],
+            Subject: "Test Mail",
+            TextPart: link,
+          },
+        ],
       });
+      request
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err.statusCode);
+        });
 
-      // send mail with defined transport object
-      let info = await transporter.sendMail({
-        from: '"Support" <support@schoolscoop.co.in>', // sender address
-        to: "ravindra.06446@gmail.com", // list of receivers
-        subject: "Reset Password", // Subject line
-        text: "Reset password  ", // plain text body
-        html: link, // html body
-      });
-
-      console.log("Message sent: %s", info.messageId);
-      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-      // Preview only available when sending through an Ethereal account
-      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-      console.log(`http://localhost:3000/forgot?token=${token}`);
+      console.log(`http://localhost:3001/forgot?token=${token}`);
       return res.status(200).json({ user: dataUser, token: token });
     } else {
       return res.json("User Not Exists");
@@ -73,8 +65,15 @@ export default async function handler(req, res) {
   } else if (method === "PUT") {
     const updatedData = await prisma.user.update({
       where: {
-        email: "sdfsf@sdf",
+        email: query.id,
+      },
+      data: {
+        password: body?.password,
+        confirmpassword: body?.confirmpassword,
       },
     });
+    return res.status(200).json(updatedData);
+  } else {
+    return res.json("not updated");
   }
 }
