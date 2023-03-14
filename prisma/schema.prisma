@@ -16,7 +16,6 @@ model Order {
   updated_at DateTime?
   User       User        @relation(fields: [userId], references: [id])
   OrderItem  OrderItem[]
-
   @@index([userId], map: "Order_userId_fkey")
 }
 

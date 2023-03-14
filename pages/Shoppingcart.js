@@ -9,8 +9,6 @@ import Link from "next/link";
 // import { productData } from "./Products/index";
 
 const Shoppingcart = () => {
-
-
   const router = useRouter();
 
   const [items, setItems] = useState([
@@ -24,7 +22,7 @@ const Shoppingcart = () => {
     setLocalData(
       localData.map((item) => {
         if (item.id === itemId) {
-          return { ...item, qty: item.qty + 1  };
+          return { ...item, qty: item.qty + 1 };
         } else {
           return item;
         }
@@ -42,9 +40,8 @@ const Shoppingcart = () => {
         }
       })
     );
-  localStorage.setItem("cart-value", JSON.stringify(localData));
+    localStorage.setItem("cart-value", JSON.stringify(localData));
   };
-
 
   // const handleDecrement = (item) => {
   //   const index = localData.findIndex((i) => i.id === item.id);
@@ -68,21 +65,18 @@ const Shoppingcart = () => {
   //   localStorage.setItem("cart-value", JSON.stringify(localData));
   // };
 
-
   const getTotalAmount = () => {
     return localData?.reduce((total, item) => {
       return total + item.price * item.qty;
     }, 0);
   };
 
-  useEffect(()=>{
-    const totalAmount = getTotalAmount() 
-    localStorage.setItem("totalAmount",JSON.stringify(totalAmount))
-  },[getTotalAmount])
- 
-  // 
+  useEffect(() => {
+    const totalAmount = getTotalAmount();
+    localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
+  }, [getTotalAmount]);
 
-
+  //
 
   const removeFromCart = (id) => {
     const updatedData = localData.filter((item) => item.id !== id);
@@ -95,37 +89,30 @@ const Shoppingcart = () => {
     const data2 = JSON.parse(data1);
     setLocalData(data2);
   };
-  // console.log(localData, "local");
 
   useEffect(() => {
     fetchData();
   }, []);
 
-
   const checkToken = () => {
-    const token = localStorage.getItem('Token');
+    
+    const token = localStorage.getItem("Token");
     if (token) {
-      router.push("/Shipping")
+      router.push("/Shipping");
     } else {
-      router.push("/Login")
+      router.push("/Login");
     }
-
-  }
-  
-
+  };
 
   // useEffect(() => {
   //   localStorage.setItem("cart-value", JSON.stringify(localData));
   // },[localData])
 
-
-
-
   return (
     <>
       <Header cart={localData?.length} />
       <br />
-        <button
+      <button
         className="global-btn"
         onClick={() => Router.back()}
         style={{ marginLeft: "10%" }}
@@ -139,10 +126,11 @@ const Shoppingcart = () => {
             return (
               <>
                 <div className="shopping-cart-1-inner">
-                  <img src="./images/mouse.jpg" />
+                  <img src={item.image} />
                   <h5>{item.name}</h5>
                   <p>
-                    {item.price} <FaTimes /> {item.qty}
+                    {item.price} <FaTimes /> {item.qty} ={" "}
+                    {item.price * item.qty}
                   </p>
                   <div className="cart-btn-div">
                     <button

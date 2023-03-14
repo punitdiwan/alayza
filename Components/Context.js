@@ -7,11 +7,11 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
 
-    const [cart,setCart] = useState(0);
+    const [cart1,setCart1] = useState();
 
 
   return (
-    <AppContext.Provider value="Ravindra Meena">{children}</AppContext.Provider>
+    <AppContext.Provider value={{cart1,setCart1}}>{children}</AppContext.Provider>
   );
 };
 

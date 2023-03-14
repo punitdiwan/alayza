@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { verify, decode } from "jsonwebtoken";
 import jwt from "jsonwebtoken";
+import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 
 const forgot = () => {
   const router = useRouter();
@@ -40,7 +42,7 @@ const forgot = () => {
       //   console.log(newPassword, "sdfjghgf");
       const json = jwt.decode(token);
 
-      fetch(`/api/Users/${json.email}`, {
+      fetch(`/api/forgot/${json.email}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -68,7 +70,7 @@ const forgot = () => {
   const submitEmail = async (e) => {
     e.preventDefault();
     console.log(email, "email");
-    const res = await fetch(`/api/Users/${email}`, {
+    const res = await fetch(`/api/forgot/${email}`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -90,12 +92,13 @@ const forgot = () => {
 
   return (
     <>
+      <Header />
       {router.query.token && (
-        <div>
+        <form className="forgot-form">
           <input
             type="password"
             name="password"
-            placeholder="Enter the new password"
+            placeholder="Enter new password"
             onChange={(e) => {
               handleChange1(e);
             }}
@@ -104,19 +107,19 @@ const forgot = () => {
           <input
             type="password"
             name="confirmpassword"
-            placeholder="Enter the new password again"
+            placeholder="Enter new password again"
             onChange={(e) => {
               handleChange1(e);
             }}
             value={newPassword.confirmpassword}
           />
           {<div>{newError}</div>}
-          <button onClick={handleSubmit}> Update New Password</button>
-        </div>
+          <button onClick={handleSubmit} className="btn-grad" > Update New Password</button>
+        </form>
       )}
 
       {!router.query.token && (
-        <form onSubmit={submitEmail}>
+        <form onSubmit={submitEmail} className="forgot-form">
           <input
             type="email"
             name="email"
@@ -125,9 +128,10 @@ const forgot = () => {
             value={email}
           />
           <div>{error}</div>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" className="btn-grad" />
         </form>
       )}
+      <Footer />
     </>
   );
 };

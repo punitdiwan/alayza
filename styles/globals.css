@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-sy stem, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -35,6 +35,18 @@ a {
 }
 
 
+
+.forgot-form{
+  margin : 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  gap : 1rem;
+  /* position: absolute;
+  top : 50%;
+  left : 50%;
+  transform: translate(-50%, -50%); */
+}
+
          
 .btn-grad {
   background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
@@ -49,7 +61,7 @@ a {
   /* box-shadow: 0 0 20px #eee; */
   border-radius: 10px;
   display: block;
-  width: 300px;
+  width: 300px ;
   font-weight: bolder;
 }
 
@@ -894,6 +906,10 @@ li{
   display: flex;
   gap : 2rem;
 }
+.products-detail-page img {
+  height : 40vh;
+  width : 50vw;
+}
   .products-detail-page input{
     width: 80%;
   }
@@ -1141,13 +1157,25 @@ li{
    }
    .place-order-inner{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 3rem;
     margin: 1rem;
+    /* border: 2px solid red; */
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid grey;
+    align-items:center;
    }
    .place-order-inner img{
     border-radius:5px;
     width: 80px;
     height: 80px;
+   }
+   .order-main-1{
+    /* border-left : 1px solid grey;
+    border-right: 1px solid grey; */
+    border: 1px solid grey;
+    padding-top: 1rem;
+    text-align: center;
    }
    .place-order-main{
     padding : 2rem;

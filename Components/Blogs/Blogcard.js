@@ -18,7 +18,7 @@ const Blogcard = () => {
                     Tattoo removal is a process that involves the removal of
                     unwanted tattoos from the skin.
                   </p>
-                  <button className="global-btn">Read More</button>
+                  <button className="btn-grad" style={{width: "100%",marginLeft: "0"}}>Read More</button>
                 </div>
               </div>
             </li>
@@ -34,7 +34,7 @@ const Blogcard = () => {
                     utilizes focused laser energy to remove unwanted hair from
                     various parts of the body.
                   </p>
-                  <button className="global-btn">Read More</button>
+                  <button className="btn-grad" style={{width: "100%",marginLeft: "0"}}>Read More</button>
                 </div>
               </div>
             </li>
@@ -51,7 +51,7 @@ const Blogcard = () => {
                     Q-Switch treatment is a popular procedure for the treatment
                     of pigmentation on the skin.
                   </p>
-                  <button className="global-btn">Read More</button>
+                  <button className="btn-grad" style={{width: "100%",marginLeft: "0"}}>Read More</button>
                 </div>
               </div>
             </li>
@@ -67,7 +67,7 @@ const Blogcard = () => {
                     therapy, is a popular cosmetic procedure that uses light
                     energy to improve the appearance of various skin concerns.
                   </p>
-                  <button className="global-btn">Read More</button>
+                  <button className="btn-grad" style={{width: "100%",marginLeft: "0"}}>Read More</button>
                 </div>
               </div>
             </li>
@@ -86,7 +86,7 @@ const Blogcard = () => {
                     adults and may bepersistent in older adults though the
                     severity may vary.
                   </p>
-                  <button className="global-btn">Read More</button>
+                  <button className="btn-grad" style={{width: "100%",marginLeft: "0"}}>Read More</button>
                 </div>
               </div>
             </li>
@@ -103,7 +103,7 @@ const Blogcard = () => {
                     Acne most commonly affects teenagers but the truth is, it is
                     quite common for acne to persist into adulthood. Although
                   </p>
-                  <button className="global-btn">Read More</button>
+                  <button className="btn-grad" style={{width: "100%",marginLeft: "0"}}>Read More</button>
                 </div>
               </div>
             </li>
@@ -137,7 +137,7 @@ const Blogcard = () => {
               rows="3"
             ></textarea>
           </label>
-          <button className="form-btn">Submit</button>
+          <button className="btn-grad">Submit</button>
         </form>
       </section>
     </>

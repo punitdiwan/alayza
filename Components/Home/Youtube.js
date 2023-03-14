@@ -20,7 +20,7 @@ export default function Youtube() {
           <YoutubeEmbed embedId="./images/product-5.jpeg" />
           <YoutubeEmbed embedId="./images/product-6.jpeg" />
         </div>
-        <Link href="/Products" className="btn-grad">
+        <Link href="/Products" className="btn-grad" style={{width: "300px"}}>
           View All
         </Link>
       </section>

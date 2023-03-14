@@ -87,20 +87,16 @@ const Products = () => {
             </tr>
           </thead>
           {Array.isArray(prodData)
-            ? prodData?.map((item) => {
+            ? prodData?.map((item, index) => {
                 return (
                   <>
                     <tbody style={{ textAlign: "center" }} key={item.id}>
                       <tr>
-                        <td>{item.id}</td>
+                        <td>{index + 1}</td>
                         <td>{item.name}</td>
                         <td>{item.price}</td>
-                        <td>
-                          <FaTimes />
-                        </td>
-                        <td>
-                          <FaTimes />
-                        </td>
+                        <td>{item.category}</td>
+                        <td>{item.brand}</td>
                         <td>
                           <button
                             // href={`/Addproduct/${item.prod_id}`}

@@ -29,7 +29,6 @@ const Login = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    setMessage("");
   };
 
   useEffect(() => {
@@ -48,30 +47,32 @@ const Login = () => {
     const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
     if (!regEx.test(data.email)) {
       setMessage("Enter a valid Email");
-    }
-    let minimumLength = 8;
-    if (data.password.length < minimumLength) {
-      setError("password must be of 8 characters");
-    } else {
-      if (data.password === data.confirmpassword) {
-        const existingUSer = await fetch(`/api/Users/${data.email}`);
-        const resData = await existingUSer.json();
-        if (resData?.user?.email === data.email) {
-          setError("User already register with this email");
-        } else {
-          const response = await fetch("/api/Users", {
-            method: "POST",
-            body: JSON.stringify({ data }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          setToggleState(1);
-          setError("");
-          setNewError("");
-        }
+    }else{
+
+      let minimumLength = 8;
+      if (data.password.length < minimumLength) {
+        setError("password must be of 8 characters");
       } else {
-        setError("The password and confirmation password do not match. ");
+        if (data.password === data.confirmpassword) {
+          const existingUSer = await fetch(`/api/Users/${data.email}`);
+          const resData = await existingUSer.json();
+          if (resData?.user?.email === data.email) {
+            setError("User already register with this email");
+          } else {
+            const response = await fetch("/api/Users", {
+              method: "POST",
+              body: JSON.stringify({ data }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+            setToggleState(1);
+            setError("");
+            setNewError("");
+          }
+        } else {
+          setError("The password and confirmation password do not match. ");
+        }
       }
     }
   };
@@ -79,10 +80,10 @@ const Login = () => {
 
   const CheckAdmin = async (e) => {
     e.preventDefault();
-    // const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
-    // if (!regEx.test(email)) {
-    //   setMessage("Enter a valid Email");
-    // }
+    const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+    if (!regEx.test(email)) {
+      setMessage("Enter a valid Email");
+    }
     const res = await fetch(`/api/Users/${email}`, {
       headers: {
         "Content-Type": "application/json",
