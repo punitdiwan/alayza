@@ -13,28 +13,19 @@ export default async function handler(req, res) {
       return res.status(500).json({ msg: "Something went wrong" });
     }
   } else if (req.method === "POST") {
-    // let { data, total } = req.body;
+    let { dataNew, total,user } = req.body;
+
     // let data2 = data.map((item) => item);
+
     // console.log(data2, "djfsfghdsghfdjsgfjh");
     const dataResp = await prisma.order.create({
-    data: {
-        totalAmt: 1000,
-        userId: 8,
+      data: {
+        totalAmt: total,
+        userId: user,
         OrderItem: {
-          create: [
-            {
-               qty: 2,
-               amount: 500,
-               productId: 1
-               },
-               {
-                qty: 1,
-                amount: 500,
-                productId: 2
-                },
-          ],
-        }
-    }
+          create: dataNew
+        },
+      },
     });
     // const dataResp = await prisma.order.create({
     //   data: {

@@ -26,12 +26,11 @@ model OrderItem {
   qty        Int
   created_at DateTime  @default(now())
   updated_at DateTime?
-  productId  Int
+  prod_id  String
   Order      Order     @relation(fields: [orderId], references: [id])
-  Product    Product   @relation(fields: [productId], references: [id])
-
+  Product    Product   @relation(fields: [prod_id], references: [prod_id])
   @@index([orderId], map: "OrderItem_orderId_fkey")
-  @@index([productId], map: "OrderItem_productId_fkey")
+  @@index([prod_id], map: "OrderItem_prod_id_fkey")
 }
 
 model Product {

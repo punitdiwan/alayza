@@ -11,9 +11,7 @@ import { useGlobalContext } from "./Context";
 // import Header from './Admin/Header';
 
 function Header({ cart }) {
-
-
-  const {cart1,setCart1} = useGlobalContext()
+  const { cart1, setCart1 } = useGlobalContext();
 
   const router = useRouter();
 
@@ -111,13 +109,13 @@ function Header({ cart }) {
                 <Link href="/Myprofile">My Profile</Link>
               </NavDropdown.Item>
               <NavDropdown.Item className="dropdown1">
+                <Link href="/Myorder">My Orders</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item className="dropdown1">
                 <Link href="/Login" onClick={clearToken}>
                   {token ? "Logout" : "Login/SignUp"}
                 </Link>
               </NavDropdown.Item>
-              {/* <NavDropdown.Item className="dropdown1">
-                  <Link href="/Myorder">My Orders</Link>
-                </NavDropdown.Item> */}
               {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Admin" onClick={() => setAdmin(true)}>
                     Admin

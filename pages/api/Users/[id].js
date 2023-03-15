@@ -1,8 +1,8 @@
 import prisma from "../../../lib/prisma";
 var jwt = require("jsonwebtoken");
 const SECRET_KEY = "USERSAPI";
-var nodemailer = require("nodemailer");
-let Mailjet = require("node-mailjet");
+// var nodemailer = require("nodemailer");
+// let Mailjet = require("node-mailjet");
 
 export default async function handler(req, res) {
   const { query, method, body } = req;
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       },
     });
     const token = jwt.sign(
-      { email: dataUser?.email, name: dataUser?.name },
+      { email: dataUser?.email, name: dataUser?.name, userId:dataUser?.id  },
       SECRET_KEY
     );
     if (dataUser) {

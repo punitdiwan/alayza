@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { useGlobalContext } from "../Components/Context";
+import jwt from "jsonwebtoken";
+// import { useGlobalContext } from "../Components/Context";
 
 const Placeorder = () => {
   // const {cart1,setCart1} = useGlobalContext()
@@ -11,19 +12,26 @@ const Placeorder = () => {
   const [data, setData] = useState();
   const [amount, setAmount] = useState();
   const [addressData, setAddressData] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
     const prodData = localStorage.getItem("cart-value");
     const totalAmount = localStorage.getItem("totalAmount");
     const address = localStorage.getItem("addressData");
+    const token = localStorage.getItem("Token");
+    var { userId } = jwt.decode(token);
+    setUser(userId)
     setAddressData(JSON.parse(address));
     setAmount(totalAmount);
     setData(JSON.parse(prodData));
   }, []);
-  
 
-  // let dataPrice = data?.map((item) => item.price);
-  // console.log(dataPrice)
+  let dataNew = data?.map((item) => {
+    let newObj = { prod_id: item.prod_id, qty: item.qty, amount: item.price };
+    return newObj;
+  });
+
+  // console.log(dataNew,"sdhfg")
 
   let total = +amount + 50 + 18;
 
@@ -31,11 +39,12 @@ const Placeorder = () => {
     console.log(data, "datatatata");
     const response = await fetch("/api/Orders", {
       method: "POST",
-      body: JSON.stringify({ data, total}),
+      body: JSON.stringify({ dataNew, total,user }),
       headers: {
         "Content-Type": "application/json",
       },
     });
+    localStorage.removeItem("cart-value");
   };
 
   return (
