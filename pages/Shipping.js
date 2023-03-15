@@ -99,7 +99,7 @@ const Shipping = () => {
               placeholder="Country"
               required
               onChange={(e) => handleChange(e)}
-              value={fieldData.country}
+              value="India"
               name="country"
             />
           </label>

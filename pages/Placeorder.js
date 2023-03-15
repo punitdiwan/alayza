@@ -20,6 +20,7 @@ const Placeorder = () => {
     setAmount(totalAmount);
     setData(JSON.parse(prodData));
   }, []);
+  
 
   // let dataPrice = data?.map((item) => item.price);
   // console.log(dataPrice)
@@ -27,10 +28,10 @@ const Placeorder = () => {
   let total = +amount + 50 + 18;
 
   const handleSubmit = async () => {
-    console.log(data);
-    const response = await fetch("/api/products", {
+    console.log(data, "datatatata");
+    const response = await fetch("/api/Orders", {
       method: "POST",
-      body: JSON.stringify({ data }),
+      body: JSON.stringify({ data, total}),
       headers: {
         "Content-Type": "application/json",
       },

@@ -5,10 +5,15 @@ import { FaTrash, FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useGlobalContext } from "../Components/Context";
 
 // import { productData } from "./Products/index";
 
 const Shoppingcart = () => {
+  const { cart1, setCart1 } = useGlobalContext();
+
+  // console.log(cart1, "cart");
+
   const router = useRouter();
 
   const [items, setItems] = useState([
@@ -95,7 +100,6 @@ const Shoppingcart = () => {
   }, []);
 
   const checkToken = () => {
-    
     const token = localStorage.getItem("Token");
     if (token) {
       router.push("/Shipping");
@@ -104,13 +108,22 @@ const Shoppingcart = () => {
     }
   };
 
+  let quantity = localData?.map((item) => item.qty);
+  let sum = quantity?.reduce(function (previousValue, currentValue) {
+    return previousValue + currentValue;
+  }, 0);
+
+
+  setCart1(sum)
+  // console.log(sum, "quantity");
+
   // useEffect(() => {
   //   localStorage.setItem("cart-value", JSON.stringify(localData));
   // },[localData])
 
   return (
     <>
-      <Header cart={localData?.length} />
+      <Header cart={sum} />
       <br />
       <button
         className="global-btn"
@@ -158,7 +171,7 @@ const Shoppingcart = () => {
           })}
         </div>
         <div className="shopping-cart-2">
-          <h4>Subtotal ({localData?.length}) Items</h4>
+          <h4>Subtotal ({sum}) Items</h4>
           <p>Price {getTotalAmount()} </p>
           <Link href="/Login" className="global-btn" onClick={checkToken}>
             Proceed to Checkout

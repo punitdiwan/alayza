@@ -7,7 +7,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
 
-    const [cart1,setCart1] = useState();
+    const [cart1,setCart1] = useState(0);
 
 
   return (

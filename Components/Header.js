@@ -7,9 +7,14 @@ import { FaCartPlus } from "react-icons/fa";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useGlobalContext } from "./Context";
 // import Header from './Admin/Header';
 
 function Header({ cart }) {
+
+
+  const {cart1,setCart1} = useGlobalContext()
+
   const router = useRouter();
 
   // const [cart, setCart] = useState(0);
@@ -125,7 +130,7 @@ function Header({ cart }) {
               style={{ marginTop: "-0.1rem" }}
             >
               <FaCartPlus />
-              {cart > 0 ? <span>{cart}</span> : ""}
+              {cart1 > 0 ? <span>{cart1}</span> : ""}
             </Link>
           </Nav>
         </Navbar.Collapse>
