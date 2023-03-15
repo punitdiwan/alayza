@@ -28,7 +28,7 @@ const Multicarousel = () => {
       <Carousel
         responsive={responsive}
         infinite={true}
-        autoPlaySpeed={2000}
+        autoPlaySpeed={1000}
         autoPlay={true}
         showDots={true}
       >

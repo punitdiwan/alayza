@@ -19,9 +19,10 @@ export default async function handler(req, res) {
     // const hashPass = await bcrypt.hash(data.data.password, 10);
 
     const dataResp = await prisma.user.create(req.body);
+    console.log(dataResp,"respone")
 
     const token = jwt.sign(
-      { email: dataResp?.email, name: dataResp?.name },
+      { email: dataResp?.email, name: dataResp?.name, userId:dataResp?.id  },
       SECRET_KEY
     );
     return res.status(201).json({ user: dataResp, token: token });

@@ -5,6 +5,8 @@ import Router from "next/router";
 import Link from "next/link";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/router";
+import AWS, { Config, S3 } from "aws-sdk";
+import s3 from "../Components/DigitalOcean";
 
 const Addproduct = () => {
   // const router = useRouter();
@@ -12,25 +14,26 @@ const Addproduct = () => {
 
   const [prodData, setProdData] = useState("");
 
-
   const categoryData = [
     {
-    name: "cream",
-    id:"1"
-  },
-  {
-    name: "lotion",
-    id:"2"
-  },
-  {
-    name: "powder",
-    id:"3"
-  },
-]
+      name: "cream",
+      id: "1",
+    },
+    {
+      name: "lotion",
+      id: "2",
+    },
+    {
+      name: "powder",
+      id: "3",
+    },
+  ];
+
+  // const [signedUrl, setSignedUrl] = useState();
 
   const [data, setData] = useState({
     prod_id: nanoid(),
-    image: "https://picsum.photos/200/300",
+    image: "",
     name: "",
     price: "",
     brand: "",
@@ -39,12 +42,71 @@ const Addproduct = () => {
     qty: 1,
   });
 
+  
+  // const [selectedFile, setSelectedFile] = useState(null);
+
+  // console.log(signedUrl, "url");
+
+  // console.log(selectedFile?.name, "");
+
+
+
+  
+
+  const handleImageChange = (e) => {
+
+
+    const spacesEndpoint = new AWS.Endpoint(
+      "sgp1.digitaloceanspaces.com/zeba-ecom/"
+    );
+    const s3 = new AWS.S3({
+      endpoint: spacesEndpoint,
+      accessKeyId: "DO00D6ZU6AK3QG7NDVTA",
+      secretAccessKey: "stpTIAotvH67FwpgD4e2t3LbUBDj8iMt38T3sVfX7eE",
+    });
+  
+    let digitalOceanSpaces =
+      "https://lmsimages.sgp1.digitaloceanspaces.com/zeba-ecom/";
+    let bucketName = "lmsimages";
+
+
+    if (e.target.files && e.target.files[0]) {
+      const blob = e.target.files[0];
+      const params = { Body: blob, Bucket: bucketName, Key: blob.name };
+      // Sending the file to the Spaces
+      s3.putObject(params)
+        .on("build", (request) => {
+          request.httpRequest.headers.Host = `${digitalOceanSpaces}`;
+          request.httpRequest.headers["Content-Length"] = blob.size;
+          request.httpRequest.headers["Content-Type"] = blob.type;
+          request.httpRequest.headers["x-amz-acl"] = "public-read";
+        })
+        .send((err) => {
+          if (err) errorCallback();
+          else {
+            // If there is no error updating the editor with the imageUrl
+            var imageUrl = `${digitalOceanSpaces}` + blob.name;
+            // callback(imageUrl, blob.name);
+            // console.log(imageUrl,"URL");
+            setData({...data, image:imageUrl})
+          }
+        });
+    }
+  };
+
+
+
+
+
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  // console.log(data,"add-data");
+  // console.log(data.image, "add-data");
 
   const submitData = async () => {
+    // console.log("fun start", signedUrl)
+    // console.log("fun data", data)
+  
     const response = await fetch("/api/products", {
       method: "POST",
       body: JSON.stringify({ data }),
@@ -58,11 +120,14 @@ const Addproduct = () => {
     const response = await fetch(`api/products`);
     const productData = await response.json();
     // console.log(productData, "Data from API response");
-    setProdData(data);
+    setProdData(productData);
   };
   useEffect(() => {
     fetchProducts();
   }, []);
+
+
+
 
   return (
     <>
@@ -96,9 +161,10 @@ const Addproduct = () => {
             type="file"
             placeholder="Image URL"
             name="image"
-            onChange={(e) => {
-              handleChange(e);
-            }}
+            onChange={handleImageChange}
+            // onChange={(e) => {
+            //   handleChange(e);
+            // }}
           />
           <input
             type="text"
@@ -108,19 +174,21 @@ const Addproduct = () => {
               handleChange(e);
             }}
           />
-          <label >Category</label>
-          <select onChange={(e) => {
-                    handleChange(e);
-                  }}  name="category" >
-            {
-              categoryData.map((item)=>{
-                return(
-                  <option value={item.name} key={item.id}  >{item.name}</option>
+          <label>Category</label>
+          <select
+            onChange={(e) => {
+              handleChange(e);
+            }}
+            name="category"
+          >
+            {categoryData.map((item) => {
+              return (
+                <option value={item.name} key={item.id}>
+                  {item.name}
+                </option>
+              );
+            })}
 
-                )
-              })
-            }
-            
             {/* <option value="saab">Saab</option>
             <option value="fiat">Fiat</option>
             <option value="audi">Audi</option> */}
@@ -142,12 +210,6 @@ const Addproduct = () => {
             }}
           />
 
-         {/* <textarea  rows="5" cols="60"  placeholder="Description"
-            name="description"
-            onChange={(e) => {
-              handleChange(e);
-            }} >
-            </textarea> */}
           <Link
             href="Admin/AdminProduct"
             className="login-btn"
@@ -156,7 +218,6 @@ const Addproduct = () => {
           >
             Create Product
           </Link>
-          {/* href="Admin/AdminProducts" */}
         </form>
       </section>
       <Footer />

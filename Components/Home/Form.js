@@ -27,7 +27,7 @@ const Form = () => {
             Your Message
             <textarea className="form-control" name="" id="" rows="3"></textarea>
           </label>
-          <button className="form-btn">Submit</button>
+          <button className="btn-grad">Submit</button>
         </form>
       </div>
     </>

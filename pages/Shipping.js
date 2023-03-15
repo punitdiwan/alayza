@@ -6,37 +6,27 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Shipping = () => {
-
-  
-
   const [fieldData, setFieldData] = useState({
-    address:"",
-    city:"",
-    postalcode:"",
-    country:""
-  }); 
+    address: "",
+    city: "",
+    postalcode: "",
+    country: "",
+  });
   const [data, setData] = useState({});
-  const [error,setError] = useState(false);
-
+  const [error, setError] = useState(false);
 
   const router = useRouter();
-
 
   const handleChange = (e) => {
     setFieldData({ ...fieldData, [e.target.name]: e.target.value });
   };
 
-
-  const handleSubmit =(e)=>{
-    e.preventDefault()
-    localStorage.setItem("addressData", JSON.stringify(fieldData))
-    router.push("/Payment")
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("addressData", JSON.stringify(fieldData));
+    router.push("/Payment");
+  };
   // console.log(fieldData,"dyhgafsjkha")
-
-  
-
- 
 
   return (
     <>
@@ -70,22 +60,51 @@ const Shipping = () => {
         </div>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>
-            <input type="text" placeholder="Address" required onChange={(e)=>handleChange(e)}  name="address" value={fieldData.address}/>
+            <input
+              type="text"
+              placeholder="Address"
+              required
+              onChange={(e) => handleChange(e)}
+              name="address"
+              value={fieldData.address}
+            />
           </label>
           <div>{error}</div>
           <label>
-            <input type="text" placeholder="City" required onChange={(e)=>handleChange(e)} value={fieldData.city} name="city" />
+            <input
+              type="text"
+              placeholder="City"
+              required
+              onChange={(e) => handleChange(e)}
+              value={fieldData.city}
+              name="city"
+            />
           </label>
           <div>{error}</div>
           <label>
             {/* <input type="text" placeholder="Postal Code" required onChange={} value=""/> */}
-            <input id="zip"  type="text" pattern="[0-9]*" placeholder="Postal Code" required name="postalcode" onChange={(e)=>handleChange(e)}/>
+            <input
+              id="zip"
+              type="text"
+              pattern="[0-9]*"
+              placeholder="Postal Code"
+              required
+              name="postalcode"
+              onChange={(e) => handleChange(e)}
+            />
           </label>
           <label>
-            <input type="text" placeholder="Country" required onChange={(e)=>handleChange(e)} value={fieldData.country} name="country"/>
+            <input
+              type="text"
+              placeholder="Country"
+              required
+              onChange={(e) => handleChange(e)}
+              value="India"
+              name="country"
+            />
           </label>
           {/* <button  onClick={handleSubmit}>Submit</button> */}
-            <input type="submit"  />
+          <input type="submit" className="btn-grad" />
           {/* Continue */}
         </form>
       </section>

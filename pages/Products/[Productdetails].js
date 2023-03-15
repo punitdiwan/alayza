@@ -6,10 +6,17 @@ import Router from "next/router";
 // import { productData } from "./index";
 import Link from "next/link";
 import prisma from "../../lib/prisma";
-
 import { useRouter } from "next/router";
+import {useGlobalContext} from "../../Components/Context";
 
 const Productdetails = ({ parsed }) => {
+
+
+
+  const {cart1,setCart1} = useGlobalContext()
+  // console.log("data",cart1)
+
+
   const [cart, setCart] = useState(0);
 
   // console.log(parsed, "slug-data");
@@ -21,22 +28,21 @@ const Productdetails = ({ parsed }) => {
     const existingData = cartItems.find((item) => item.id === id);
 
     if (existingData) {
-      // If the id is found, return the corresponding value
       return existingData;
     } else {
-      // If the id is not found, push a new object with the given id and value
       cartItems.push(parsed);
-      // Update localStorage with the updated data array
       localStorage.setItem("cart-value", JSON.stringify(cartItems));
-      // Return the new value
       return parsed;
     }
   };
 
   return (
     <>
-      <section className="products-details-main">
+    {
+      // setCart1({...cart1,parsed})
+    }
         <Header  />
+      <section className="products-details-main">
         <br />
         <button className="global-btn" onClick={() => Router.back()}>
           Go Back
@@ -44,14 +50,14 @@ const Productdetails = ({ parsed }) => {
         <br />
         <br />
         <div className="products-detail-page">
-          {/* <img src={`.${data1.img}`} alt="product" /> */}
+          <img src={parsed.image} alt="product" />
           <div className="products-detail-page-inner-1">
             <h1>{parsed.name}</h1>
-            <p>
+            {/* <p>
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> 5 Reviews
-            </p>
+            </p> */}
             <p>Rs. {parsed.price} </p>
             <p>
               Description: Introducing the iPhone 11 Pro. A transformative

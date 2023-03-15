@@ -8,9 +8,10 @@ const Footer = () => {
         <div className="footer-inner">
           <h5>Dr. Zeba Quadiri</h5>
           <p>
-          Dr. Zeba is a renowned and highly acclaimed homeopathic doctor and aesthetician, who has more than 15 years of experience. 
+            Dr. Zeba is a renowned and highly acclaimed homeopathic doctor and
+            aesthetician, who has more than 15 years of experience.
           </p>
-          <button className="global-btn">Book an Appointment</button>
+          <button className="btn-grad">Book an Appointment</button>
         </div>
         <div className="footer-inner">
           <h5>Useful Links</h5>
@@ -18,14 +19,17 @@ const Footer = () => {
           <Link href="/Aboutdr">About Doctor</Link>
           <Link href="/Gallery">Gallery</Link>
           <Link href="/Results">Results</Link>
+          {/* <img src="./images/Facebook_icon.png" height="80px" width ="80px" /> */}
         </div>
         <div className="footer-inner">
           <h5>Our Premium Services</h5>
-          <Link href="/Treatments">Acne Treatment</Link >
-          <Link href="/Treatments">Intense pulse Linkght  treatment for rosacea</Link >
-          <Link href="/Treatments">Photo Facial</Link >
-          <Link href="/Treatments">Laser Hair Reduction</Link >
-          <Link href="/Treatments">Tattoo Removal</Link >
+          <Link href="/Treatments">Acne Treatment</Link>
+          <Link href="/Treatments">
+            Intense pulse Linkght treatment for rosacea
+          </Link>
+          <Link href="/Treatments">Photo Facial</Link>
+          <Link href="/Treatments">Laser Hair Reduction</Link>
+          <Link href="/Treatments">Tattoo Removal</Link>
         </div>
         <div className="footer-inner footer-inner-1">
           <h5>Clinic Location</h5>

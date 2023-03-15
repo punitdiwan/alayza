@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaEdit, FaTrash, FaTimes } from "react-icons/fa";
+import { FaEdit, FaTrash, FaTimes,FaCheck } from "react-icons/fa";
 import { productData } from "../../pages/Products/index";
 
 const Table = ({ function1 }) => {
@@ -12,6 +12,9 @@ const Table = ({ function1 }) => {
     setUsers(data1);
     function1(data1.length)
   };
+
+  //  console.log(user)
+
 
   useEffect(() => {
     fetchProducts();
@@ -57,19 +60,19 @@ const Table = ({ function1 }) => {
           </tr>
         </thead>
         {Array.isArray(user)
-          ? user?.map((item) => {
+          ? user?.map((item,index) => {
               return (
                 <>
                   <tbody style={{ textAlign: "center" }} key={item.id}>
                     <tr>
-                      <td>{item.id}</td>
+                      <td>{index+1}</td>
                       <td>{item.name}</td>
                       <td>{item.email}</td>
                       <td>
                         <FaTimes />
                       </td>
                       <td>
-                        <FaTimes />
+                        { item.role === "ADMIN" ? <FaCheck/> : <FaTimes />}
                       </td>
                       <td>
                         <button className="cart-btn">

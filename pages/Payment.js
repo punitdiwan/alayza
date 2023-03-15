@@ -34,7 +34,7 @@ const Payment = () => {
               <input type="radio" id="PayPal-Account" name="Credit/Debit-Card" value="PayPal-Account"/>
               <label >PayPal Account</label><br/>
               </div>
-              <Link href="/Placeorder" className="login-btn"> Continue </Link>
+              <Link href="/Placeorder" className="btn-grad"> Continue </Link>
       </section>
       <Footer />
     </>

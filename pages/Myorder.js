@@ -1,58 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import {FaEdit,FaTrash,FaTimes} from "react-icons/fa";
-// import {productData} from "./Products/index"; 
+import { FaEdit, FaTrash, FaTimes, FaCheck } from "react-icons/fa";
+import jwt from "jsonwebtoken";
+// import {productData} from "./Products/index";
 
+const Myorder = () => {
+  const [data, setData] = useState();
 
-const Myorder=()=>{
-    return(<>
-    <Header/>
-    <section className="order-main" style={{textAlign:"center"}}>
+  const fetchOrder = async () => {
+    const token = localStorage.getItem("Token");
 
-        <h2 style={{borderBottom:"2px solid #52BCC9",width: "fit-content", margin: "1rem"}}>My Orders</h2>
-        <table className="table" >
-        <thead >
-            <tr style={{textAlign: "center"}}>
+    const json = jwt.decode(token);
+    console.log(json?.userId, "token");
+
+    const data = await fetch("/api/Orders");
+    const res = await data.json();
+    const newData = res.filter((item) => item.userId == json?.userId);
+    setData(newData);
+    console.log(
+      res.filter((item) => item.userId == json?.userId),
+      "response"
+    );
+  };
+
+  useEffect(() => {
+    fetchOrder();
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <section className="order-main" style={{ textAlign: "center" }}>
+        <h2
+          style={{
+            borderBottom: "2px solid #52BCC9",
+            width: "fit-content",
+            margin: "1rem",
+          }}
+        >
+          My Orders
+        </h2>
+        <table className="table">
+          <thead>
+            <tr style={{ textAlign: "center" }}>
               <th>ID</th>
-                <th>NAME</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
-                <th>ACTION</th>
-              </tr>
-
-            </thead>
-            {/* {
-                productData.map((item)=>{
-                    return(
-                        <>
-
-            <tbody style={{textAlign: "center"}}>
-                <tr>
-                <td>{item.id}</td>
-                <td>{item.title}</td>
-                <td>{item.price}</td>
-                <td><FaTimes/></td>
-                <td><FaTimes/></td>
-                <td> <button className='cart-btn'> <FaEdit/> </button>
-                <button className='cart-btn'> <FaTrash/> </button>
-                 </td>
-                </tr>
-            </tbody>
-                        
-                        </>
-                    )
-                })
-            } */}
-      </table>
-
-    </section>
-    <Footer/>
-    </>)
-} 
-
-
+              {/* <th>NAME</th> */}
+              <th>PRICE</th>
+              <th>PAID</th>
+              <th>DELIVERED</th>
+            </tr>
+          </thead>
+          {data?.length > 0
+            ? data?.map((item) => {
+                return (
+                  <>
+                    <tbody style={{ textAlign: "center" }}>
+                      <tr>
+                        <td>{item.userId}</td>
+                        {/* <td>{item.name}</td> */}
+                        <td>{item.totalAmt}</td>
+                        <td>
+                          <FaCheck />
+                        </td>
+                        <td>
+                          <FaTimes />
+                        </td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </>
+                );
+              })
+            : <td>you have no orders...</td>}
+        </table>
+      </section>
+      <Footer />
+    </>
+  );
+};
 
 export default Myorder;

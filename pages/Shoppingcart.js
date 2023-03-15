@@ -5,11 +5,14 @@ import { FaTrash, FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useGlobalContext } from "../Components/Context";
 
 // import { productData } from "./Products/index";
 
 const Shoppingcart = () => {
+  const { cart1, setCart1 } = useGlobalContext();
 
+  // console.log(cart1, "cart");
 
   const router = useRouter();
 
@@ -24,7 +27,7 @@ const Shoppingcart = () => {
     setLocalData(
       localData.map((item) => {
         if (item.id === itemId) {
-          return { ...item, qty: item.qty + 1  };
+          return { ...item, qty: item.qty + 1 };
         } else {
           return item;
         }
@@ -42,9 +45,8 @@ const Shoppingcart = () => {
         }
       })
     );
-  localStorage.setItem("cart-value", JSON.stringify(localData));
+    localStorage.setItem("cart-value", JSON.stringify(localData));
   };
-
 
   // const handleDecrement = (item) => {
   //   const index = localData.findIndex((i) => i.id === item.id);
@@ -68,21 +70,18 @@ const Shoppingcart = () => {
   //   localStorage.setItem("cart-value", JSON.stringify(localData));
   // };
 
-
   const getTotalAmount = () => {
     return localData?.reduce((total, item) => {
       return total + item.price * item.qty;
     }, 0);
   };
 
-  useEffect(()=>{
-    const totalAmount = getTotalAmount() 
-    localStorage.setItem("totalAmount",JSON.stringify(totalAmount))
-  },[getTotalAmount])
- 
-  // 
+  useEffect(() => {
+    const totalAmount = getTotalAmount();
+    localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
+  }, [getTotalAmount]);
 
-
+  //
 
   const removeFromCart = (id) => {
     const updatedData = localData.filter((item) => item.id !== id);
@@ -95,37 +94,38 @@ const Shoppingcart = () => {
     const data2 = JSON.parse(data1);
     setLocalData(data2);
   };
-  // console.log(localData, "local");
 
   useEffect(() => {
     fetchData();
   }, []);
 
-
   const checkToken = () => {
-    const token = localStorage.getItem('Token');
+    const token = localStorage.getItem("Token");
     if (token) {
-      router.push("/Shipping")
+      router.push("/Shipping");
     } else {
-      router.push("/Login")
+      router.push("/Login");
     }
+  };
 
-  }
-  
+  let quantity = localData?.map((item) => item.qty);
+  let sum = quantity?.reduce(function (previousValue, currentValue) {
+    return previousValue + currentValue;
+  }, 0);
 
+
+  setCart1(sum)
+  // console.log(sum, "quantity");
 
   // useEffect(() => {
   //   localStorage.setItem("cart-value", JSON.stringify(localData));
   // },[localData])
 
-
-
-
   return (
     <>
-      <Header cart={localData?.length} />
+      <Header cart={sum} />
       <br />
-        <button
+      <button
         className="global-btn"
         onClick={() => Router.back()}
         style={{ marginLeft: "10%" }}
@@ -139,10 +139,11 @@ const Shoppingcart = () => {
             return (
               <>
                 <div className="shopping-cart-1-inner">
-                  <img src="./images/mouse.jpg" />
+                  <img src={item.image} />
                   <h5>{item.name}</h5>
                   <p>
-                    {item.price} <FaTimes /> {item.qty}
+                    {item.price} <FaTimes /> {item.qty} ={" "}
+                    {item.price * item.qty}
                   </p>
                   <div className="cart-btn-div">
                     <button
@@ -170,7 +171,7 @@ const Shoppingcart = () => {
           })}
         </div>
         <div className="shopping-cart-2">
-          <h4>Subtotal ({localData?.length}) Items</h4>
+          <h4>Subtotal ({sum}) Items</h4>
           <p>Price {getTotalAmount()} </p>
           <Link href="/Login" className="global-btn" onClick={checkToken}>
             Proceed to Checkout
