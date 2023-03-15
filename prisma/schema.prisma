@@ -11,7 +11,7 @@ datasource db {
 model Order {
   id         Int         @id @default(autoincrement())
   userId     Int
-  totalAmt   Decimal
+  totalAmt   Decimal     @db.Decimal(6, 2)
   created_at DateTime    @default(now())
   updated_at DateTime?
   User       User        @relation(fields: [userId], references: [id])
@@ -21,10 +21,9 @@ model Order {
 
 model OrderItem {
   id         Int       @id @default(autoincrement())
-  amount     Decimal
+  amount     Decimal   @db.Decimal(6, 2)
   orderId    Int
   qty        Int
-  unit       String
   created_at DateTime  @default(now())
   updated_at DateTime?
   productId  Int
