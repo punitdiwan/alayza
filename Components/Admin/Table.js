@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { FaEdit, FaTrash, FaTimes,FaCheck } from "react-icons/fa";
-import { productData } from "../../pages/Products/index";
+import { FaEdit, FaTrash, FaTimes, FaCheck } from "react-icons/fa";
+// import { productData } from "../../pages/Products/index";
+import Pagination from "../Pagination";
+import { paginate } from "../../utils/paginate";
 
 const Table = ({ function1 }) => {
   const [user, setUsers] = useState();
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
 
   const fetchProducts = async () => {
     const response = await fetch("/api/Users");
     const data1 = await response.json();
     setUsers(data1);
-    function1(data1.length)
+    function1(data1.length);
   };
 
   //  console.log(user)
-
 
   useEffect(() => {
     fetchProducts();
@@ -35,16 +38,24 @@ const Table = ({ function1 }) => {
     }
   };
 
-  const fetchUser = async () => {
-    const res = await fetch(`/api/Users/${1329}`);
-    const resData = await res.json();
-    setData(resData);
-  };
+  // const fetchUser = async () => {
+  //   const res = await fetch(`/api/Users/${1329}`);
+  //   const resData = await res.json();
+  //   setData(resData);
+  // };
   // console.log(data?.role, "iddd");
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
+  // useEffect(() => {
+  //   fetchUser();
+  // }, []);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const paginateUser = paginate(user, currentPage, pageSize);
+
+  // console.log(user, "pagination");
 
   return (
     <>
@@ -54,30 +65,28 @@ const Table = ({ function1 }) => {
             <th>ID</th>
             <th>NAME</th>
             <th>EMAIL</th>
-            <th>CONFIRMED</th>
+            <th>Orders</th>
             <th>ADMIN</th>
             <th>ACTION</th>
           </tr>
         </thead>
-        {Array.isArray(user)
-          ? user?.map((item,index) => {
+        {Array.isArray(paginateUser)
+          ? paginateUser?.map((item, index) => {
               return (
                 <>
                   <tbody style={{ textAlign: "center" }} key={item.id}>
                     <tr>
-                      <td>{index+1}</td>
+                      <td>{index + 1}</td>
                       <td>{item.name}</td>
                       <td>{item.email}</td>
+                      <td>{item.Order}</td>
                       <td>
-                        <FaTimes />
+                        {item.role === "ADMIN" ? <FaCheck /> : <FaTimes />}
                       </td>
                       <td>
-                        { item.role === "ADMIN" ? <FaCheck/> : <FaTimes />}
-                      </td>
-                      <td>
-                        <button className="cart-btn">
+                        {/* <button className="cart-btn">
                           <FaEdit />
-                        </button>
+                        </button> */}
                         <button
                           className="cart-btn"
                           onClick={() => deleteUser(item.id)}
@@ -91,6 +100,12 @@ const Table = ({ function1 }) => {
               );
             })
           : ""}
+        <Pagination
+          items={user?.length}
+          currentPage={currentPage}
+          pageSize={pageSize}
+          onPageChange={handlePageChange}
+        />
       </table>
     </>
   );

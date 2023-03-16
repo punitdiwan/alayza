@@ -3,11 +3,25 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
-
+import React, { useEffect,useState } from "react";
+import {useRouter} from "next/router";
 function Header() {
+  
+  // const [token1,setToken1] = useState()
+  const router = useRouter()
+
+
   const clearToken = () => {
-    localStorage.removeItem("Token")
+    localStorage.removeItem("Token");
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if(!token){
+     router.push("/Login")
+    }
+    // setToken1(token)
+  }, []);
 
   return (
     <Navbar bg="light" expand="lg" id="navbar">
@@ -32,12 +46,15 @@ function Header() {
                 <Link href="/Admin/Orders" className="dropdown1">
                   Orders
                 </Link>
+                <Link href="/Admin/appointments" className="dropdown1">
+                  Appointments
+                </Link>
               </div>
             </NavDropdown>
             <NavDropdown title="MORE" id="basic-nav-dropdown">
-              <NavDropdown.Item className="dropdown1">
+              {/* <NavDropdown.Item className="dropdown1">
                 <Link href="/Myprofile">My Profile</Link>
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
               <NavDropdown.Item className="dropdown1">
                 <Link href="/Login" onClick={clearToken}>
                   Logout

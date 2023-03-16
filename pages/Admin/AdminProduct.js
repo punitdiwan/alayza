@@ -4,9 +4,13 @@ import { FaEdit, FaTrash, FaTimes } from "react-icons/fa";
 import Header from "../../Components/Admin/Header";
 import Footer from "../../Components/Footer";
 import Link from "next/link";
+import Pagination from "../../Components/Pagination";
+import { paginate } from "../../utils/paginate";
 
 const Products = () => {
   const [prodData, setProdData] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
 
   const fetchProducts = async () => {
     const response = await fetch("/api/products");
@@ -54,6 +58,14 @@ const Products = () => {
     // }
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const paginateProduct = paginate(prodData, currentPage, pageSize);
+
+  // console.log(paginateProduct, "pagination");
+
   return (
     <>
       <Header />
@@ -64,18 +76,18 @@ const Products = () => {
             display: "flex",
             justifyContent: "space-between",
             marginBottom: "2rem",
+            width: "100%"
           }}
         >
           <h2>Products({prodData?.length})</h2>
           <Link
             className="login-btn"
             href="/Addproduct"
-            style={{ width: "20%" }}
           >
             Add Product
           </Link>
         </div>
-        <table className="table">
+        <table className="table"  >
           <thead>
             <tr style={{ textAlign: "center" }}>
               <th>ID</th>
@@ -86,8 +98,8 @@ const Products = () => {
               <th>ACTION</th>
             </tr>
           </thead>
-          {Array.isArray(prodData)
-            ? prodData?.map((item, index) => {
+          {Array.isArray(paginateProduct)
+            ? paginateProduct?.map((item, index) => {
                 return (
                   <>
                     <tbody style={{ textAlign: "center" }} key={item.id}>
@@ -98,13 +110,13 @@ const Products = () => {
                         <td>{item.category}</td>
                         <td>{item.brand}</td>
                         <td>
-                          <button
-                            // href={`/Addproduct/${item.prod_id}`}
+                          {/* <button
+                            href={`/Addproduct/${item.prod_id}`}
                             className="cart-btn"
                             onClick={() => editProduct(item.prod_id)}
                           >
                             <FaEdit />
-                          </button>
+                          </button> */}
                           <button
                             className="cart-btn"
                             onClick={() => deleteProduct(item.id)}
@@ -118,6 +130,12 @@ const Products = () => {
                 );
               })
             : ""}
+          <Pagination
+            items={prodData?.length}
+            currentPage={currentPage}
+            pageSize={pageSize}
+            onPageChange={handlePageChange}
+          />
         </table>
       </section>
       <Footer />

@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import prisma from "../../../lib/prisma.js";
-// var jwt = require("jsonwebtoken");
-// const SECRET_KEY = "USERSAPI";
+import { nanoid } from "nanoid";
+let Mailjet = require("node-mailjet");
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
@@ -13,20 +13,34 @@ export default async function handler(req, res) {
       return res.status(500).json({ msg: "Something went wrong" });
     }
   } else if (req.method === "POST") {
-    let { dataNew, total,user } = req.body;
+    let { dataNew, total, user } = req.body;
 
-    // let data2 = data.map((item) => item);
+    // let data2 = dataNew.map((item) => item.orderId);
 
-    // console.log(data2, "djfsfghdsghfdjsgfjh");
+    console.log(user.name, "djfsfghdsghfdjsgfjh");
     const dataResp = await prisma.order.create({
       data: {
         totalAmt: total,
-        userId: user,
+        userId: user.userId,
+        orderId: nanoid(),
         OrderItem: {
-          create: dataNew
+          create: dataNew,
         },
       },
     });
+
+    // const mailjet = Mailjet.apiConnect(
+    //   "9cc1335e98c4ec0281b2d9f1d5aaeccb",
+    // "147dc0800206e55d654467f8923bdba9")
+
+    // const request = mailjet.post("send", { 'version': 'v3.1' }).request({
+    //   "Messages": [{
+    //     "From": { "Email": "no-reply@maitretech.com", "Name": "Zeba E-Com" },
+    //     "To": [{ "Email": "punitdiwan@gmail.com", "Name": "user 1" }], "TemplateID": 4659551, "TemplateLanguage": true, "Subject": "Order Confirmation", "Variables": { "firstname": user.name, "total_price": total, "order_date": "Default value", "order_id": orderId }
+    //   }]
+    // })
+    // request.then((result) => { console.log(result.body) }).catch((err) => { console.log(err.statusCode) })
+
     // const dataResp = await prisma.order.create({
     //   data: {
     //     totalAmt: total,

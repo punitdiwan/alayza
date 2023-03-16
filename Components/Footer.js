@@ -33,14 +33,13 @@ const Footer = () => {
         </div>
         <div className="footer-inner footer-inner-1">
           <h5>Clinic Location</h5>
-          {/* <p>Hemu Kalani, Bairagarh, Bhopal, Madhya Pradesh 462030, India</p> */}
           <p>+91 7317618333</p>
           <p>zebdermm@gmail.com</p>
           <p>Find on Google Map</p>
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
 export default Footer;
