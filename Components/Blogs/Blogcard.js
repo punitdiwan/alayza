@@ -3,11 +3,11 @@ import React from "react";
 const Blogcard = () => {
   return (
     <>
-      <section className="blog-card-main">
-        <div className="main">
+      <section className="blog-card-main" >
+        <div className="main" >
           {/* <h1>Responsive Card Grid Layout</h1> */}
-          <ul className="cards">
-            <li className="cards_item">
+          <ul className="cards" >
+            <li className="cards_item" >
               <div className="card">
                 <div className="card_image">
                   <img src="./images/tattoo-1.jpeg" />

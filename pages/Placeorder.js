@@ -3,9 +3,12 @@ import Link from "next/link";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import jwt from "jsonwebtoken";
+// import { v4 as uuid } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
 // import { useGlobalContext } from "../Components/Context";
 
 const Placeorder = () => {
+  // const unique_id = uuid();
   // const {cart1,setCart1} = useGlobalContext()
   // console.log("cart1",cart1)
 
@@ -19,27 +22,32 @@ const Placeorder = () => {
     const totalAmount = localStorage.getItem("totalAmount");
     const address = localStorage.getItem("addressData");
     const token = localStorage.getItem("Token");
-    var { userId } = jwt.decode(token);
-    setUser(userId)
+    var user = jwt.decode(token);
+    setUser(user);
     setAddressData(JSON.parse(address));
     setAmount(totalAmount);
     setData(JSON.parse(prodData));
   }, []);
 
   let dataNew = data?.map((item) => {
-    let newObj = { prod_id: item.prod_id, qty: item.qty, amount: item.price };
+    let newObj = {
+      prod_id: item.prod_id,
+      qty: item.qty,
+      amount: item.price,
+    };
     return newObj;
   });
 
-  // console.log(dataNew,"sdhfg")
+  console.log(data, "sdhfg");
 
   let total = +amount + 50 + 18;
 
+  console.log(dataNew, "datatatata");
   const handleSubmit = async () => {
-    console.log(data, "datatatata");
+   
     const response = await fetch("/api/Orders", {
       method: "POST",
-      body: JSON.stringify({ dataNew, total,user }),
+      body: JSON.stringify({ dataNew, total, user }),
       headers: {
         "Content-Type": "application/json",
       },

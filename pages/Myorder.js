@@ -13,21 +13,19 @@ const Myorder = () => {
     const token = localStorage.getItem("Token");
 
     const json = jwt.decode(token);
-    console.log(json?.userId, "token");
 
     const data = await fetch("/api/Orders");
     const res = await data.json();
     const newData = res.filter((item) => item.userId == json?.userId);
     setData(newData);
-    console.log(
-      res.filter((item) => item.userId == json?.userId),
-      "response"
-    );
   };
 
   useEffect(() => {
     fetchOrder();
   }, []);
+
+
+  // console.log(data,"userdata")
 
   return (
     <>
@@ -45,7 +43,7 @@ const Myorder = () => {
         <table className="table">
           <thead>
             <tr style={{ textAlign: "center" }}>
-              <th>ID</th>
+              <th>ORDER ID</th>
               {/* <th>NAME</th> */}
               <th>PRICE</th>
               <th>PAID</th>
@@ -58,7 +56,7 @@ const Myorder = () => {
                   <>
                     <tbody style={{ textAlign: "center" }}>
                       <tr>
-                        <td>{item.userId}</td>
+                        <td>{item.orderId}</td>
                         {/* <td>{item.name}</td> */}
                         <td>{item.totalAmt}</td>
                         <td>

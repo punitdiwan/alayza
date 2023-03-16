@@ -18,7 +18,7 @@ a {
 #navbar{        
   background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
   border-bottom: 1px solid grey;
-  z-index: 99999999;
+  z-index: 9999;
   top: 0;
   position: sticky;
   height: 10vh auto;
@@ -1034,6 +1034,7 @@ li{
     height: 80px;
    }
    .Users-main{
+    overflow-x: auto;
     padding-bottom: 3rem;
     padding-top: 3rem;
     width: 80%;
@@ -1278,10 +1279,13 @@ li{
    .order-main .table{
     margin: 3rem;
     /* border: 2px solid red; */
+    
     width: 80%;
+    overflow-x: auto;
 
    }
    table{
+    overflow-x: auto;
     /* border: 5px solid red; */
     width: 50%;
    }
@@ -1306,6 +1310,10 @@ li{
 /* @media only screen and (min-width: 1200px) {...} */
 
 @media only screen and (max-width: 992px) {
+  .table{
+    overflow-x: auto;
+  }
+
   .clinic-timing-1 span{
     width: auto;
   }
@@ -1368,7 +1376,7 @@ li{
     /* border: 2px solid red; */
   }
   .meet-2 img{
-    height: 100vh;
+    height: 50vh;
     width: 100%;
   }
   .products-detail-page-inner-2{
@@ -1465,6 +1473,7 @@ li{
     gap: 2rem;
   }
   .main{
+    margin: "0 auto";
     width: 100%;
   }
   .blog-card-main form{
@@ -1508,9 +1517,48 @@ li{
 }
 
 @media only screen and (max-width: 600px){
+  .cards .card_image img{
+    height: 50vh;
+  }
+  .login-btn{
+    width : 100%;
+  }
+  .treatment-maped-1 p{
+    font-size: small;
+  }
+  .treatment-maped img{
+    width : auto;
+  }
+  .treatments img {
+    height: 50vh; 
+  }
+  .about-doctor-4 p{
+    font-size: small;
+  }
+  .about-doctor-2 p{
+    font-size: small;
+  }
+  .doctors-image img {
+    width : 90vw;
+  }
+  .offer-main{
+    padding: 1rem;
+
+  }
+  .offer-1{
+    width : 100%;
+  }
+
+  .form-div .btn-grad{
+     width : 92%;
+  }
+
   .meet-3{
     height: auto;
     width: 100%;
+  }
+  .meet-3 p{
+    font-size: small;
   }
   .contact-us-clinic iframe{
     width: 100%;

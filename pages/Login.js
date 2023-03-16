@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Router from "next/router";
 // import jwt from "next/jwt";
 
 // import { nanoid } from "nanoid";
@@ -27,9 +28,8 @@ const Login = () => {
   const [validate, setValidate] = useState(false);
   const [message, setMessage] = useState();
 
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+
+
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
@@ -38,6 +38,13 @@ const Login = () => {
     }
   }, []);
 
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+    setMessage("");
+  };
+
+
+
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -45,10 +52,10 @@ const Login = () => {
   const submitData = async (e) => {
     e.preventDefault();
     const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
-    if (!regEx.test(data.email)) {
-      setMessage("Enter a valid Email");
-    }else{
 
+    if (!regEx.test(data.email)) {
+      setMessage("Enter a valid Email and password");
+    } else {
       let minimumLength = 8;
       if (data.password.length < minimumLength) {
         setError("password must be of 8 characters");
@@ -97,7 +104,8 @@ const Login = () => {
         setAdmin(true);
         router.push("/Admin/AdminProduct");
       } else {
-        router.push("/Products");
+        Router.back();
+        // router.push("/Products");
       }
     } else {
       setNewError("Invalid email password");

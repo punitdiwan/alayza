@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import { FaRegStar } from "react-icons/fa";
+// import { FaRegStar } from "react-icons/fa";
 import Router from "next/router";
 // import { productData } from "./index";
 import Link from "next/link";
 import prisma from "../../lib/prisma";
-import { useRouter } from "next/router";
-import {useGlobalContext} from "../../Components/Context";
+// import { useRouter } from "next/router";
+
+import { useGlobalContext } from "../../Components/Context";
 
 const Productdetails = ({ parsed }) => {
-
-
-
-  const {cart1,setCart1} = useGlobalContext()
+  const { cart1, setCart1 } = useGlobalContext();
   // console.log("data",cart1)
 
-
-  const [cart, setCart] = useState(0);
+  // const [cart, setCart] = useState(0);
 
   // console.log(parsed, "slug-data");
 
@@ -38,10 +35,10 @@ const Productdetails = ({ parsed }) => {
 
   return (
     <>
-    {
-      // setCart1({...cart1,parsed})
-    }
-        <Header  />
+      {
+        // setCart1({...cart1,parsed})
+      }
+      <Header />
       <section className="products-details-main">
         <br />
         <button className="global-btn" onClick={() => Router.back()}>
@@ -68,10 +65,7 @@ const Productdetails = ({ parsed }) => {
           <div className="products-detail-page-inner-2">
             {/* <p>{data3.price}</p> */}
             <p>Status: In Stock</p>
-            <p>
-              Qty: 1
-              {/* <input type="number" value="1" /> */}
-            </p>
+            <p>Qty: 1{/* <input type="number" value="1" /> */}</p>
             <Link
               href="/Shoppingcart"
               type="button"
@@ -85,6 +79,7 @@ const Productdetails = ({ parsed }) => {
             >
               Add To Cart
             </Link>
+            
           </div>
         </div>
       </section>

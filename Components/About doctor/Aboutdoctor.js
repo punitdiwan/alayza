@@ -6,7 +6,7 @@ const Aboutdoctor = () => {
     <>
       <section className="about-doctor">
         <div className="about-doctor-1">
-          <div>
+          <div className="doctors-image">
             <img src="./images/about-zeba.jpeg" alt="about" />
           </div>
           <div className="about-doctor-2">
@@ -70,7 +70,7 @@ const Aboutdoctor = () => {
                 rows="3"
               ></textarea>
             </label>
-            <button className="form-btn">Submit</button>
+            <button className="btn-grad" style={{width:"92%"}}>Submit</button>
           </form>
           <div className="about-doctor-4">
             <p>
