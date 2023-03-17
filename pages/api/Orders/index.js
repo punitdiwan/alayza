@@ -6,7 +6,10 @@ let Mailjet = require("node-mailjet");
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
-      const data = await prisma.order.findMany({});
+      const data = await prisma.order.findMany({
+        include: {
+        User: true
+      }});
       return res.status(200).json(data);
     } catch (err) {
       console.error(err);

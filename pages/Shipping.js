@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FaCircle, FaRegCircle } from "react-icons/fa";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -14,6 +14,17 @@ const Shipping = () => {
   });
   const [data, setData] = useState({});
   const [error, setError] = useState(false);
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if (!token) {
+      router.push("/Login");
+      // setValidate(true);
+    }
+  }, []);
+
+
 
   const router = useRouter();
 

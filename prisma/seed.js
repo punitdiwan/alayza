@@ -2,6 +2,9 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+
+// const []
+
 const products = [
   {
     prod_id: "isdifhskhfkshf",
@@ -82,3 +85,7 @@ main()
   .finally(() => {
     prisma.$disconnect();
   });
+
+
+
+

@@ -28,22 +28,21 @@ const Login = () => {
   const [validate, setValidate] = useState(false);
   const [message, setMessage] = useState();
 
-
-
-
   useEffect(() => {
     const token = localStorage.getItem("Token");
     if (token) {
-      setValidate(true);
+      router.push("/Shipping");
+      // setValidate(true);
     }
   }, []);
+
+
+  // console.log(router.path,"path")
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
     setMessage("");
   };
-
-
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -87,10 +86,6 @@ const Login = () => {
 
   const CheckAdmin = async (e) => {
     e.preventDefault();
-    const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
-    if (!regEx.test(email)) {
-      setMessage("Enter a valid Email");
-    }
     const res = await fetch(`/api/Users/${email}`, {
       headers: {
         "Content-Type": "application/json",
@@ -105,16 +100,16 @@ const Login = () => {
         router.push("/Admin/AdminProduct");
       } else {
         Router.back();
-        // router.push("/Products");
+        router.push("/Products");
       }
     } else {
-      setNewError("Invalid email password");
+      setNewError("Invalid User Name and Password");
     }
   };
 
   const handleChange1 = (e) => {
     setEmail(e.target.value);
-    setNewError(" ");
+    setNewError(" ")
   };
   const handleChange2 = (e) => {
     setPassword(e.target.value);
@@ -125,12 +120,8 @@ const Login = () => {
     <>
       <Header cart={1} />
       <section className="login-main">
-        {validate ? (
-          <h1>
-            Already Logged In Continue Shopping{" "}
-            <Link href="/Products">Continue Shopping</Link>
-          </h1>
-        ) : (
+        {
+         (
           <div className="login-1">
             <div className="login-btn-div">
               <button
@@ -263,18 +254,10 @@ const Login = () => {
                   />
                 </label>
                 <div style={{ color: "red" }}>{error}</div>
-                {/* <button
-                  className="login-btn"
-                  style={{ margin: "0.5rem" }}
-                  onClick={submitData}
-                >
-                  Register
-                </button> */}
                 <input
                   type="submit"
                   value="Register"
                   className="login-btn-new"
-                  // style={{ marginLeft: "1rem" }}
                 />
               </form>
             ) : (

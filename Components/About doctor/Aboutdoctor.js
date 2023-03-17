@@ -1,7 +1,8 @@
-import React from "react";
-import Form from "../Home/Form";
+import React, { useState } from "react";
+import Form from "../Form";
 
 const Aboutdoctor = () => {
+
   return (
     <>
       <section className="about-doctor">
@@ -42,36 +43,7 @@ const Aboutdoctor = () => {
           </div>
         </div>
         <div className="about-doctor-3">
-          <form autoComplete="off">
-            <h2>Book an Appointment</h2>
-            <label>
-              Your Name
-              <input type="text" name="name" id="name" />
-            </label>
-            <label>
-              Your Email
-              <input type="email" name="email" id="email" />
-            </label>
-            <label>
-              Your Number
-              <input type="text" name="number" id="number" />
-            </label>
-            <label>
-              Select Date
-              <input type="date" name="number" id="number" />
-            </label>
-
-            <label>
-              Your Message
-              <textarea
-                className="form-control"
-                name=""
-                id=""
-                rows="3"
-              ></textarea>
-            </label>
-            <button className="btn-grad" style={{width:"92%"}}>Submit</button>
-          </form>
+          <Form />
           <div className="about-doctor-4">
             <p>
               Dr. Zeba Quadiri is one of the first few dermatologist to start

@@ -12,7 +12,7 @@ const Aboutdr = () => {
           <h1>About Doctor</h1>
           <p>Dr. Zeba Quadiri / About Doctor</p>
               </div>
-              <Aboutdoctor/>
+              <Aboutdoctor/>  
 
         <Footer />
       </section>

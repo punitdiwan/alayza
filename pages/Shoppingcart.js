@@ -10,18 +10,20 @@ import { useGlobalContext } from "../Components/Context";
 // import { productData } from "./Products/index";
 
 const Shoppingcart = () => {
-  const { cart1, setCart1 } = useGlobalContext();
+  const { cart1, setCart1, data, setData } = useGlobalContext();
 
-  // console.log(cart1, "cart");
+  // console.log(data, "cart");
 
   const router = useRouter();
 
-  const [items, setItems] = useState([
-    { id: 1, name: "Item 1", price: 10, quantity: 1 },
-    { id: 2, name: "Item 2", price: 20, quantity: 2 },
-    { id: 3, name: "Item 3", price: 30, quantity: 3 },
-  ]);
+  // const [items, setItems] = useState([
+  //   { id: 1, name: "Item 1", price: 10, quantity: 1 },
+  //   { id: 2, name: "Item 2", price: 20, quantity: 2 },
+  //   { id: 3, name: "Item 3", price: 30, quantity: 3 },
+  // ]);
+
   const [localData, setLocalData] = useState([]);
+  // const [data, setData] = useState();
 
   const handleIncrement = (itemId) => {
     setLocalData(
@@ -44,10 +46,11 @@ const Shoppingcart = () => {
           return item;
         }
       })
-    );
-    localStorage.setItem("cart-value", JSON.stringify(localData));
+      );
+      localStorage.setItem("cart-value", JSON.stringify(localData));
   };
 
+  // console.log(localData, "local");
   // const handleDecrement = (item) => {
   //   const index = localData.findIndex((i) => i.id === item.id);
   //   const newItems = [...localData];
@@ -79,6 +82,7 @@ const Shoppingcart = () => {
   useEffect(() => {
     const totalAmount = getTotalAmount();
     localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
+    // localStorage.setItem("cart-value", JSON.stringify(localData));
   }, [getTotalAmount]);
 
   //
@@ -92,14 +96,23 @@ const Shoppingcart = () => {
   const fetchData = () => {
     const data1 = localStorage.getItem("cart-value");
     const data2 = JSON.parse(data1);
+    // data2.push(localData)
     setLocalData(data2);
   };
+  // localStorage.setItem("cart-value", JSON.stringify(localData));
+  console.log(localData, "local-data");
 
   useEffect(() => {
     fetchData();
+    // localStorage.setItem("cart-value", JSON.stringify(localData));
   }, []);
 
+  // useEffect(() => {
+  //   localStorage.setItem("cart-value", JSON.stringify(localData));
+  // },[localData])
+
   const checkToken = () => {
+    localStorage.setItem("cart-value", JSON.stringify(localData));
     const token = localStorage.getItem("Token");
     if (token) {
       router.push("/Shipping");
@@ -107,19 +120,12 @@ const Shoppingcart = () => {
       router.push("/Login");
     }
   };
-
   let quantity = localData?.map((item) => item.qty);
   let sum = quantity?.reduce(function (previousValue, currentValue) {
     return previousValue + currentValue;
   }, 0);
 
-
-  setCart1(sum)
-  // console.log(sum, "quantity");
-
-  // useEffect(() => {
-  //   localStorage.setItem("cart-value", JSON.stringify(localData));
-  // },[localData])
+  setCart1(sum);
 
   return (
     <>

@@ -11,27 +11,27 @@ import prisma from "../../lib/prisma";
 import { useGlobalContext } from "../../Components/Context";
 
 const Productdetails = ({ parsed }) => {
-  const { cart1, setCart1 } = useGlobalContext();
-  // console.log("data",cart1)
-
-  // const [cart, setCart] = useState(0);
-
-  // console.log(parsed, "slug-data");
 
   const setCartItem = () => {
     const id = parsed.id;
     var cartItems = JSON.parse(localStorage.getItem("cart-value") || "[]");
+    // var cartItem = data; 
 
     const existingData = cartItems.find((item) => item.id === id);
+    // const existingData = data.find((item) => item.id === id);
+
 
     if (existingData) {
       return existingData;
     } else {
+      // setData([...data,parsed])
       cartItems.push(parsed);
       localStorage.setItem("cart-value", JSON.stringify(cartItems));
       return parsed;
     }
   };
+
+  console.log(parsed,"parsed")
 
   return (
     <>
@@ -57,9 +57,7 @@ const Productdetails = ({ parsed }) => {
             </p> */}
             <p>Rs. {parsed.price} </p>
             <p>
-              Description: Introducing the iPhone 11 Pro. A transformative
-              triple-camera system that adds tons of capability without
-              complexity. An unprecedented leap in battery life
+              {parsed.description}
             </p>
           </div>
           <div className="products-detail-page-inner-2">

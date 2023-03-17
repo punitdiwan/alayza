@@ -4,14 +4,17 @@ const AppContext = React.createContext();
 
 
 
+// localStorage.setItem("cart-item",cart1)
 
 const AppProvider = ({ children }) => {
 
-    const [cart1,setCart1] = useState(0);
+  const [cart1, setCart1] = useState();
+
+  const [data, setData] = useState([]);
 
 
   return (
-    <AppContext.Provider value={{cart1,setCart1}}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{cart1,setCart1,data,setData}}>{children}</AppContext.Provider>
   );
 };
 

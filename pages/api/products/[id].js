@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     // });
     const deleteProduct = await prisma.product.delete({
       where: {
-        id: parseInt(deletedId),
+        prod_id: deletedId,
       },
     });
     // console.log(deleteProduct);
