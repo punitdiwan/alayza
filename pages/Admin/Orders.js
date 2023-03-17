@@ -15,7 +15,7 @@ const Orders = () => {
     const data = await fetch("/api/Orders");
     const res = await data.json();
     setData(res);
-    // console.log(res,"userdata1 ")
+    console.log(res,"userdata1 ")
   };
 
 
@@ -53,7 +53,7 @@ const Orders = () => {
           <thead>
             <tr style={{ textAlign: "center" }}>
               <th>ID</th>
-              <th>USERID</th>
+              <th>USER NAME</th>
               {/* <th>TOTAL</th> */}
               <th>DATE</th>
               <th>PAID</th>
@@ -67,7 +67,7 @@ const Orders = () => {
                 <tbody style={{ textAlign: "center" }}>
                   <tr key={item.id}>
                     <td>{item.orderId}</td>
-                    <td>{item.userId}</td>
+                    <td>{item.User.name}</td>
                     {/* <td>{item.price}</td> */}
                     <td>
                       {/* <FaTimes /> */}

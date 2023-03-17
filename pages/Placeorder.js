@@ -5,6 +5,7 @@ import Footer from "../Components/Footer";
 import jwt from "jsonwebtoken";
 // import { v4 as uuid } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
+import { useRouter } from "next/router";
 // import { useGlobalContext } from "../Components/Context";
 
 const Placeorder = () => {
@@ -16,6 +17,18 @@ const Placeorder = () => {
   const [amount, setAmount] = useState();
   const [addressData, setAddressData] = useState();
   const [user, setUser] = useState();
+
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if (!token) {
+      router.push("/Login");
+      // setValidate(true);
+    }
+  }, []);
+  const router = useRouter();
+
 
   useEffect(() => {
     const prodData = localStorage.getItem("cart-value");
@@ -53,6 +66,8 @@ const Placeorder = () => {
       },
     });
     localStorage.removeItem("cart-value");
+    localStorage.removeItem("addressData");
+    localStorage.removeItem("totalAmount");
   };
 
   return (

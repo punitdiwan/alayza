@@ -28,19 +28,14 @@ const Products = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        method: "DELETE",
+      method: "DELETE",
       }).then(() => {
         fetchProducts();
       });
     } catch (error) {
-      console.log(error);
+      console.log(error); 
     }
   };
-
-  // const updatedData = {
-  //   name : "Rahul Meena",
-  //   price: 200
-  // }
 
   const editProduct = async () => {
     // try {
@@ -119,7 +114,7 @@ const Products = () => {
                           </button> */}
                           <button
                             className="cart-btn"
-                            onClick={() => deleteProduct(item.id)}
+                            onClick={() => deleteProduct(item.prod_id)}
                           >
                             <FaTrash />
                           </button>

@@ -14,11 +14,29 @@ a {
 * {
   box-sizing: border-box;
 }
-          
+/* #modal{
+  width: 100%;
+} */
+.orderItem{
+  width : 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 3rem;
+  border: 1px solid grey;
+}
+.orderItem-1{
+  padding: 1rem;
+  border: 1px solid grey;
+  width : 50%;
+  display : flex;
+  /* flex-direction */
+  justify-content: space-between;
+}
 #navbar{        
   background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
   border-bottom: 1px solid grey;
-  z-index: 9999;
+  z-index: 9;
   top: 0;
   position: sticky;
   height: 10vh auto;
@@ -660,14 +678,17 @@ li{
 }
 
 
-/* ****** contact us *****  */
+/* ****** contact us *****ble  */
 
-.contact-us-main .form-div{
+/* .contact-us-main .form-div{
   padding: 4rem;
   background-attachment: none;
   display: flex;
   justify-content: center;
   align-items:center;
+} */
+.contact-us-main{
+  border: 2px solid red;
 }
 .contact-us-clinic{
   padding: 2rem;
@@ -1279,10 +1300,8 @@ li{
    .order-main .table{
     margin: 3rem;
     /* border: 2px solid red; */
-    
     width: 80%;
     overflow-x: auto;
-
    }
    table{
     overflow-x: auto;
@@ -1310,6 +1329,9 @@ li{
 /* @media only screen and (min-width: 1200px) {...} */
 
 @media only screen and (max-width: 992px) {
+  .shipping-main .btn-grad{
+    width: 90%;
+  }
   .table{
     overflow-x: auto;
   }
@@ -1517,6 +1539,17 @@ li{
 }
 
 @media only screen and (max-width: 600px){
+  #order-main-1 .table{
+    width:auto; 
+    overflow-x: auto;
+    /* border: 2px solid red; */
+  }
+  .orderItem-1{
+    width: 100%;
+  }
+  .orderItem{
+    width: 100%;
+  }
   .cards .card_image img{
     height: 50vh;
   }
