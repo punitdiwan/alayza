@@ -39,7 +39,7 @@ a {
   z-index: 9;
   top: 0;
   position: sticky;
-  height: 12vh;
+  height: 12vh auto;
   padding: 0;
   width: 100%;
   /* background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #c49635 30%, #b48f39 40%, transparent 80%),radial-gradient(ellipse farthest-corner at left top, #e2dfdf 0%, #FFFFAC 8%, #D1B464 25%, #bd973f 62.5%, #cca447 100%); */
