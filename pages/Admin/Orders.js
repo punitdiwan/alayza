@@ -9,6 +9,7 @@ const Orders = () => {
   const [data, setData] = useState();
   const [newData, setNewData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const [total,setTotal] = useState()
   const pageSize = 10;
 
   const fetchData = async () => {
@@ -31,6 +32,12 @@ const Orders = () => {
     fetchData();
   }, []);
 
+  let total1 = data?.map((item)=>item.totalAmt)
+  let sum = total1?.reduce(function (previousValue, currentValue) {
+    return previousValue + +currentValue;
+  }, 0);
+  // setTotal(sum)
+  // console.log(sum)
 
   // let reversed = data?.reverse();
 
@@ -55,9 +62,9 @@ const Orders = () => {
               <th>ID</th>
               <th>USER NAME</th>
               {/* <th>TOTAL</th> */}
+              <th>AMOUNT</th>
               <th>DATE</th>
               <th>PAID</th>
-              {/* <th>DELIVERED</th> */}
               {/* <th>ACTION</th> */}
             </tr>
           </thead>
@@ -68,7 +75,7 @@ const Orders = () => {
                   <tr key={item.id}>
                     <td>{item.orderId}</td>
                     <td>{item.User.name}</td>
-                    {/* <td>{item.price}</td> */}
+                    <td>{item.totalAmt}</td>
                     <td>
                       {/* <FaTimes /> */}
                       {item.created_at.slice(0, 10)}
@@ -92,9 +99,21 @@ const Orders = () => {
                   </tr>
                 </tbody>
               </>
+              
             );
           })}
-         
+          <thead style={{borderTop: "3px solid grey"}}>
+          <tr style={{ textAlign: "center" }}>
+              <th>TOTAL AMOUNT </th>
+              <th></th>
+              {/* <th>TOTAL</th> */}
+              <th> {sum}</th>
+              <th></th>
+              <th></th>
+              {/* <th>ACTION</th> */}
+            </tr>
+
+          </thead>
         </table>
         <Pagination
             items={data?.length}

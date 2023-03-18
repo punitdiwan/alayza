@@ -27,12 +27,12 @@ const Login = () => {
   const [newError, setNewError] = useState(false);
   const [validate, setValidate] = useState(false);
   const [message, setMessage] = useState();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
     if (token) {
-      router.push("/Shipping");
+      router.push("/Products");
       // setValidate(true);
     }
   }, []);
@@ -86,7 +86,7 @@ const Login = () => {
 
   const CheckAdmin = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     const res = await fetch(`/api/Users/${email}`, {
       headers: {
         "Content-Type": "application/json",
@@ -100,22 +100,16 @@ const Login = () => {
       if (data1?.user.role === "ADMIN") {
         setAdmin(true);
         router.push("/Admin/AdminProduct");
-        setLoading(false)
+        setLoading(false);
       } else {
         // Router.back();
-        router.push("/Products");
-        setLoading(false)
+        router.push("/Shipping");
+        setLoading(false);
       }
     } else {
       setNewError("Invalid User Name and Password");
     }
   };
-
-
-
-
-
-
 
   const handleChange1 = (e) => {
     setEmail(e.target.value);
@@ -207,17 +201,17 @@ const Login = () => {
                     }}
                     onClick={CheckAdmin}
                   >
-                    {
-                      loading ? 
+                    {loading ? (
                       <Spinner
                         as="span"
                         animation="border"
                         size="sm"
                         role="status"
                         aria-hidden="true"
-                      /> : 
+                      />
+                    ) : (
                       <span>Login</span>
-                    }
+                    )}
                   </button>
                 </div>
               </form>
