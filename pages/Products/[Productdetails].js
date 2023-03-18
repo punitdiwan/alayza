@@ -31,7 +31,7 @@ const Productdetails = ({ parsed }) => {
     }
   };
 
-  console.log(parsed,"parsed")
+  // console.log(parsed,"parsed")
 
   return (
     <>

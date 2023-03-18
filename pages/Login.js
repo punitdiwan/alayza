@@ -3,10 +3,10 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Router from "next/router";
 // import jwt from "next/jwt";
 
 // import { nanoid } from "nanoid";
+import Spinner from "react-bootstrap/Spinner";
 
 // const bcrypt = require('bcrypt');
 
@@ -27,6 +27,7 @@ const Login = () => {
   const [newError, setNewError] = useState(false);
   const [validate, setValidate] = useState(false);
   const [message, setMessage] = useState();
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
@@ -35,7 +36,6 @@ const Login = () => {
       // setValidate(true);
     }
   }, []);
-
 
   // console.log(router.path,"path")
 
@@ -86,30 +86,40 @@ const Login = () => {
 
   const CheckAdmin = async (e) => {
     e.preventDefault();
+    setLoading(true)
     const res = await fetch(`/api/Users/${email}`, {
       headers: {
         "Content-Type": "application/json",
       },
     });
     const data1 = await res.json();
+    console.log(data1, "data");
 
+    localStorage.setItem("Token", data1.token);
     if (password === data1?.user?.password && email === data1?.user?.email) {
-      localStorage.setItem("Token", data1.token);
       if (data1?.user.role === "ADMIN") {
         setAdmin(true);
         router.push("/Admin/AdminProduct");
+        setLoading(false)
       } else {
-        Router.back();
+        // Router.back();
         router.push("/Products");
+        setLoading(false)
       }
     } else {
       setNewError("Invalid User Name and Password");
     }
   };
 
+
+
+
+
+
+
   const handleChange1 = (e) => {
     setEmail(e.target.value);
-    setNewError(" ")
+    setNewError(" ");
   };
   const handleChange2 = (e) => {
     setPassword(e.target.value);
@@ -121,7 +131,6 @@ const Login = () => {
       <Header cart={1} />
       <section className="login-main">
         {
-         (
           <div className="login-1">
             <div className="login-btn-div">
               <button
@@ -198,7 +207,17 @@ const Login = () => {
                     }}
                     onClick={CheckAdmin}
                   >
-                    Login
+                    {
+                      loading ? 
+                      <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      /> : 
+                      <span>Login</span>
+                    }
                   </button>
                 </div>
               </form>
@@ -264,7 +283,7 @@ const Login = () => {
               ""
             )}
           </div>
-        )}
+        }
       </section>
       <Footer />
     </>

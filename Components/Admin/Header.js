@@ -27,10 +27,11 @@ function Header() {
     <Navbar bg="light" expand="lg" id="navbar">
       <Container>
         <Navbar.Brand href="/Admin/AdminProduct" className="logo">
-          <img
+          {/* <img
             src="../images/962d11f0-560c-4146-92ec-f428adf650ed-removebg-preview.png"
             alt="logo"
-          />
+          /> */}
+          <h1 style={{marginLeft: "-1rem",color: "#fff"}}>Zebdermm</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

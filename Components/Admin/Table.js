@@ -17,7 +17,7 @@ const Table = ({ function1 }) => {
     function1(data1.length);
   };
 
-  //  console.log(user)
+   console.log(user?.map((item)=>item.Order),"user")
 
   useEffect(() => {
     fetchProducts();
@@ -59,13 +59,14 @@ const Table = ({ function1 }) => {
 
   return (
     <>
+    <section>
       <table className="table">
         <thead>
           <tr style={{ textAlign: "center" }}>
             <th>ID</th>
             <th>NAME</th>
             <th>EMAIL</th>
-            <th>Orders</th>
+            {/* <th>Orders</th> */}
             <th>ADMIN</th>
             <th>ACTION</th>
           </tr>
@@ -79,14 +80,11 @@ const Table = ({ function1 }) => {
                       <td>{index + 1}</td>
                       <td>{item.name}</td>
                       <td>{item.email}</td>
-                      <td>{item.Order}</td>
+                      {/* <td>{item.Order}</td> */}
                       <td>
                         {item.role === "ADMIN" ? <FaCheck /> : <FaTimes />}
                       </td>
                       <td>
-                        {/* <button className="cart-btn">
-                          <FaEdit />
-                        </button> */}
                         <button
                           className="cart-btn"
                           onClick={() => deleteUser(item.id)}
@@ -99,14 +97,18 @@ const Table = ({ function1 }) => {
                 </>
               );
             })
-          : ""}
-        <Pagination
+          : ""
+          }
+       
+
+      </table>
+      <Pagination
           items={user?.length}
           currentPage={currentPage}
           pageSize={pageSize}
           onPageChange={handlePageChange}
         />
-      </table>
+      </section>
     </>
   );
 };
