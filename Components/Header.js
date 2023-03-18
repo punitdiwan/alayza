@@ -40,7 +40,7 @@ function Header({ cart }) {
       <Container>
         <Navbar.Brand href="/" className="logo">
           <img
-            src="./images/Zeba_logo_1.png"
+            src="/images/Zeba_logo_1.png"
             alt="logo"
           />
           {/* <em><h1 >Zebdermm</h1></em> */}
