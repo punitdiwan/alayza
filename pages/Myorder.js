@@ -6,6 +6,9 @@ import { FaEdit, FaTrash, FaTimes, FaCheck } from "react-icons/fa";
 import jwt from "jsonwebtoken";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Spinner from "react-bootstrap/Spinner";
+import { paginate } from "../utils/paginate";
+import Pagination from "../Components/Pagination";
 // import {productData} from "./Products/index";
 
 const Myorder = () => {
@@ -16,11 +19,13 @@ const Myorder = () => {
 
   const [data, setData] = useState();
   const [orderData, setOrderData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
 
   // console.log(data?.id, "data");
 
   const orderDetails = async (id) => {
-    console.log(id);
+    // console.log(id);
     const data1 = await fetch(`/api/Orders/${id}`);
     const res = await data1.json();
     setOrderData(res);
@@ -34,7 +39,6 @@ const Myorder = () => {
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
 
-
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
     setShow(true);
@@ -42,25 +46,31 @@ const Myorder = () => {
 
   const fetchOrder = async () => {
     const token = localStorage.getItem("Token");
-
     const json = jwt.decode(token);
-
     const data = await fetch("/api/Orders");
     const res = await data.json();
     const newData = res.filter((item) => item.userId == json?.userId);
     setData(newData);
   };
+  // console.log(data, "newdATA");
 
   useEffect(() => {
     fetchOrder();
   }, []);
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   // console.log(data, "userdata");
+
+  const paginateOrder = paginate(data, currentPage, pageSize);
+  // console.log(data, "data");
 
   return (
     <>
       <Header />
-      <section className="order-main" style={{ textAlign: "center" }}>
+      <section className="Users-main">
         <h2
           style={{
             borderBottom: "2px solid #52BCC9",
@@ -70,8 +80,8 @@ const Myorder = () => {
         >
           My Orders
         </h2>
-      </section>
-      <table className="table">
+
+      <table className="table" id ="table">
         <thead>
           <tr style={{ textAlign: "center" }}>
             <th>ORDER ID</th>
@@ -82,42 +92,51 @@ const Myorder = () => {
             <th>ORDERED ON</th>
           </tr>
         </thead>
-          {
-            data?.length > 0
-              ?
-            data?.map((item) => {
-              return (
-                <>
-                <tbody style={{ textAlign: "center" }}>
-                  <tr>
-                    <Link href="" onClick={() => orderDetails(item.id)}>
-                      {item.orderId}
-                    </Link>
-                    {/* <td>{item.name}</td> */}
-                    <td>{item.totalAmt}</td>
-                    <td>
-                      <FaCheck />
-                    </td>
-                    <td>
-                      <FaTimes />
-                    </td>
-                    <td>{item.created_at.slice(0, 10)}</td>
-                  </tr>
-                  </tbody>
-                </>
-              );
-            })
-            : "you have no orders..."
-          }
-      </table>
-      <Modal show={show}  fullscreen={fullscreen} onHide={() => setShow(false)}>
+
+      {paginateOrder ?   
+      (
+        paginateOrder?.map((item) => {
+          return (
+            <>
+              <tbody style={{ textAlign: "center" }} >
+              <tr id="order-new-1" key={item.id}>
+                <td href="" onClick={() => orderDetails(item.id)} style={{textDecoration: "underline", cursor: "pointer", color: "blue"}}>
+                  {item.orderId}
+                </td>
+                {/* <td>{item.name}</td> */}
+                <td>{item.totalAmt}</td>
+                <td>
+                  <FaCheck />
+                </td>
+                <td>
+                  <FaTimes />
+                </td>
+                <td>{item.created_at.slice(0, 10)}</td>
+              </tr>
+              </tbody>
+            </>
+          );
+        })
+      )  : <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+
+      }
+            </table>
+
+      <Pagination
+        items={data?.length}
+        currentPage={currentPage}
+        pageSize={pageSize}
+        onPageChange={handlePageChange}
+      />
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title> Order Details</Modal.Title>
         </Modal.Header>
-        <Modal.Body >
-        <div >
+        <Modal.Body>
+          <div>
             <tr style={{ textAlign: "center" }} className="orderItem-1">
-              
               <th>PRODUCT NAME</th>
               <br />
               <th>QUANTITY</th>
@@ -129,18 +148,18 @@ const Myorder = () => {
           {orderData?.OrderItem?.map((item) => {
             return (
               <>
-              <div className="orderItem">
+                <div className="orderItem" key={item.id}>
                   <td>{item.Product.name}</td>
                   <td>{item.qty}</td>
                   <td>{item.amount}</td>
                   {/* <td>{item.id}</td> */}
-                  </div>
+                </div>
               </>
             );
           })}
-          </Modal.Body>
+        </Modal.Body>
       </Modal>
-
+      </section>
       <Footer />
     </>
   );

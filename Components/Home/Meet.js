@@ -29,7 +29,7 @@ const Meet = () => {
               Medical College and had her thesis on drug therapy in Male
               Androgenetic Alopecia at LNJP HOSPITAL DELHI. */}
             </p>
-            <Link href="/Aboutdr" className="meet-btn" >
+            <Link href="/Aboutdr" className="btn-grad" style={{textDecoration: "none",color: "black"}} >
               Read More
             </Link>
           </div>

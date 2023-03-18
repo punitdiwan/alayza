@@ -7,12 +7,7 @@ const Users = () => {
 
   const returnData = (data1) => {
     setUserlength(data1);
-  };
-
-
-
-  
-
+  };  
   return (
     <>
       <Header />

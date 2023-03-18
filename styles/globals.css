@@ -91,10 +91,6 @@ a {
   text-decoration: none;
 }
 
-
-
-
-
 .meet-main{
   text-align: center;
   /* border: 2px solid red; */
@@ -317,7 +313,8 @@ color: #fff;
 }
 form{
   width: 50%;
-  background-color: #E6B859;
+  /* background-color: #E6B859; */
+  background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
   /* margin: 2rem; */
   display: flex;
   flex-direction: column;
@@ -410,6 +407,7 @@ form input{
   width: 24%;
 }
 .footer-inner .btn-grad{
+
   width : 100%;
   margin: 0 auto;
 }
@@ -455,7 +453,8 @@ li{
 
   margin-top: -20px;
   padding: 2rem;
-  background-color: #E6B859 ;
+  /* background-color: #E6B859 ; */
+  background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
   /* border: 5px solid #3795BD; */
 }
 
@@ -551,7 +550,8 @@ li{
 
 .about-doctor-3 form {
   height: 100vh auto;
-  background-color: #E6B859;
+  /* background-color: #E6B859; */
+  background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
   width: 40%;
 }
 
@@ -847,7 +847,7 @@ li{
   /* border: 2px solid red; */
 }
 .me-auto a{
-  font-weight: 700;
+  font-weight: 500;
   /* color: #E6B85A; */
   color: black;
   text-decoration: none;
@@ -1068,8 +1068,11 @@ li{
     margin: 0 auto;
     margin-top: 3rem;
     margin-bottom: 3rem;
+    
    }
    .login-1 form{
+    /* background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%); */
+    
     width: 100%;
    }
    .login-1 form input{
@@ -1083,6 +1086,7 @@ li{
     /* border: 2px solid red; */
    }
    .login-btn{
+    
     text-decoration: none;
     text-align:center;
     border: none;
@@ -1096,6 +1100,7 @@ li{
   letter-spacing: 0.3rem;
    }
    .login-btn-new{
+    
     width: "95%";
     padding: 0.8rem 1rem;
     border-radius: 5px;
@@ -1118,6 +1123,7 @@ li{
     justify-content: space-between;
    }
    .login-btn:hover{
+
     transition: all 0.3s ease;
   color: #fff;
   background-color: #41b7e8;
@@ -1305,10 +1311,19 @@ li{
    }
    table{
     overflow-x: auto;
-    /* border: 5px solid red; */
+    border: 5px solid red;
     width: 50%;
    }
+   #table{
+    overflow-x: auto;
+    /* border: 2px solid red;  */
+   }
 
+     /* #order-new-1{
+      display : flex;
+      justify-content: space-around;
+    border: 2px solid red;
+   } */
 
 
 

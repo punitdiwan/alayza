@@ -21,12 +21,13 @@ export async function getStaticProps() {
   // })
   // const data2 = JSON.stringify(data1);
   // const data3 = JSON.parse(data2);
+  console.log("revalidating")
 
   return {
     props: {
       data3,
     },
-    revalidate: 20,
+    revalidate: 10,
   };
 }
 
