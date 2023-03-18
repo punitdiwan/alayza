@@ -50,11 +50,10 @@ const Login = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
-    const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
-
-    if (!regEx.test(data.email)) {
-      setMessage("Enter a valid Email and password");
-    } else {
+    // const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+    // if (!regEx.test(data.email)) {
+    //   setMessage("Enter a valid Email and password");
+    // } else {
       let minimumLength = 8;
       if (data.password.length < minimumLength) {
         setError("password must be of 8 characters");
@@ -80,9 +79,9 @@ const Login = () => {
           setError("The password and confirmation password do not match. ");
         }
       }
-    }
+    // }
   };
-  // console.log(data, "data");
+  console.log(data, "data");
 
   const CheckAdmin = async (e) => {
     e.preventDefault();
@@ -93,7 +92,7 @@ const Login = () => {
       },
     });
     const data1 = await res.json();
-    console.log(data1, "data");
+    // console.log(data1, "data");``
 
     localStorage.setItem("Token", data1.token);
     if (password === data1?.user?.password && email === data1?.user?.email) {

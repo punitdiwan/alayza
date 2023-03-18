@@ -76,6 +76,7 @@ const Myorder = () => {
   return (
     <>
       <Header />
+      
       <section className="Users-main">
         <h2
           style={{
@@ -86,22 +87,25 @@ const Myorder = () => {
         >
           My Orders
         </h2>
+        {
+          !loading
+            ? 
+        
 
-        <table className="table" id="table">
-          <thead>
-            <tr style={{ textAlign: "center" }}>
-              <th>ORDER ID</th>
-              {/* <th>NAME</th> */}
-              <th>PRICE</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
-              <th>ORDERED ON</th>
-            </tr>
-          </thead>
+            <table className="table" id="table">
+              <thead>
+                <tr style={{ textAlign: "center" }}>
+                  <th>ORDER ID</th>
+                  {/* <th>NAME</th> */}
+                  <th>PRICE</th>
+                  <th>PAID</th>
+                  <th>DELIVERED</th>
+                  <th>ORDERED ON</th>
+                </tr>
+              </thead>
 
-          {
-            !loading
-              ? paginateOrder?.map((item) => {
+              {
+                paginateOrder?.map((item) => {
                   return (
                     <>
                       <tbody style={{ textAlign: "center" }} key={item.id}>
@@ -131,23 +135,26 @@ const Myorder = () => {
                     </>
                   );
                 })
-              :
-               <Spinner
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-          }
-        </table>
 
-        <Pagination
+          }
+            </table>               :
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+}
+
+ <Pagination
           items={data?.length}
           currentPage={currentPage}
           pageSize={pageSize}
           onPageChange={handlePageChange}
         />
+          
+        
         <Modal
           show={show}
           fullscreen={fullscreen}
