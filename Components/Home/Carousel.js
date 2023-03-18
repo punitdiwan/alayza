@@ -6,7 +6,7 @@ function Carousel1() {
   <Carousel.Item className="carousel_image_new">  
         <img
           className="d-block w-100 h-75"
-          src="./images/Hair_Zeba_2.png"
+          src="./images/hair_Zeba.png"
           alt="First slide"
         />
         {/* <Carousel.Caption>

@@ -39,11 +39,11 @@ function Header({ cart }) {
     <Navbar expand="lg" id="navbar">
       <Container>
         <Navbar.Brand href="/" className="logo">
-          {/* <img
-            src="./images/962d11f0-560c-4146-92ec-f428adf650ed-removebg-preview.png"
+          <img
+            src="./images/Zeba_logo_1.png"
             alt="logo"
-          /> */}
-          <em><h1 >Zebdermm</h1></em>
+          />
+          {/* <em><h1 >Zebdermm</h1></em> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

@@ -35,7 +35,7 @@ const appointments = () => {
           <table className="table">
             <thead>
               <tr style={{ textAlign: "center" }}>
-                {/* <th>ID</th> */}
+                <th>NAME</th>
                 <th>EMAIL</th>
                 <th>DATE</th>
                 <th>MOBILE NUMBER</th>
@@ -46,12 +46,10 @@ const appointments = () => {
                 <>
                   <tbody style={{ textAlign: "center" }}>
                     <tr key={item.id}>
+                      <td>{item.name}</td>
                       <td>{item.email}</td>
                       <td>{item.Date}</td>
                       <td>{item.number}</td>
-                      {/* <td>
-                    <FaCheck />
-                  </td> */}
                       {/* <td>
                         <button className="global-btn">View Details</button>
                       </td> */}

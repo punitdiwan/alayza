@@ -20,6 +20,7 @@ const Myorder = () => {
   const [data, setData] = useState();
   const [orderData, setOrderData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading,setLoading] = useState(true)
   const pageSize = 10;
 
   // console.log(data?.id, "data");
@@ -50,6 +51,7 @@ const Myorder = () => {
     const data = await fetch("/api/Orders");
     const res = await data.json();
     const newData = res.filter((item) => item.userId == json?.userId);
+    setLoading(false)
     setData(newData);
   };
   // console.log(data, "newdATA");
@@ -61,6 +63,10 @@ const Myorder = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
+  const showModal=()=>{
+    setShow(false)
+  } 
 
   // console.log(data, "userdata");
 
@@ -93,8 +99,8 @@ const Myorder = () => {
           </tr>
         </thead>
 
-      {paginateOrder ?   
-      (
+      {!loading ?   
+      
         paginateOrder?.map((item) => {
           return (
             <>
@@ -116,10 +122,13 @@ const Myorder = () => {
               </tbody>
             </>
           );
-        })
-      )  : <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+        }) : <Spinner
+        as="span"
+        animation="border"
+        size="sm"
+        role="status"
+        aria-hidden="true"
+      /> 
 
       }
             </table>
@@ -130,7 +139,7 @@ const Myorder = () => {
         pageSize={pageSize}
         onPageChange={handlePageChange}
       />
-      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+      <Modal show={show} fullscreen={fullscreen} onHide={() => showModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title> Order Details</Modal.Title>
         </Modal.Header>
