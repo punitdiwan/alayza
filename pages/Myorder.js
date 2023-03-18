@@ -20,7 +20,7 @@ const Myorder = () => {
   const [data, setData] = useState();
   const [orderData, setOrderData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading,setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const pageSize = 10;
 
   // console.log(data?.id, "data");
@@ -51,7 +51,7 @@ const Myorder = () => {
     const data = await fetch("/api/Orders");
     const res = await data.json();
     const newData = res.filter((item) => item.userId == json?.userId);
-    setLoading(false)
+    setLoading(false);
     setData(newData);
   };
   // console.log(data, "newdATA");
@@ -64,9 +64,9 @@ const Myorder = () => {
     setCurrentPage(page);
   };
 
-  const showModal=()=>{
-    setShow(false)
-  } 
+  const showModal = () => {
+    setShow(false);
+  };
 
   // console.log(data, "userdata");
 
@@ -87,87 +87,100 @@ const Myorder = () => {
           My Orders
         </h2>
 
-      <table className="table" id ="table">
-        <thead>
-          <tr style={{ textAlign: "center" }}>
-            <th>ORDER ID</th>
-            {/* <th>NAME</th> */}
-            <th>PRICE</th>
-            <th>PAID</th>
-            <th>DELIVERED</th>
-            <th>ORDERED ON</th>
-          </tr>
-        </thead>
-
-      {!loading ?   
-      
-        paginateOrder?.map((item) => {
-          return (
-            <>
-              <tbody style={{ textAlign: "center" }} >
-              <tr id="order-new-1" key={item.id}>
-                <td href="" onClick={() => orderDetails(item.id)} style={{textDecoration: "underline", cursor: "pointer", color: "blue"}}>
-                  {item.orderId}
-                </td>
-                {/* <td>{item.name}</td> */}
-                <td>{item.totalAmt}</td>
-                <td>
-                  <FaCheck />
-                </td>
-                <td>
-                  <FaTimes />
-                </td>
-                <td>{item.created_at.slice(0, 10)}</td>
-              </tr>
-              </tbody>
-            </>
-          );
-        }) : <Spinner
-        as="span"
-        animation="border"
-        size="sm"
-        role="status"
-        aria-hidden="true"
-      /> 
-
-      }
-            </table>
-
-      <Pagination
-        items={data?.length}
-        currentPage={currentPage}
-        pageSize={pageSize}
-        onPageChange={handlePageChange}
-      />
-      <Modal show={show} fullscreen={fullscreen} onHide={() => showModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title> Order Details</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div>
-            <tr style={{ textAlign: "center" }} className="orderItem-1">
-              <th>PRODUCT NAME</th>
-              <br />
-              <th>QUANTITY</th>
-              <br />
+        <table className="table" id="table">
+          <thead>
+            <tr style={{ textAlign: "center" }}>
+              <th>ORDER ID</th>
+              {/* <th>NAME</th> */}
               <th>PRICE</th>
+              <th>PAID</th>
+              <th>DELIVERED</th>
+              <th>ORDERED ON</th>
             </tr>
-          </div>
+          </thead>
 
-          {orderData?.OrderItem?.map((item) => {
-            return (
-              <>
-                <div className="orderItem" key={item.id}>
-                  <td>{item.Product.name}</td>
-                  <td>{item.qty}</td>
-                  <td>{item.amount}</td>
-                  {/* <td>{item.id}</td> */}
-                </div>
-              </>
-            );
-          })}
-        </Modal.Body>
-      </Modal>
+          {
+            !loading
+              ? paginateOrder?.map((item) => {
+                  return (
+                    <>
+                      <tbody style={{ textAlign: "center" }} key={item.id}>
+                        <tr id="order-new-1" key={item.id}>
+                          <td
+                            href=""
+                            onClick={() => orderDetails(item.id)}
+                            style={{
+                              textDecoration: "underline",
+                              cursor: "pointer",
+                              color: "blue",
+                            }}
+                          >
+                            {item.orderId}
+                          </td>
+                          {/* <td>{item.name}</td> */}
+                          <td>{item.totalAmt}</td>
+                          <td>
+                            <FaCheck />
+                          </td>
+                          <td>
+                            <FaTimes />
+                          </td>
+                          <td>{item.created_at.slice(0, 10)}</td>
+                        </tr>
+                      </tbody>
+                    </>
+                  );
+                })
+              :
+               <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+          }
+        </table>
+
+        <Pagination
+          items={data?.length}
+          currentPage={currentPage}
+          pageSize={pageSize}
+          onPageChange={handlePageChange}
+        />
+        <Modal
+          show={show}
+          fullscreen={fullscreen}
+          onHide={() => showModal(false)}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title> Order Details</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div>
+              <tr style={{ textAlign: "center" }} className="orderItem-1">
+                <th>PRODUCT NAME</th>
+                <br />
+                <th>QUANTITY</th>
+                <br />
+                <th>PRICE</th>
+              </tr>
+            </div>
+
+            {orderData?.OrderItem?.map((item) => {
+              return (
+                <>
+                  <div className="orderItem" key={item.id}>
+                    <td>{item.Product.name}</td>
+                    <td>{item.qty}</td>
+                    <td>{item.amount}</td>
+                    {/* <td>{item.id}</td> */}
+                  </div>
+                </>
+              );
+            })}
+          </Modal.Body>
+        </Modal>
       </section>
       <Footer />
     </>
