@@ -98,7 +98,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
@@ -111,7 +111,7 @@ export async function getStaticProps(context) {
 
   const data = JSON.stringify(product);
   const parsed = JSON.parse(data);
-  // console.log(data);
+  console.log("djsfgsgfdjsgjfgdjsgfhsgjfgsfd");
   return {
     props: {
       parsed,
