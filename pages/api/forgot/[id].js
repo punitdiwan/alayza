@@ -16,35 +16,35 @@ export default async function handler(req, res) {
       { email: dataUser?.email, name: dataUser?.name },
       SECRET_KEY
     );
+
+    // console.log(dataUser, "email");
     if (dataUser) {
-      let link = `http://localhost:3000/forgot?token=${token}`;
+      let link = `${process.env.FORGOT_URL}/forgot?token=${token}`;
 
       const mailjet = Mailjet.apiConnect(
-        "9cc1335e98c4ec0281b2d9f1d5aaeccb",
-        "147dc0800206e55d654467f8923bdba9"
+        process.env.MAIL_USERNAME,
+        process.env.MAIL_PASSWORD
       );
       const request = mailjet.post("send", { version: "v3.1" }).request({
         Messages: [
           {
             From: { Email: "no-reply@maitretech.com", Name: "Support" },
-            To: [{ Email: dataUser?.email }],
+            To: [{ Email: dataUser.email }],
             TemplateID: 4653160,
             TemplateLanguage: true,
             Variables: { FORGET_PASSWORD_LINK: link },
             Subject: "Reset Password",
           },
         ],
-        //
       });
       request
         .then((result) => {
-          // console.log(result);
         })
         .catch((err) => {
           console.log(err.statusCode);
         });
 
-      console.log(`http://localhost:3000/forgot?token=${token}`);
+      // console.log(`http://localhost:3000/forgot?token=${token}`);
       return res.status(200).json({ user: dataUser, token: token });
     }
   }

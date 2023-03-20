@@ -111,7 +111,12 @@ const Shoppingcart = () => {
     return previousValue + currentValue;
   }, 0);
 
-  setCart1(sum);
+  useEffect(()=>{
+    localStorage.setItem('items', sum)
+    const dataSum = localStorage.getItem('items');
+    setCart1(dataSum);
+  },[sum])
+
 
   return (
     <>

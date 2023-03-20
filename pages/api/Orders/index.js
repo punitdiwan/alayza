@@ -17,11 +17,11 @@ export default async function handler(req, res) {
       return res.status(500).json({ msg: "Something went wrong" });
     }
   } else if (req.method === "POST") {
-    let { dataNew, total, user } = req.body;
+    let { dataNew, total, user,orderDate } = req.body;
 
     // let data2 = dataNew.map((item) => item.orderId);
 
-    console.log(user.email, "djfsfghdsghfdjsgfjh");
+    console.log(orderDate[0], "email");
     const dataResp = await prisma.order.create({
       data: {
         totalAmt: total,
@@ -34,22 +34,22 @@ export default async function handler(req, res) {
     });
 
     const mailjet = Mailjet.apiConnect(
-      "9cc1335e98c4ec0281b2d9f1d5aaeccb",
-      "147dc0800206e55d654467f8923bdba9"
+        process.env.MAIL_USERNAME,
+        process.env.MAIL_PASSWORD
     );
 
     const request = mailjet.post("send", { version: "v3.1" }).request({
       Messages: [
         {
           From: { Email: "no-reply@maitretech.com", Name: "Zeba E-Com" },
-          To: [{ Email: user.email, Name: user.name }],
+          To: [{ Email: user.email, Name: user?.name }],
           TemplateID: 4659551,
           TemplateLanguage: true,
           Subject: "Order Confirmation",
           Variables: {
             firstname: user.name,
             total_price: total,
-            order_date: "created_at",
+            order_date: orderDate[0],
             order_id: nanoid(),
           },
         },
@@ -57,10 +57,10 @@ export default async function handler(req, res) {
     });
     request
       .then((result) => {
-        // console.log(result.body);
+        console.log(result.body);
       })
       .catch((err) => {
-        console.log(err.statusCode);
+        console.log(err);
       });
 
     // const dataResp = await prisma.order.create({

@@ -61,8 +61,10 @@ const Addproduct = () => {
     );
     const s3 = new AWS.S3({
       endpoint: spacesEndpoint,
-      accessKeyId: "DO00D6ZU6AK3QG7NDVTA",
-      secretAccessKey: "stpTIAotvH67FwpgD4e2t3LbUBDj8iMt38T3sVfX7eE",
+      // accessKeyId: "DO00D6ZU6AK3QG7NDVTA",
+      accessKeyId: process.env.DO_SPACE_KEY,
+      // secretAccessKey: "stpTIAotvH67FwpgD4e2t3LbUBDj8iMt38T3sVfX7eE",
+      secretAccessKey: process.env.DO_SPACE_SECRET
     });
   
     let digitalOceanSpaces =

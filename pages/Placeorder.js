@@ -9,16 +9,10 @@ import { useRouter } from "next/router";
 // import { useGlobalContext } from "../Components/Context";
 
 const Placeorder = () => {
-  // const unique_id = uuid();
-  // const {cart1,setCart1} = useGlobalContext()
-  // console.log("cart1",cart1)
-
   const [data, setData] = useState();
   const [amount, setAmount] = useState();
   const [addressData, setAddressData] = useState();
   const [user, setUser] = useState();
-
-
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
@@ -28,7 +22,6 @@ const Placeorder = () => {
     }
   }, []);
   const router = useRouter();
-
 
   useEffect(() => {
     const prodData = localStorage.getItem("cart-value");
@@ -47,20 +40,21 @@ const Placeorder = () => {
       prod_id: item.prod_id,
       qty: item.qty,
       amount: item.price,
+      created_at : item.created_at
     };
     return newObj;
   });
+  const orderDate = data?.map((item)=>item.created_at.slice(0,10)) 
 
-  // console.log(data, "sdhfg");
+  // console.log(orderDate, "sdhfg");
 
   let total = +amount + 50 + 18;
 
   // console.log(dataNew, "datatatata");
   const handleSubmit = async () => {
-   
     const response = await fetch("/api/Orders", {
       method: "POST",
-      body: JSON.stringify({ dataNew, total, user }),
+      body: JSON.stringify({ dataNew, total, user,orderDate }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -68,6 +62,7 @@ const Placeorder = () => {
     localStorage.removeItem("cart-value");
     localStorage.removeItem("addressData");
     localStorage.removeItem("totalAmount");
+    localStorage.removeItem("items");
   };
 
   return (

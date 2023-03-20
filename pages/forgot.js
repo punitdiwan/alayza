@@ -5,6 +5,7 @@ import { verify, decode } from "jsonwebtoken";
 import jwt from "jsonwebtoken";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
+import { ToastContainer, toast } from "react-toastify";
 
 const forgot = () => {
   const router = useRouter();
@@ -34,7 +35,8 @@ const forgot = () => {
     // setMessage("");
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (
       newPassword.password === newPassword.confirmpassword &&
       newPassword.password.length > 0
@@ -42,7 +44,7 @@ const forgot = () => {
       //   console.log(newPassword, "sdfjghgf");
       const json = jwt.decode(token);
 
-      fetch(`/api/forgot/${json.email}`, {
+      fetch(`/api/Users/${json.email}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -54,8 +56,18 @@ const forgot = () => {
         password: "",
         confirmpassword: "",
       });
-      alert("password updated succesfully");
-      //   console.log("match");
+      toast("password updated succesfully", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      // alert("password updated succesfully");
+      router.push("/Login");
     } else {
       setNewError("Passwords dont match");
     }
@@ -83,7 +95,17 @@ const forgot = () => {
       setError("Enter the registered email address");
     } else {
       setData(data1);
-      alert("Reset Password Link has Been Sent to your registered email ");
+      toast("Reset Password Link has Been Sent to your registered email ", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      // alert("Reset Password Link has Been Sent to your registered email ");
       router.push("/Login");
 
       // console.log(data1);
@@ -114,7 +136,22 @@ const forgot = () => {
             value={newPassword.confirmpassword}
           />
           {<div>{newError}</div>}
-          <button onClick={handleSubmit} className="btn-grad" > Update New Password</button>
+          <button onClick={handleSubmit} className="btn-grad">
+            {" "}
+            Update New Password
+          </button>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </form>
       )}
 
