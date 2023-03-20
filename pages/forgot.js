@@ -84,21 +84,19 @@ const forgot = () => {
 
   const handleChange = (e) => {
     setEmail(e.target.value);
+    setError(" ");
   };
 
   const submitEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
     // console.log(email, "email");
-    const res = await fetch(`/api/forgot/${email}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(`/api/forgot/${email}`);
     const data1 = await res.json();
-    console.log(data1)
+    // console.log(data1)
 
     if (data1 == "User Not Exists") {
+      setLoading(false);
       setError("Enter the registered email address");
     } else {
       setData(data1);
