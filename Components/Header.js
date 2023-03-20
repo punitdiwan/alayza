@@ -12,11 +12,15 @@ import { useGlobalContext } from "./Context";
 
 function Header({ cart }) {
   const { cart1, setCart1 } = useGlobalContext();
+  const [admin, setAdmin] = useState(false);
+  const [token, setToken] = useState(false);
+
+
+
 
   const router = useRouter();
 
-  const [admin, setAdmin] = useState(false);
-  const [token, setToken] = useState(false);
+
 
   const checkToken = () => {
     const tokenData = localStorage.getItem("Token");
@@ -26,6 +30,8 @@ function Header({ cart }) {
   };
 
   useEffect(() => {
+    const dataSum = localStorage.getItem("items")
+    setCart1(dataSum)
     checkToken();
   });
 
