@@ -8,8 +8,9 @@ export default async function handler(req, res) {
     try {
       const data = await prisma.order.findMany({
         include: {
-        User: true
-      }});
+          User: true,
+        },
+      });
       return res.status(200).json(data);
     } catch (err) {
       console.error(err);
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
 
     // let data2 = dataNew.map((item) => item.orderId);
 
-    console.log(user.name, "djfsfghdsghfdjsgfjh");
+    console.log(user.email, "djfsfghdsghfdjsgfjh");
     const dataResp = await prisma.order.create({
       data: {
         totalAmt: total,
@@ -32,23 +33,41 @@ export default async function handler(req, res) {
       },
     });
 
-    // const mailjet = Mailjet.apiConnect(
-    //   "9cc1335e98c4ec0281b2d9f1d5aaeccb",
-    // "147dc0800206e55d654467f8923bdba9")
+    const mailjet = Mailjet.apiConnect(
+      "9cc1335e98c4ec0281b2d9f1d5aaeccb",
+      "147dc0800206e55d654467f8923bdba9"
+    );
 
-    // const request = mailjet.post("send", { 'version': 'v3.1' }).request({
-    //   "Messages": [{
-    //     "From": { "Email": "no-reply@maitretech.com", "Name": "Zeba E-Com" },
-    //     "To": [{ "Email": "punitdiwan@gmail.com", "Name": "user 1" }], "TemplateID": 4659551, "TemplateLanguage": true, "Subject": "Order Confirmation", "Variables": { "firstname": user.name, "total_price": total, "order_date": "Default value", "order_id": orderId }
-    //   }]
-    // })
-    // request.then((result) => { console.log(result.body) }).catch((err) => { console.log(err.statusCode) })
+    const request = mailjet.post("send", { version: "v3.1" }).request({
+      Messages: [
+        {
+          From: { Email: "no-reply@maitretech.com", Name: "Zeba E-Com" },
+          To: [{ Email: user.email, Name: user.name }],
+          TemplateID: 4659551,
+          TemplateLanguage: true,
+          Subject: "Order Confirmation",
+          Variables: {
+            firstname: user.name,
+            total_price: total,
+            order_date: "created_at",
+            order_id: nanoid(),
+          },
+        },
+      ],
+    });
+    request
+      .then((result) => {
+        // console.log(result.body);
+      })
+      .catch((err) => {
+        console.log(err.statusCode);
+      });
 
     // const dataResp = await prisma.order.create({
     //   data: {
     //     totalAmt: total,
     //     userId: 17,
-    //     OrderItem: data
+    //     OrderItem: data,
     //   },
     // });
 

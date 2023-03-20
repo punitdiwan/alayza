@@ -51,11 +51,11 @@ const Placeorder = () => {
     return newObj;
   });
 
-  console.log(data, "sdhfg");
+  // console.log(data, "sdhfg");
 
   let total = +amount + 50 + 18;
 
-  console.log(dataNew, "datatatata");
+  // console.log(dataNew, "datatatata");
   const handleSubmit = async () => {
    
     const response = await fetch("/api/Orders", {

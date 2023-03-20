@@ -74,7 +74,7 @@ async function main() {
       data: product,
     });
   }
-  console.log("seeding..");
+  // console.log("seeding..");
 }
 
 main()

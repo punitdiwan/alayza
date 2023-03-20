@@ -150,13 +150,14 @@ const Shoppingcart = () => {
                     >
                       <FaMinus />
                     </button>
-                  </div>
-                  <button
+                    <button
                     className="cart-btn"
                     onClick={() => removeFromCart(item.id)}
                   >
                     <FaTrash />
                   </button>
+                  </div>
+                  
                 </div>
               </>
             );

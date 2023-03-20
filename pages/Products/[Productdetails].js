@@ -111,7 +111,7 @@ export async function getStaticProps(context) {
 
   const data = JSON.stringify(product);
   const parsed = JSON.parse(data);
-  console.log("djsfgsgfdjsgjfgdjsgfhsgjfgsfd");
+  // console.log("djsfgsgfdjsgjfgdjsgfhsgjfgsfd");
   return {
     props: {
       parsed,

@@ -69,7 +69,7 @@ const forgot = () => {
 
   const submitEmail = async (e) => {
     e.preventDefault();
-    console.log(email, "email");
+    // console.log(email, "email");
     const res = await fetch(`/api/forgot/${email}`, {
       headers: {
         "Content-Type": "application/json",
@@ -79,14 +79,14 @@ const forgot = () => {
 
     if (data1 == "User Not Exists") {
       // setError("")
-      console.log(data1);
+      // console.log(data1);
       setError("Enter the registered email address");
     } else {
       setData(data1);
       alert("Reset Password Link has Been Sent to your registered email ");
       router.push("/Login");
 
-      console.log(data1);
+      // console.log(data1);
     }
   };
 
