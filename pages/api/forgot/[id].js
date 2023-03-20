@@ -45,8 +45,10 @@ export default async function handler(req, res) {
           console.log(err.statusCode);
         });
 
-      console.log(`http://localhost:3000/forgot?token=${token}`);
+      // console.log(`http://localhost:3000/forgot?token=${token}`);
       return res.status(200).json({ user: dataUser, token: token });
+    } else {
+      return res.status(405).json("User Not Exists");
     }
   }else {
     return res.status(405).json( "User Not Exists" );
