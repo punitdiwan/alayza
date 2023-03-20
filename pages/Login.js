@@ -32,7 +32,7 @@ const Login = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
-    if (token ) {
+    if (token) {
       router.push("/Shipping");
       // setValidate(true);
     }
@@ -51,18 +51,22 @@ const Login = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
     if (!regEx.test(data.email)) {
-      setMessage("Enter a valid Email and password");
+      setLoading(false);
+      setMessage("Enter a valid Email");
     } else {
       let minimumLength = 8;
       if (data.password.length < minimumLength) {
+        setLoading(false);
         setError("password must be of 8 characters");
       } else {
         if (data.password === data.confirmpassword) {
           const existingUSer = await fetch(`/api/Users/${data.email}`);
           const resData = await existingUSer.json();
           if (resData?.user?.email === data.email) {
+            setLoading(false);
             setError("User already register with this email");
           } else {
             const response = await fetch("/api/Users", {
@@ -209,7 +213,7 @@ const Login = () => {
                 </div>
 
                 <div className="login-btn-div-1">
-                <ToastContainer
+                  <ToastContainer
                     position="top-right"
                     autoClose={3000}
                     hideProgressBar={true}
@@ -241,7 +245,6 @@ const Login = () => {
                       <span>Login</span>
                     )}
                   </button>
-                  
                 </div>
               </form>
             ) : (
