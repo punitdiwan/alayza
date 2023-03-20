@@ -5,6 +5,7 @@ let Mailjet = require("node-mailjet");
 
 export default async function handler(req, res) {
   const { query, method, body } = req;
+  // console.log(query.id,"id")
 
   if (req.method === "GET") {
     const dataUser = await prisma.user.findUnique({
@@ -44,8 +45,10 @@ export default async function handler(req, res) {
           console.log(err.statusCode);
         });
 
-      // console.log(`http://localhost:3000/forgot?token=${token}`);
+      console.log(`http://localhost:3000/forgot?token=${token}`);
       return res.status(200).json({ user: dataUser, token: token });
     }
+  }else {
+    return res.status(405).json( "User Not Exists" );
   }
 }

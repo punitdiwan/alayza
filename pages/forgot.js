@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import { ToastContainer, toast } from "react-toastify";
+import Spinner from "react-bootstrap/Spinner";
 
 const forgot = () => {
   const router = useRouter();
@@ -15,6 +16,7 @@ const forgot = () => {
   const [error, setError] = useState();
   const [newError, setNewError] = useState();
   const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
   const [newPassword, setNewPassword] = useState({
     password: "",
     confirmpassword: "",
@@ -37,6 +39,8 @@ const forgot = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     if (
       newPassword.password === newPassword.confirmpassword &&
       newPassword.password.length > 0
@@ -51,11 +55,13 @@ const forgot = () => {
         method: "PUT",
         body: JSON.stringify(newPassword),
       });
+      setLoading(false);
       setNewError("");
       setNewPassword({
         password: "",
         confirmpassword: "",
       });
+
       toast("password updated succesfully", {
         position: "top-right",
         autoClose: 3000,
@@ -69,6 +75,7 @@ const forgot = () => {
       // alert("password updated succesfully");
       router.push("/Login");
     } else {
+      setLoading(false);
       setNewError("Passwords dont match");
     }
   };
@@ -81,6 +88,7 @@ const forgot = () => {
 
   const submitEmail = async (e) => {
     e.preventDefault();
+    setLoading(true);
     // console.log(email, "email");
     const res = await fetch(`/api/forgot/${email}`, {
       headers: {
@@ -88,13 +96,13 @@ const forgot = () => {
       },
     });
     const data1 = await res.json();
+    console.log(data1)
 
     if (data1 == "User Not Exists") {
-      // setError("")
-      // console.log(data1);
       setError("Enter the registered email address");
     } else {
       setData(data1);
+      setLoading(false);
       toast("Reset Password Link has Been Sent to your registered email ", {
         position: "top-right",
         autoClose: 3000,
@@ -137,7 +145,18 @@ const forgot = () => {
           />
           {<div>{newError}</div>}
           <button onClick={handleSubmit} className="btn-grad">
-            {" "}
+          {loading ? (
+                      <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <span >Update New Password</span>
+                    )}
+            
             Update New Password
           </button>
           <ToastContainer
@@ -165,7 +184,20 @@ const forgot = () => {
             value={email}
           />
           <div>{error}</div>
-          <input type="submit" value="Submit" className="btn-grad" />
+          <button className="btn-grad" onClick={submitEmail}>
+          {loading ? (
+                      <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <span >Submit</span>
+                    )}
+          </button>
+          {/* <input type="submit" value="Submit" className="btn-grad" /> */}
         </form>
       )}
       <Footer />
