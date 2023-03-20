@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     // });
 
     const dataResp = await prisma.product.create(req.body);
-    console.log(dataResp, "datatatatatata");
+    // console.log(dataResp, "datatatatatata");
     return res.status(201).json(dataResp);
   } else {
     return res.status(405).json({ msg: "Method not allowed" });

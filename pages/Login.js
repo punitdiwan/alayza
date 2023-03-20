@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
 // import jwt from "next/jwt";
 
 // import { nanoid } from "nanoid";
@@ -31,8 +32,8 @@ const Login = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
-    if (token) {
-      router.push("/Products");
+    if (token ) {
+      router.push("/Shipping");
       // setValidate(true);
     }
   }, []);
@@ -50,10 +51,10 @@ const Login = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
-    // const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
-    // if (!regEx.test(data.email)) {
-    //   setMessage("Enter a valid Email and password");
-    // } else {
+    const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+    if (!regEx.test(data.email)) {
+      setMessage("Enter a valid Email and password");
+    } else {
       let minimumLength = 8;
       if (data.password.length < minimumLength) {
         setError("password must be of 8 characters");
@@ -74,14 +75,16 @@ const Login = () => {
             setToggleState(1);
             setError("");
             setNewError("");
+            setLoading(false);
           }
         } else {
+          setLoading(false);
           setError("The password and confirmation password do not match. ");
         }
       }
-    // }
+    }
   };
-  console.log(data, "data");
+  // console.log(data, "data");
 
   const CheckAdmin = async (e) => {
     e.preventDefault();
@@ -92,20 +95,34 @@ const Login = () => {
       },
     });
     const data1 = await res.json();
-    // console.log(data1, "data");``
+    // console.log(data1, "data");
 
     localStorage.setItem("Token", data1.token);
     if (password === data1?.user?.password && email === data1?.user?.email) {
+      toast("Logged In Successfully", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       if (data1?.user.role === "ADMIN") {
         setAdmin(true);
+
         router.push("/Admin/AdminProduct");
+
         setLoading(false);
       } else {
         // Router.back();
         router.push("/Shipping");
+
         setLoading(false);
       }
     } else {
+      setLoading(false);
       setNewError("Invalid User Name and Password");
     }
   };
@@ -192,6 +209,18 @@ const Login = () => {
                 </div>
 
                 <div className="login-btn-div-1">
+                <ToastContainer
+                    position="top-right"
+                    autoClose={3000}
+                    hideProgressBar={true}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                  />
                   <button
                     className="login-btn-new"
                     // href="/Products"
@@ -212,6 +241,7 @@ const Login = () => {
                       <span>Login</span>
                     )}
                   </button>
+                  
                 </div>
               </form>
             ) : (
@@ -266,11 +296,24 @@ const Login = () => {
                   />
                 </label>
                 <div style={{ color: "red" }}>{error}</div>
-                <input
+                <button className="login-btn-new">
+                  {loading ? (
+                    <Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <span>Register</span>
+                  )}
+                </button>
+                {/* <input
                   type="submit"
                   value="Register"
                   className="login-btn-new"
-                />
+                /> */}
               </form>
             ) : (
               ""

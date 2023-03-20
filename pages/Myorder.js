@@ -30,7 +30,7 @@ const Myorder = () => {
     const data1 = await fetch(`/api/Orders/${id}`);
     const res = await data1.json();
     setOrderData(res);
-    console.log(res, "dtaa");
+    // console.log(res, "dtaa");
     setShow(true);
 
     // const newData = res.filter((item) => item.userId == json?.userId);

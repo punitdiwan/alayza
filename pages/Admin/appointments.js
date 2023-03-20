@@ -24,7 +24,7 @@ const appointments = () => {
   };
 
   const paginateOrder = paginate(data, currentPage, pageSize);
-  console.log(data, "data");
+  // console.log(data, "data");
 
   return (
     <>

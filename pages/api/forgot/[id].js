@@ -27,10 +27,10 @@ export default async function handler(req, res) {
         Messages: [
           {
             From: { Email: "no-reply@maitretech.com", Name: "Support" },
-            To: [{ Email: "ravindra.064464@gmail.com" }],
-                TemplateID: 4653160,
-                "TemplateLanguage": true,
-            "Variables": { "FORGET_PASSWORD_LINK": link },
+            To: [{ Email: dataUser?.email }],
+            TemplateID: 4653160,
+            TemplateLanguage: true,
+            Variables: { FORGET_PASSWORD_LINK: link },
             Subject: "Reset Password",
           },
         ],
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       });
       request
         .then((result) => {
-          console.log(result);
+          // console.log(result);
         })
         .catch((err) => {
           console.log(err.statusCode);

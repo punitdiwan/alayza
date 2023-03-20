@@ -39,10 +39,7 @@ function Header({ cart }) {
     <Navbar expand="lg" id="navbar">
       <Container>
         <Navbar.Brand href="/" className="logo">
-          <img
-            src="/images/Zeba_logo_1.png"
-            alt="logo"
-          />
+          <img src="/images/Zeba_logo_1.png" alt="logo" />
           {/* <em><h1 >Zebdermm</h1></em> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -63,24 +60,27 @@ function Header({ cart }) {
             <Link href="/Blogs">BLOGS</Link>
             <Link href="/Products">PRODUCTS</Link>
             <Link href="/Contactus">CONTACT US</Link>
-            <NavDropdown title="MORE" id="basic-nav-dropdown">
+            {
+              token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
               <NavDropdown.Item className="dropdown1">
                 <Link href="/Myprofile">My Profile</Link>
               </NavDropdown.Item>
               <NavDropdown.Item className="dropdown1">
                 <Link href="/Myorder">My Orders</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item className="dropdown1">
+              {/* <NavDropdown.Item className="dropdown1">
                 <Link href="/Login" onClick={clearToken}>
                   {token ? "Logout" : "Login/SignUp"}
                 </Link>
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
               {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Admin" onClick={() => setAdmin(true)}>
                     Admin
                   </Link>
                 </NavDropdown.Item> */}
-            </NavDropdown>
+            </NavDropdown> : ""
+            }
+            
             <Link
               href="/Shoppingcart"
               className="cart"
@@ -89,6 +89,7 @@ function Header({ cart }) {
               <FaCartPlus />
               {cart1 > 0 ? <span>{cart1}</span> : ""}
             </Link>
+            <Link href="/Login" className="logout" onClick={clearToken}>{token ? "Logout" : "Login"}</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
