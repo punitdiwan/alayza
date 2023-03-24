@@ -33,7 +33,7 @@ const Login = () => {
   useEffect(() => {
     const token = localStorage.getItem("Token");
     if (token) {
-      router.push("/Shipping");
+      router.push("/Products");
       // setValidate(true);
     }
   }, []);
@@ -101,8 +101,8 @@ const Login = () => {
     const data1 = await res.json();
     // console.log(data1, "data");
 
-    localStorage.setItem("Token", data1.token);
     if (password === data1?.user?.password && email === data1?.user?.email) {
+      localStorage.setItem("Token", data1.token);
       toast("Logged In Successfully", {
         position: "top-right",
         autoClose: 3000,
@@ -114,10 +114,8 @@ const Login = () => {
         theme: "dark",
       });
       if (data1?.user.role === "ADMIN") {
-        setAdmin(true);
-
+        // setAdmin(true);
         router.push("/Admin/AdminProduct");
-
         setLoading(false);
       } else {
         // Router.back();
