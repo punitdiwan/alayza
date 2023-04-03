@@ -1,9 +1,8 @@
-import React from "react";
-// import Header from "../../Components/Header";
-// import Footer from "../../Components/Footer";
+
+
 import Products from "../Products";
-import React, { useEffect } from "react";
-// import Layout from "../../Components/Layout";
+import React, { useEffect, useState } from "react";
+
 
 export async function getStaticProps() {
   const data = productData;
