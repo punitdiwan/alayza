@@ -14,6 +14,18 @@ export async function getStaticProps() {
 }
 
 const index = ({ data }) => {
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if (!token) {
+      router.push("/Login")
+    }
+    // setToken1(token)
+  }, []);
+
+
+
   return (
     <>
       <Products data={data} />

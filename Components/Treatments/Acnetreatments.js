@@ -80,4 +80,16 @@ export const treatmentData = [
       "Hair Pro is a software program designed for professional hair salons and stylists. It provides tools for managing appointments, tracking inventory, creating custom services and pricing, and generating reports. Hair Pro also includes features such as photo galleries, customer profiles, and marketing tools.",
     image: "./images/hair-pro-1.jpeg",
   },
+  {
+    title: "Homeopathic",
+    detail:
+      "An alternative approach to medicine based on the belief that natural substances, prepared in a special way and used most often in very small amounts, restore health. According to these beliefs, in order for a remedy to be effective, it must cause in a healthy person the same symptoms being treated in the patient. Also called homeopathy.",
+    image: "./images/Homeopathic.jpg",
+  },
+  {
+    title: "Aesthetic",
+    detail:
+      "Aesthetic medicine is a branch of modern medicine that focuses on altering cosmetic appearance through the treatment of conditions including scars, skin laxity, wrinkles, moles, liver spots, excess fat, cellulite, unwanted hair, skin discoloration, and spider veins.",
+    image: "./images/Aesthetic.jpg",
+  },
 ];

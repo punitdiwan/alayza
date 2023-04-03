@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FaCircle, FaRegCircle } from "react-icons/fa";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -6,6 +6,18 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Shipping = () => {
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("Token");
+    if (!token) {
+      router.replace("/Login");
+      // setValidate(true);
+    }
+  }, []);
+
+
+
   const [fieldData, setFieldData] = useState({
     address: "",
     city: "",
@@ -16,13 +28,7 @@ const Shipping = () => {
   const [error, setError] = useState(false);
 
 
-  useEffect(() => {
-    const token = localStorage.getItem("Token");
-    if (!token) {
-      router.push("/Login");
-      // setValidate(true);
-    }
-  }, []);
+
 
 
 
