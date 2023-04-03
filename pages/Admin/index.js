@@ -2,6 +2,7 @@ import React from "react";
 // import Header from "../../Components/Header";
 // import Footer from "../../Components/Footer";
 import Products from "../Products";
+import React, { useEffect } from "react";
 // import Layout from "../../Components/Layout";
 
 export async function getStaticProps() {
