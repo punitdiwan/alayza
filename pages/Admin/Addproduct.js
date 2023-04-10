@@ -92,7 +92,7 @@ const Addproduct = () => {
             // If there is no error updating the editor with the imageUrl
             var imageUrl = `${digitalOceanSpaces}` + blob.name;
             // callback(imageUrl, blob.name);
-            console.log(imageUrl, "URL");
+            // console.log(imageUrl, "URL");
             setData({ ...data, image: imageUrl });
           }
         });
