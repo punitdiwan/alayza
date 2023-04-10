@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Header from "../Components/Admin/Header";
-import Footer from "../Components/Footer";
+import Header from "../../Components/Admin/Header";
+import Footer from "../../Components/Footer";
 import Router from "next/router";
 import Link from "next/link";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/router";
 import AWS, { Config, S3 } from "aws-sdk";
-import s3 from "../Components/DigitalOcean";
+import s3 from "../../Components/DigitalOcean";
 
 const Addproduct = () => {
   // const router = useRouter();
   // console.log(router.query);
 
   const [prodData, setProdData] = useState("");
+  const [keydata, setKeyData] = useState();
+  const [keydata1, setKeyData1] = useState();
 
   const categoryData = [
     {
@@ -42,35 +44,36 @@ const Addproduct = () => {
     qty: 1,
   });
 
-  
   // const [selectedFile, setSelectedFile] = useState(null);
 
   // console.log(signedUrl, "url");
 
   // console.log(selectedFile?.name, "");
 
+  const fetchData = async () => {
+    const response = await fetch("/api/env");
+    const data = await response.json();
+    setKeyData(data.secretKey);
+    setKeyData1(data.secretId);
+  };
 
-
-  
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleImageChange = (e) => {
-
-
     const spacesEndpoint = new AWS.Endpoint(
       "sgp1.digitaloceanspaces.com/zeba-ecom/"
     );
     const s3 = new AWS.S3({
       endpoint: spacesEndpoint,
-      // accessKeyId: "DO00D6ZU6AK3QG7NDVTA",
-      accessKeyId: process.env.DO_SPACE_KEY,
-      // secretAccessKey: "stpTIAotvH67FwpgD4e2t3LbUBDj8iMt38T3sVfX7eE",
-      secretAccessKey: process.env.DO_SPACE_SECRET
+      accessKeyId: keydata,
+      secretAccessKey: keydata1,
     });
-  
+
     let digitalOceanSpaces =
       "https://lmsimages.sgp1.digitaloceanspaces.com/zeba-ecom/";
     let bucketName = "lmsimages";
-
 
     if (e.target.files && e.target.files[0]) {
       const blob = e.target.files[0];
@@ -89,16 +92,12 @@ const Addproduct = () => {
             // If there is no error updating the editor with the imageUrl
             var imageUrl = `${digitalOceanSpaces}` + blob.name;
             // callback(imageUrl, blob.name);
-            // console.log(imageUrl,"URL");
-            setData({...data, image:imageUrl})
+            // console.log(imageUrl, "URL");
+            setData({ ...data, image: imageUrl });
           }
         });
     }
   };
-
-
-
-
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -108,7 +107,7 @@ const Addproduct = () => {
   const submitData = async () => {
     // console.log("fun start", signedUrl)
     // console.log("fun data", data)
-  
+
     const response = await fetch("/api/products", {
       method: "POST",
       body: JSON.stringify({ data }),
@@ -127,9 +126,6 @@ const Addproduct = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
-
-
-
 
   return (
     <>
