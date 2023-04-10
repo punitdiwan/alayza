@@ -209,7 +209,7 @@ const Addproduct = () => {
           />
 
           <Link
-            href="Admin/AdminProduct"
+            href="/Admin/AdminProduct"
             className="login-btn"
             style={{ margin: "0.3rem" }}
             onClick={submitData}
