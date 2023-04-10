@@ -81,7 +81,7 @@ const Products = () => {
           <h2>Products({prodData?.length})</h2>
           <Link
             className="login-btn"
-            href="/Addproduct"
+            href="/Admin/Addproduct"
           >
             Add Product
           </Link>
