@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 const Form = () => {
-   const [data, setData] = useState({
-      name: "",
-      email: "",
-      Date: "",
-      number: "",
-      message: "",
-    });
-    const [error, setError] = useState();;
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    Date: "",
+    number: "",
+    message: "",
+  });
+  const [error, setError] = useState();;
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -129,6 +129,7 @@ const Form = () => {
           theme="light"
         />
       </form>
+
     </>
   );
 };
