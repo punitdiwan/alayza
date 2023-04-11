@@ -64,29 +64,31 @@ function Header({ cart }) {
             <Link href="/Results">RESULTS</Link>
             <Link href="/Gallery">GALLERY</Link>
             <Link href="/Blogs">BLOGS</Link>
+            <Link href="/Clinicsetup">AESTHETIC-CLINICSETUP</Link>
             <Link href="/Products">PRODUCTS</Link>
+            <Link href="/Testimonial">TESTIMONIAL</Link>
             <Link href="/Contactus">CONTACT US</Link>
             {
               token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
-              <NavDropdown.Item className="dropdown1">
-                <Link href="/Myprofile">My Profile</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item className="dropdown1">
-                <Link href="/Myorder">My Orders</Link>
-              </NavDropdown.Item>
-              {/* <NavDropdown.Item className="dropdown1">
+                <NavDropdown.Item className="dropdown1">
+                  <Link href="/Myprofile">My Profile</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item className="dropdown1">
+                  <Link href="/Myorder">My Orders</Link>
+                </NavDropdown.Item>
+                {/* <NavDropdown.Item className="dropdown1">
                 <Link href="/Login" onClick={clearToken}>
                   {token ? "Logout" : "Login/SignUp"}
                 </Link>
               </NavDropdown.Item> */}
-              {/* <NavDropdown.Item className="dropdown1">
+                {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Admin" onClick={() => setAdmin(true)}>
                     Admin
                   </Link>
                 </NavDropdown.Item> */}
-            </NavDropdown> : ""
+              </NavDropdown> : ""
             }
-            
+
             <Link
               href="/Shoppingcart"
               className="cart"

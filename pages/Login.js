@@ -195,7 +195,7 @@ const Login = () => {
                     href="/forgot"
                     style={{
                       margin: "1rem",
-                      color: "black",
+                      color: "#03002f",
                       textDecoration: "none",
                     }}
                   >
@@ -204,7 +204,7 @@ const Login = () => {
                   <Link
                     href=""
                     onClick={() => setToggleState(2)}
-                    style={{ margin: "1rem", color: "black" }}
+                    style={{ margin: "1rem", color: "#03002f" }}
                   >
                     Dont Have Account?
                   </Link>
