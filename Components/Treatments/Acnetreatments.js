@@ -1,22 +1,134 @@
 import React from "react";
+import { useQuery } from "graphql-hooks";
+import * as constants from "../Contants";
+
 
 const Acnetreatments = () => {
+
+
+  const { data } = useQuery(constants.Timage);
+
+
+
   return (
     <>
       <section className="acne-treatment">
-        {treatmentData.map((item) => {
-          return (
-            <>
-              <div className="treatment-maped">
-                <div className="treatment-maped-1">
-                  <h1>{item.title}</h1>
-                  <p>{item.detail}</p>
-                </div>
-                <img src={item.image} height="400px" width="300px" />
-              </div>
-            </>
-          );
-        })}
+        {/* {treatmentData.map((item) => { */}
+        {/* return ( */}
+        <>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[0].THeading}</h5>
+              <h5>{data?.Timage[0].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[0].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[1].THeading}</h5>
+              <h5>{data?.Timage[1].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[1].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[2].THeading}</h5>
+              <h5>{data?.Timage[2].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[2].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[3].THeading}</h5>
+              <h5>{data?.Timage[3].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[3].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[4].THeading}</h5>
+              <h5>{data?.Timage[4].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[4].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[5].THeading}</h5>
+              <h5>{data?.Timage[5].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[5].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[6].THeading}</h5>
+              <h5>{data?.Timage[6].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[6].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[7].THeading}</h5>
+              <h5>{data?.Timage[7].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[7].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[8].THeading}</h5>
+              <h5>{data?.Timage[8].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[8].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[9].THeading}</h5>
+              <h5>{data?.Timage[9].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[9].Timage?.id}`}
+
+            />
+          </div>
+          <div className="treatment-maped">
+            <div className="treatment-maped-1">
+              <h5>{data?.Timage[10].THeading}</h5>
+              <h5>{data?.Timage[10].TInfo}</h5>
+            </div>
+            <img
+              src={`http://0.0.0.0:8055/assets/${data?.Timage[10].Timage?.id}`}
+
+            />
+          </div>
+        </>
+        {/* );
+        })} */}
         {/* <h1>Best Acne Treatment</h1>
         <p>
           Acne or pimples are regarded as one of the most frustrating chronic
@@ -35,6 +147,10 @@ const Acnetreatments = () => {
 };
 
 export default Acnetreatments;
+
+
+
+
 
 export const treatmentData = [
   {
@@ -91,5 +207,28 @@ export const treatmentData = [
     detail:
       "Aesthetic medicine is a branch of modern medicine that focuses on altering cosmetic appearance through the treatment of conditions including scars, skin laxity, wrinkles, moles, liver spots, excess fat, cellulite, unwanted hair, skin discoloration, and spider veins.",
     image: "./images/Aesthetic.jpg",
+  },
+
+  {
+    title: "Hydra facial",
+    detail:
+      "A HydraFacial is a facial treatment using a patented device to deliver exfoliation, cleansing, extraction, and hydration to the face. This system uses a vortex swirling action to deliver hydration and to remove dead skin, dirt, debris, and impurities while cleaning and soothing your skin.",
+    image: "./images/Hydrafacial-Benefits.jpg",
+  },
+
+
+  {
+    title: "BB Glow Treatment",
+    detail:
+      "The BB glow treatment is a semi-permanent makeup and non-surgical procedure that uses a highly effective tinted pigments. The pigment is applied using a microneedle to penetrate the skin, it adds nutrients as well as desired colour which produces natural collagen.",
+    image: "./images/BB-Glow-Main-Banner.jpg",
+  },
+
+
+  {
+    title: "Radio Cautery - mole /wart/freckles removal",
+    detail:
+      "Curettage and cautery is a non-invasive treatment that involves scraping off a skin lesion, such as a mole. Sometimes, mole removal treatment area is cauterized after the mole is removed. This is to prevent bleeding without the use of stitches that need to be removed after treatment.",
+    image: "./images/Radiofrequency-Cautery-in-chennai.jpg",
   },
 ];

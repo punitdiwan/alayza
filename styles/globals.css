@@ -57,13 +57,13 @@ a {
   height: 6vh;
   width: 100%;
   /* margin-right: 3rem; */
-  margin-left: -1rem;
+  margin-left: -3rem;
   /* border: 2px solid red; */
 }
 
 .me-auto {
   width: 100%;
-  font-size: 15px;
+  font-size: 12px;
   /* border: 2px solid red; */
 }
 
@@ -370,13 +370,12 @@ h6 {
 
 .form-div {
   margin-top: 3rem;
-  /* padding-top:4rem;
-  padding-bottom:4rem; */
+
   display: flex;
   height: 30vh auto;
-  /* padding-left:15%; */
+
   background-image: url("../public/images/dr-zeba.jpeg");
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   background-repeat: no-repeat;
   background-position: right;
   background-size: 50vw;
@@ -522,7 +521,7 @@ form input {
   bottom: 0;
   left: 0;
   top: 15px;
-  background-color: #3795BD;
+  /* background-color: #3795BD; */
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
@@ -771,6 +770,30 @@ li {
   margin: 0 auto;
 }
 
+.jkl1 {
+  border-radius: 1rem;
+  border: 2px solid gray;
+  width: 31%;
+  text-align: center;
+  overflow: hidden;
+  margin: 1rem 1rem;
+
+}
+
+.jkl {
+  display: flex;
+  margin: 1rem;
+  margin-top: 30px;
+}
+
+.jkl img {
+  height: 200px;
+  width: 90%;
+  margin-bottom: 2rem;
+  margin: 1rem;
+}
+
+
 
 
 /* **** gallery ******  */
@@ -788,6 +811,25 @@ li {
 .gallery-div img {
   width: 25vw;
   height: 50vh;
+}
+
+.gallery-div1 img {
+  width: 60vw;
+  height: 65vh;
+  margin-top: 5px;
+  margin-left: 1rem;
+  margin-bottom: 5px;
+  border: 2px solid black;
+}
+
+.gallery-div2 img {
+  width: 60vw;
+  height: 65vh;
+  margin-top: 5px;
+  margin-left: 30rem;
+  margin-bottom: 5px;
+  border: 2px solid black;
+
 }
 
 
@@ -1539,6 +1581,16 @@ form .btn-grad {
   width: 94%;
 }
 
+.cardslidersetup {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -1557,6 +1609,27 @@ form .btn-grad {
 /* @media only screen and (min-width: 1200px) {...} */
 
 @media only screen and (max-width: 992px) {
+  .jkl {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .jkl1 {
+    border-radius: 1rem;
+    border: 2px solid gray;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin: 1rem 1rem;
+  }
+
+  .jkl img {
+    height: 400px;
+    width: 90%;
+    margin: 1rem;
+  }
+
+
   .shipping-main .btn-grad {
     width: 90%;
   }
@@ -1815,12 +1888,54 @@ form .btn-grad {
     padding: 0;
   }
 
+  .gallery-div1 img {
+    width: 80vw;
+    height: 65vw;
+
+  }
+
+  .gallery-div2 img {
+    width: 80vw;
+    height: 65vw;
+
+  }
+
+  .cardslidersetup {
+    margin-top: 10px;
+    align-items: initial;
+
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
   .payment-1 label {
     font-size: small;
   }
+
+  .cardslidersetup {
+    margin-top: 10px;
+    padding: 0px 0px;
+  }
+
+  .jkl img {
+    height: 350px;
+    width: 90%;
+    margin: 1rem;
+  }
+
+  .gallery-div1 img {
+    width: 80vw;
+    height: 65vw;
+    margin: 1rem 3rem;
+  }
+
+  .gallery-div2 img {
+    width: 80vw;
+    height: 65vw;
+    margin: 2rem 3rem;
+  }
+
 
   .payment-main h1 {
     font-size: larger;
@@ -1942,6 +2057,10 @@ form .btn-grad {
   }
 
   .gallery-div {
+    flex-direction: column;
+  }
+
+  .gallery-div1 {
     flex-direction: column;
   }
 
