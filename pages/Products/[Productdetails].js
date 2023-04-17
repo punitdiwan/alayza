@@ -61,9 +61,12 @@ const Productdetails = ({ parsed }) => {
             </p>
           </div>
           <div className="products-detail-page-inner-2">
-            {/* <p>{data3.price}</p> */}
+            <img src="./images/Qrcode.jpeg" alt="" />
+          </div>
+          {/* <div className="products-detail-page-inner-2">
+           
             <p>Status: In Stock</p>
-            <p>Qty: 1{/* <input type="number" value="1" /> */}</p>
+            <p>Qty: 1</p>
             <Link
               href="/Shoppingcart"
               type="button"
@@ -77,8 +80,11 @@ const Productdetails = ({ parsed }) => {
             >
               Add To Cart
             </Link>
-            
-          </div>
+
+          </div> */}
+          {/* ----------------------------QR payment--------------------- */}
+
+
         </div>
       </section>
       <Footer />
