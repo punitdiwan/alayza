@@ -25,7 +25,7 @@ const Footer = () => {
 
 
 
-            <Link href="https://instagram.com/zebdermm?igshid=ZDdkNTZiNTM=" target="_blank"><img src="" height="50px" width="50px" style={{ marginLeft: "1rem" }} /></Link>
+            <Link href="https://instagram.com/zebdermm?igshid=ZDdkNTZiNTM=" target="_blank"><img src="./images/Zeba_insta.png" height="50px" width="50px" style={{ marginLeft: "1rem" }} /></Link>
 
 
 

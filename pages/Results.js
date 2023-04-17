@@ -23,7 +23,7 @@ const Results = () => {
                 <div className="card_image">
                   <img
 
-                    src={`http://0.0.0.0:8055/assets/${data?.Result[0].Image?.id}`}
+                    src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[0].Image?.id}`}
 
                   />
                   <h6>{data?.Result[0].Name}</h6>
@@ -38,7 +38,7 @@ const Results = () => {
                 <div className="card_image">
                   <img
 
-                    src={`http://0.0.0.0:8055/assets/${data?.Result[1].Image?.id}`}
+                    src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[1].Image?.id}`}
 
                   />
                   <h6>{data?.Result[1].Name}</h6>
@@ -52,7 +52,7 @@ const Results = () => {
                 <div className="card_image">
                   <img
 
-                    src={`http://0.0.0.0:8055/assets/${data?.Result[2].Image?.id}`}
+                    src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[2].Image?.id}`}
 
                   />
                   <h6>{data?.Result[2].Name}</h6>
@@ -66,7 +66,7 @@ const Results = () => {
                 <div className="card_image">
                   <img
 
-                    src={`http://0.0.0.0:8055/assets/${data?.Result[3].Image?.id}`}
+                    src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[3].Image?.id}`}
 
                   />
                   <h6>{data?.Result[3].Name}</h6>
@@ -81,7 +81,7 @@ const Results = () => {
                   <div className="card_image">
                     <img
 
-                      src={`http://0.0.0.0:8055/assets/${data?.Result[4].Image?.id}`}
+                      src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[4].Image?.id}`}
 
                     />
                     <h6>{data?.Result[4].Name}</h6>
@@ -96,7 +96,7 @@ const Results = () => {
                 <div className="card_image">
                   <img
 
-                    src={`http://0.0.0.0:8055/assets/${data?.Result[5].Image?.id}`}
+                    src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[5].Image?.id}`}
 
                   />
                   <h6>{data?.Result[5].Name}</h6>
@@ -110,7 +110,7 @@ const Results = () => {
                 <div className="card_image">
                   <img
 
-                    src={`http://0.0.0.0:8055/assets/${data?.Result[6].Image?.id}`}
+                    src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[6].Image?.id}`}
 
                   />
                   <h6>{data?.Result[6].Name}</h6>
@@ -124,7 +124,7 @@ const Results = () => {
                 <div className="card_image">
                   <img
 
-                    src={`http://0.0.0.0:8055/assets/${data?.Result[7].Image?.id}`}
+                    src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Result[7].Image?.id}`}
 
                   />
                   <h6>{data?.Result[7].Name}</h6>

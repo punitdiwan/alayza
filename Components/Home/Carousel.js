@@ -7,7 +7,7 @@ function Carousel1() {
 
   const { data } = useQuery(constants.slider)
 
-  // console.log(data, "Slider-daaataaaaa")
+  console.log(data, "Slider-daaataaaaa")
 
   // const { data } = useForm(constants.slider)
   return (
@@ -15,7 +15,7 @@ function Carousel1() {
       <Carousel.Item className="carousel_image_new">
         <img
           className="d-block w-100"
-          src={`http://0.0.0.0:8055/assets/${data?.Slider[0].Slider_images[0]?.directus_files_id?.id}`}
+          src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Slider[0].Slider_images[0]?.directus_files_id?.id}`}
           alt="1st slide"
         />
         {/* <img
@@ -28,7 +28,7 @@ function Carousel1() {
       <Carousel.Item className="carousel_image_new">
         <img
           className="d-block w-100"
-          src={`http://0.0.0.0:8055/assets/${data?.Slider[0].Slider_images[1]?.directus_files_id?.id}`}
+          src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Slider[0].Slider_images[1]?.directus_files_id?.id}`}
           alt="2nd slide"
         />
         {/* <img
@@ -42,7 +42,7 @@ function Carousel1() {
       <Carousel.Item className="carousel_image_new">
         <img
           className="d-block w-100"
-          src={`http://0.0.0.0:8055/assets/${data?.Slider[0].Slider_images[2]?.directus_files_id?.id}`}
+          src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Slider[0].Slider_images[2]?.directus_files_id?.id}`}
           alt="3rd slide"
         />
         {/* <img
@@ -57,7 +57,7 @@ function Carousel1() {
       <Carousel.Item className="carousel_image_new">
         <img
           className="d-block w-100"
-          src={`http://0.0.0.0:8055/assets/${data?.Slider[0].Slider_images[3]?.directus_files_id?.id}`}
+          src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Slider[0].Slider_images[3]?.directus_files_id?.id}`}
           alt="4th slide"
         />
         {/* <img
@@ -68,20 +68,16 @@ function Carousel1() {
 
 
       </Carousel.Item>
-      <Carousel.Item className="carousel_image_new">
+      {/* <Carousel.Item className="carousel_image_new">
         <img
           className="d-block w-100"
           src={`http://0.0.0.0:8055/assets/${data?.Slider[0].Slider_images[4]?.directus_files_id?.id}`}
           alt="5TH slide"
         />
-        {/* <img
-          className="d-block w-100 h-75"
-          src="./images/Zeba_2_Banner.png"
-          alt="Second slide"
-        /> */}
+        
 
 
-      </Carousel.Item>
+      </Carousel.Item> */}
 
 
     </Carousel>
