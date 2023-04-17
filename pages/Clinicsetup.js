@@ -6,7 +6,7 @@ import Footer from "../Components/Footer";
 const Clinicsetup = () => {
     return (
         <>
-            <section className="gallery-main">
+            <section className="gallery-main" style={{ backgroundColor: "#1d1d1d" }}>
                 <Header />
                 <div className="about-header">
                     <h1>Aesthetic Clinic Setup</h1>

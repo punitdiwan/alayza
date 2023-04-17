@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   const url = process.env.REACT_APP_API_URL;
 
   const client = new GraphQLClient({
-    url: "http://0.0.0.0:8055/graphql"
+    url: "https://zebaecom.maitretech.com/graphql"
   })
 
   return (
