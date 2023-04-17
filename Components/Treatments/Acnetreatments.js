@@ -9,7 +9,7 @@ const Acnetreatments = () => {
   const { data } = useQuery(constants.Timage);
 
 
-  console.log(data, "timage-data")
+  console.log(data?.Timage[0].Timage?.id, "timage-data")
 
 
 
@@ -23,6 +23,7 @@ const Acnetreatments = () => {
             <div className="treatment-maped-1">
               <h5>{data?.Timage[0].THeading}</h5>
               <h5>{data?.Timage[0].TInfo}</h5>
+
             </div>
             <img
               src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.Timage[0].Timage?.id}`}

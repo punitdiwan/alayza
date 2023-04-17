@@ -4,7 +4,7 @@ import Footer from "../../Components/Footer";
 // import { FaRegStar } from "react-icons/fa";
 import Router from "next/router";
 // import { productData } from "./index";
-import Link from "next/link";
+// import Link from "next/link";
 import prisma from "../../lib/prisma";
 // import { useRouter } from "next/router";
 
