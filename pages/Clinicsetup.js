@@ -9,7 +9,7 @@ const Clinicsetup = () => {
             <section className="gallery-main" style={{ backgroundColor: "#1d1d1d" }}>
                 <Header />
                 <div className="about-header">
-                    <h1>Aesthetic Clinic Setup</h1>
+                    <h1>Ordering Medicine Online  Consultation</h1>
                     {/* <p>Dr. Suruchi Puri / Gallery</p> */}
                 </div>
                 {/* <div className="gallery-div1">

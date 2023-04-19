@@ -64,7 +64,14 @@ function Header({ cart }) {
             <Link href="/Results">RESULTS</Link>
             <Link href="/Gallery">GALLERY</Link>
             <Link href="/Blogs">BLOGS</Link>
-            <Link href="/Clinicsetup">AESTHETIC-CLINICSETUP</Link>
+            <Link href="/Homeopathy">HOMEOPATHY</Link>
+
+            <NavDropdown title="ORDERING MEDICINE" id="basic-nav-dropdown" style={{ color: "#03002f" }}>
+              <NavDropdown.Item className="dropdown1">
+                <Link href="/Clinicsetup">ORDERING MEDICINE ONLINE CONSULTATION</Link>
+              </NavDropdown.Item>
+            </NavDropdown>
+
             <Link href="/Products">PRODUCTS</Link>
             <Link href="/Testimonial">TESTIMONIAL</Link>
             <Link href="/Contactus">CONTACT US</Link>

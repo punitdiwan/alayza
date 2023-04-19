@@ -78,42 +78,42 @@ const Products = ({ data3 }) => {
           <div className="products-main-1">
             {categoryData
               ? filteredData?.map((item) => {
-                  return (
-                    <ul className="cards" key={item.id}>
-                      {/* {console.log(item.prod_id)} */}
-                      <Link className="cards_item" href={`Products/${item.id}`}>
-                        <div className="card">
-                          <div className="card_image">
-                            <img src={item.image} />
-                          </div>
-                          <div className="card_content">
-                            <h3>{item.brand}</h3>
-                            <h2 className="card_title">{item.name}</h2>
-                            <h5>Rs. {item.price}</h5>
-                          </div>
+                return (
+                  <ul className="cards" key={item.id}>
+                    {/* {console.log(item.prod_id)} */}
+                    <Link className="cards_item" href={`Products/${item.id}`}>
+                      <div className="card">
+                        <div className="card_image">
+                          <img src={item.image} />
                         </div>
-                      </Link>
-                    </ul>
-                  );
-                })
+                        <div className="card_content">
+                          <h3>{item.brand}</h3>
+                          <h2 className="card_title">{item.name}</h2>
+                          <h5>Rs. {item.price}</h5>
+                        </div>
+                      </div>
+                    </Link>
+                  </ul>
+                );
+              })
               : prodData?.map((item) => {
-                  return (
-                    <ul className="cards" key={item.id}>
-                      <Link className="cards_item" href={`Products/${item.id}`}>
-                        <div className="card">
-                          <div className="card_image">
-                            <img src={item.image} />
-                          </div>
-                          <div className="card_content">
-                            <h3>{item.brand}</h3>
-                            <h2 className="card_title">{item.name}</h2>
-                            <h5>Rs. {item.price}</h5>
-                          </div>
+                return (
+                  <ul className="cards" key={item.id}>
+                    <Link className="cards_item" href={`Products/${item.id}`}>
+                      <div className="card">
+                        <div className="card_image">
+                          <img src={item.image} />
                         </div>
-                      </Link>
-                    </ul>
-                  );
-                })}
+                        <div className="card_content">
+                          <h3>{item.brand}</h3>
+                          <h2 className="card_title">{item.name}</h2>
+                          <h5>Rs. {item.price}</h5>
+                        </div>
+                      </div>
+                    </Link>
+                  </ul>
+                );
+              })}
           </div>
         </section>
       </Layout>
