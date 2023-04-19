@@ -61,7 +61,8 @@ const Productdetails = ({ parsed }) => {
             </p>
           </div>
           <div className="products-detail-page-inner-2">
-            <img src="./images/Qrcode.jpeg" alt="" />
+            <img src="/images/Qrcode.jpeg" alt="" />
+
           </div>
           {/* <div className="products-detail-page-inner-2">
            

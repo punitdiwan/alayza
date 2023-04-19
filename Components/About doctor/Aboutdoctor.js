@@ -94,7 +94,14 @@ const Aboutdoctor = () => {
               Mesotherapy to PRP (Platelet Rich Plasma ) to Hair Transplant
               (FUE/ FUT/PRP augmented FUE).
             </p>
+
           </div>
+        </div>
+        <div className="about-doctor-5">
+          <p>You will be surprised to see other patients and mostly we found our patients exchange their treatments experiences. Our patients are the best proof of our effective treatments. Skin rejuvenation treatments or plastic surgery procedures are not as expensive or complicate or painful as you may think it would be. With the modern technology and high tech equipments of today, you will need no time for healing and can go to your daily work or routine life after treatments.</p>
+        </div>
+        <div className="about-doctor-5">
+          <p>Our treatments ranging from homeopathic medicines to deep skin rejuvenation of lontophoresis with a highly trained and friendly staffs with supervision of laser & other aesthetic treatments by Dr.Zeba Quadiri .Our treatments includes dermatologist cream, serum,face cleansers ,lotion and medication for the complete treatments for all skin type.Most common problems could be treated such as acne ,scars,hair treatments and inflammation of problems skin & hair.</p>
         </div>
       </section>
     </>
