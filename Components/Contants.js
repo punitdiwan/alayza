@@ -60,3 +60,19 @@ export const Gallery = `
     
     }
   `
+
+
+export const about = `
+
+query{
+  About_dr{
+    about_dr
+    more_info
+    more_info_1
+    more_info_2
+    about_image{
+      id
+    }
+  }
+}
+` 

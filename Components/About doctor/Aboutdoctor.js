@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import Form from "../Form";
+import { useQuery } from "graphql-hooks";
+import * as constants from "../../Components/Contants";
 
 const Aboutdoctor = () => {
+  const { data } = useQuery(constants.about);
+  console.log(data?.About_dr[0]?.about_dr, "about-data");
 
   return (
     <>
       <section className="about-doctor">
         <div className="about-doctor-1">
           <div className="doctors-image">
-            <img src="./images/about-zeba.jpeg" alt="about" />
+            <img
+              src={`${process.env.NEXT_PUBLIC_URL}assets/${data?.About_dr[0]?.about_image?.id}`}
+              alt="about"
+            />
           </div>
           <div className="about-doctor-2">
             <p>AS THE DERMATOLOGIST FOR "FEMINA MISS INDIA", 2014</p>
             <h1>Dr. Zeba Quadiri</h1>
-            <p>
+            <p>{data?.About_dr[0]?.about_dr}</p>
+            {/* <p>
               Dr. Zeba is a renowned and highly acclaimed homeopathic doctor and
               aesthetician, who has more than 15 years of experience. Her
               passion for this field first sparked when she happened to take a
@@ -39,13 +47,14 @@ const Aboutdoctor = () => {
               and Fresh face contest for advising models for the Johnson &
               Johnson company advertisements. Dr. Zeba Quadiri was also
               associated with " FEMINA MISS INDIA CONTEST 2014".
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="about-doctor-3">
           <Form />
           <div className="about-doctor-4">
-            <p>
+            <p>{data?.About_dr[0]?.more_info}</p>
+            {/* <p>
               Dr. Zeba Quadiri is one of the first few dermatologist to start
               the concept of Drug therapy, Mesotherapy and PRP for the
               restoration of lost hair, Baldness and Hair Fall. She was the
@@ -56,7 +65,7 @@ const Aboutdoctor = () => {
               is also the favourite dermatologist of Mr. Amitabh Bachchan and
               has received prestigious letter of appreciation from Mr. Amitabh
               Bachchan.
-            </p>
+            </p> */}
             <p>
               Ask almost any women/men and they will probably tell us that their
               relationship with skin and hair is similar to a love affair.
@@ -64,7 +73,8 @@ const Aboutdoctor = () => {
               with identity in this modern day, glamour crazy and cosmetically
               conscious society.
             </p>
-            <p>
+            <p>{data?.About_dr[0]?.more_info_1 }</p>
+            {/* <p>
               We at Dr. Zeba Quadiri's "Makeovers" are striving hard to deliver
               the most advanced result oriented and high-end World Class
               Cosmetology, Bridal Dermatology, State of the art Vitiligo Surgery
@@ -79,8 +89,9 @@ const Aboutdoctor = () => {
               TV) and skin and hair articles in reputed medical national and
               international journals and newspapers such as the 'TIMES OF
               INDIA'.
-            </p>
-            <p>
+            </p> */}
+            <p>{data?.About_dr[0]?.more_info_2 }</p>
+            {/* <p>
               In our endeavour to improve the quality of life of our patients,
               we have been updating our centre with the latest technology and
               blend it with critical brains & an aesthetic eye. Our unique and
@@ -93,15 +104,31 @@ const Aboutdoctor = () => {
               and Vampire Face Lift and a basket of hair care services from
               Mesotherapy to PRP (Platelet Rich Plasma ) to Hair Transplant
               (FUE/ FUT/PRP augmented FUE).
-            </p>
-
+            </p> */}
           </div>
         </div>
         <div className="about-doctor-5">
-          <p>You will be surprised to see other patients and mostly we found our patients exchange their treatments experiences. Our patients are the best proof of our effective treatments. Skin rejuvenation treatments or plastic surgery procedures are not as expensive or complicate or painful as you may think it would be. With the modern technology and high tech equipments of today, you will need no time for healing and can go to your daily work or routine life after treatments.</p>
+          <p>
+            You will be surprised to see other patients and mostly we found our
+            patients exchange their treatments experiences. Our patients are the
+            best proof of our effective treatments. Skin rejuvenation treatments
+            or plastic surgery procedures are not as expensive or complicate or
+            painful as you may think it would be. With the modern technology and
+            high tech equipments of today, you will need no time for healing and
+            can go to your daily work or routine life after treatments.
+          </p>
         </div>
         <div className="about-doctor-5">
-          <p>Our treatments ranging from homeopathic medicines to deep skin rejuvenation of lontophoresis with a highly trained and friendly staffs with supervision of laser & other aesthetic treatments by Dr.Zeba Quadiri .Our treatments includes dermatologist cream, serum,face cleansers ,lotion and medication for the complete treatments for all skin type.Most common problems could be treated such as acne ,scars,hair treatments and inflammation of problems skin & hair.</p>
+          <p>
+            Our treatments ranging from homeopathic medicines to deep skin
+            rejuvenation of lontophoresis with a highly trained and friendly
+            staffs with supervision of laser & other aesthetic treatments by
+            Dr.Zeba Quadiri .Our treatments includes dermatologist cream,
+            serum,face cleansers ,lotion and medication for the complete
+            treatments for all skin type.Most common problems could be treated
+            such as acne ,scars,hair treatments and inflammation of problems
+            skin & hair.
+          </p>
         </div>
       </section>
     </>
