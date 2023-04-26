@@ -76,3 +76,10 @@ query{
   }
 }
 ` 
+
+export const testimonial =`query{
+  Testimonials{
+    testimonial_name
+    testimonial_data
+  }
+}`

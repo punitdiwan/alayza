@@ -792,17 +792,22 @@ li {
 .jkl1 {
   border-radius: 1rem;
   border: 2px solid gray;
-  width: 31%;
-  text-align: center;
+  width: 29%;
   overflow: hidden;
-  margin: 1rem 1rem;
-
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .jkl {
+  margin: 0 auto;
   display: flex;
-  margin: 1rem;
-  margin-top: 30px;
+  flex-wrap:wrap;
+  gap:1rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin-bottom: 3rem;
 }
 
 .jkl img {
@@ -1642,23 +1647,23 @@ form .btn-grad {
   }
 
   .jkl {
+    padding:1rem; 
     display: block;
-    margin-top: 30px;
   }
 
   .jkl1 {
+    margin-bottom: 1rem;
     border-radius: 1rem;
     border: 2px solid gray;
     width: 100%;
     text-align: center;
     overflow: hidden;
-    margin: 1rem 1rem;
   }
 
   .jkl img {
     height: 400px;
     width: 90%;
-    margin: 1rem;
+    /* margin: 1rem; */
   }
 
 

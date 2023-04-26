@@ -5,7 +5,6 @@ import * as constants from "../../Components/Contants";
 
 const Aboutdoctor = () => {
   const { data } = useQuery(constants.about);
-  console.log(data?.About_dr[0]?.about_dr, "about-data");
 
   return (
     <>

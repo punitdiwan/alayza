@@ -21,8 +21,8 @@ const Gallery = () => {
               <>
                 <img
                   src={`${process.env.NEXT_PUBLIC_URL}assets/${item.Gallery_image.id}`}
+                  key={item.Gallery_image.id}
                 />
-                {console.log(item.Gallery_image.id)}
               </>
             );
           })}
