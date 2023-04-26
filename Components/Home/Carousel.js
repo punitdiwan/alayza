@@ -7,7 +7,7 @@ function Carousel1() {
 
   const { data } = useQuery(constants.slider)
 
-  console.log(data, "Slider-daaataaaaa")
+  // console.log(data, "Slider-daaataaaaa")
 
   // const { data } = useForm(constants.slider)
   return (

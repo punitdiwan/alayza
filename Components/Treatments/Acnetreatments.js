@@ -8,11 +8,6 @@ const Acnetreatments = () => {
 
   const { data } = useQuery(constants.Timage);
 
-
-  console.log(data?.Timage[0].Timage?.id, "timage-data")
-
-
-
   return (
     <>
       <section className="acne-treatment">
