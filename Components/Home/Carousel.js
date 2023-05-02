@@ -47,7 +47,7 @@ function Carousel1() {
         />
         {/* <img
           className="d-block w-100 h-75"
-          src="./images/homeopathy.jpeg"
+          src="./images/.jpeg"
           alt="Second slide"
         /> */}
 

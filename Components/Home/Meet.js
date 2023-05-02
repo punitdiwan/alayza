@@ -6,7 +6,7 @@ const Meet = () => {
     <>
       <div className="meet-main">
         <div className="meet-1">
-          <p>Meet our Dermatologist</p>
+          <p> Dermatologist</p>
           <h1>Dr. Zeba Quadiri</h1>
           <img src="./images/heading-art-01.svg" />
         </div>
@@ -23,7 +23,7 @@ const Meet = () => {
               lead a life with those issues helplessly. Dr. Zeba's heart
               immediately reached out to help them and that's when she
               discovered her immense interest in treating skin- related issues
-              through homeopathy aesthetics and skincare products, that's how
+              through pathy aesthetics and skincare products, that's how
               zebdermm brand was born.
               {/* She has passed out from prestigious Maulana Azad
               Medical College and had her thesis on drug therapy in Male

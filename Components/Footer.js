@@ -4,6 +4,7 @@ import { RiFacebookFill, RiInstagramFill, RiWhatsappFill } from "react-icons/ri"
 
 const Footer = () => {
   return (
+    
     <>
       <section className="footer-main">
         <div className="footer-inner">

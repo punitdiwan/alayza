@@ -196,10 +196,10 @@ export default Acnetreatments;
 //     image: "./images/hair-pro-1.jpeg",
 //   },
 //   {
-//     title: "Homeopathic",
+//     title: "pathic",
 //     detail:
-//       "An alternative approach to medicine based on the belief that natural substances, prepared in a special way and used most often in very small amounts, restore health. According to these beliefs, in order for a remedy to be effective, it must cause in a healthy person the same symptoms being treated in the patient. Also called homeopathy.",
-//     image: "./images/Homeopathic.jpg",
+//       "An alternative approach to medicine based on the belief that natural substances, prepared in a special way and used most often in very small amounts, restore health. According to these beliefs, in order for a remedy to be effective, it must cause in a healthy person the same symptoms being treated in the patient. Also called pathy.",
+//     image: "./images/pathic.jpg",
 //   },
 //   {
 //     title: "Aesthetic",
