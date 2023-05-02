@@ -44,6 +44,7 @@ function Header({ cart }) {
   return (
     <Navbar expand="lg" id="navbar">
       <Container>
+        
         <Navbar.Brand href="/" className="logo">
           <img src="/images/Zeba_logo_1.png" alt="logo" />
           {/* <em><h1 >Zebdermm</h1></em> */}
@@ -73,7 +74,7 @@ function Header({ cart }) {
             </NavDropdown>
 
             <Link href="/Products">PRODUCTS</Link>
-            <Link href="/Testimonial">TESTIMONIAL</Link>
+            {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
             <Link href="/Contactus">CONTACT US</Link>
             {
               token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
@@ -90,7 +91,7 @@ function Header({ cart }) {
               </NavDropdown.Item> */}
                 {/* <NavDropdown.Item className="dropdown1">
                   <Link href="/Admin" onClick={() => setAdmin(true)}>
-                    Admin
+                  Admin
                   </Link>
                 </NavDropdown.Item> */}
               </NavDropdown> : ""

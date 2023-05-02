@@ -38,6 +38,7 @@ a {
 }
 
 #navbar {
+  /* color: #00008B; */
   background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%);
   /* border-bottom: 1px solid grey; */
   z-index: 9;
@@ -53,6 +54,7 @@ a {
 }
 
 .logo img {
+  
   /* margin-right: 5rem; */
   height: 6vh;
   width: 100%;
@@ -86,6 +88,9 @@ a {
   margin-top: 0.5rem;
 
 
+}
+.me-auto a{
+  color:#191970;
 }
 
 .me-auto a:hover {
@@ -369,13 +374,16 @@ h6 {
 /* *************** form ************* */
 
 .form-div {
-  margin-top: 3rem;
 
+  margin-top: 3rem;
+  margin-right: rem;
   display: flex;
   height: 30vh auto;
 
   background-image: url("../public/images/dr-zeba.jpeg");
-  /* background-attachment: fixed; */
+  /* border: 2px solid black; */
+  /* background-attachment: fixed;  */
+  
   background-repeat: no-repeat;
   background-position: right;
   background-size: 50vw;
@@ -443,7 +451,7 @@ form input {
   display: flex;
   gap: 2rem;
   background-color: black;
-  /* background-color: #03002f; */
+  background-color: #03002f;
   color: #fff;
 
 }
@@ -474,7 +482,7 @@ form input {
 /* ********** footer ***********  */
 
 .footer-main {
-  background-color: #151414;
+  background-color: #03002f;
   color: #fff;
   display: flex;
   justify-content: space-evenly;
