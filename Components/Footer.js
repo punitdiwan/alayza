@@ -92,6 +92,7 @@ const Footer = () => {
           <p>+91 7317618333</p>
           <p>zebdermm@gmail.com</p>
           <p>Find on Google Map</p>
+          <p> 188,Sangam Vihar Colony,Near Awas Vikas Jhansi,U.P - 284003</p>
         </div>
       </section>
     </>

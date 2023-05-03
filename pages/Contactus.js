@@ -22,9 +22,14 @@ const Contactus = () => {
           <p>Email: zebdermm@gmail.com</p>
           <p>Call : +91 - 7317618333</p>
         </div>
-        <div className="contact-us-inner" style={{ margin: "5px 10px" }}>
+        <div className="contact-us-inner-1" style={{ margin: "5px 10px" }}>
           <h3>Online payment</h3>
-          <img src="./images/Qrcode.jpeg" /> 
+          <img src="./images/heading-art-01.svg" />
+          <img src="./images/Qrcode.v2.png" className="qr" /> <br/>
+          <p>Name :H S S KAY ENTERPRISES</p>
+          <p>UPI ID : zebdermm@oksbi</p>
+
+          <button className="btn btn-primary px-5">Scan QR Code</button>
         </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14410.144018880672!2d78.5177654554199!3d25.453771600000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397771bea8006d11%3A0x1c6c1e536b1e7e29!2sZebdermm!5e0!3m2!1sen!2sin!4v1683024166510!5m2!1sen!2sin" width="600" height="450" style={ {border:"0px solid black", allowfullscreen:"" ,loading:"lazy", referrerpolicy:"no-referrer-when-downgrade"}}></iframe>      </div>
       <Footer />

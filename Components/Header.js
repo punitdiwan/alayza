@@ -64,7 +64,7 @@ function Header({ cart }) {
             <Link href="/Treatments">TREATMENTS</Link>
             <Link href="/Results">RESULTS</Link>
             <Link href="/Gallery">GALLERY</Link>
-            <Link href="/Blogs">BLOGS</Link>
+            {/* <Link href="/Blogs">BLOGS</Link> */}
             <Link href="/Homeopathy">HOMEOPATHY</Link>
 
             <NavDropdown title="ORDERING MEDICINE" id="basic-nav-dropdown" style={{ color: "#03002f" }}>

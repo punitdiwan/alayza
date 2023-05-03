@@ -47,17 +47,17 @@ const Productdetails = ({ parsed }) => {
         <br />
         <br />
         <div className="products-detail-page">
-          <img src={parsed.image} alt="product" />
+          <img src={parsed?.image} alt="product" />
           <div className="products-detail-page-inner-1">
-            <h1>{parsed.name}</h1>
+            <h1>{parsed?.name}</h1>
             {/* <p>
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> 5 Reviews
             </p> */}
-            <p>Rs. {parsed.price} </p>
+            <p>Rs. {parsed?.price} </p>
             <p>
-              {parsed.description}
+              {parsed?.description}
             </p>
           </div>
           <div className="products-detail-page-inner-2">
