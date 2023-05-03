@@ -2023,6 +2023,8 @@ form .btn-grad {
   }
 
   .logo img {
+    height: 3vh;
+    width: 100%;
     margin-left: 0;
   }
 

@@ -11,7 +11,7 @@ const Homecard = () => {
             <FaCalendarCheck />
           </div>
 
-          <h3> an Appointment </h3>
+          <h3> Book Appointment </h3>
           <p>Don't Wait! Hurry up and Get ready for your next look.</p>
         </div>
         <div className="home-card-inner">
