@@ -116,7 +116,7 @@ const Form = () => {
         </label>
         <button className="btn-grad">Submit</button>
         {/* <button onClick={notify}>dfdf</button> */}
-        <ToastContainer
+        <Toastiner
           position="top-right"
           autoClose={3000}
           hideProgressBar={true}

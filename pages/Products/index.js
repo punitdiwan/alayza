@@ -48,7 +48,7 @@ const Products = ({ data3 }) => {
   const [categoryData, setCategoryData] = useState(false);
 
   const filteredData = data3?.filter(
-    (item) => item.category === categoryData?.category
+    (item) => item?.category === categoryData?.category
   );
   if (categoryData?.category == "All") {
     setCategoryData(false);
@@ -98,7 +98,7 @@ const Products = ({ data3 }) => {
               })
               : prodData?.map((item) => {
                 return (
-                  <ul className="cards" key={item.id}>
+                  <ul className="cards" key={item?.id}>
                     <Link className="cards_item" href={`Products/${item.id}`}>
                       <div className="card">
                         <div className="card_image">

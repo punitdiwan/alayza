@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from "react"
+import Link from "next/link"
 import { RiFacebookFill, RiInstagramFill, RiWhatsappFill } from "react-icons/ri"
 
 const Footer = () => {
@@ -99,4 +99,4 @@ const Footer = () => {
   )
 }
 
-export default Footer;
+export default Footer
