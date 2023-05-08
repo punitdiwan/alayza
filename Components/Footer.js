@@ -13,7 +13,8 @@ const Footer = () => {
             Dr. Zeba is a renowned and highly acclaimed homeopathic doctor and
             aesthetician, who has more than 15 years of experience.
           </p>
-          <button className="btn-grad">Book an Appointment</button>
+          
+          <button className="btn-grad"><Link href="/Treatments">Book an Appointment</Link></button>
         </div>
         <div className="footer-inner">
           <h5>Useful Links</h5>
@@ -91,7 +92,7 @@ const Footer = () => {
           <h5>Clinic Location</h5>
           <p>+91 7317618333</p>
           <p>zebdermm@gmail.com</p>
-          <p>Find on Google Map</p>
+          <Link href="/Contactus"><p style={{color : "black"}}>Find on Google Map</p></Link>
           <p> 188,Sangam Vihar Colony,Near Awas Vikas Jhansi,U.P - 284003</p>
         </div>
       </section>

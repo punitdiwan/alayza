@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
+
 const Form = () => {
   const [data, setData] = useState({
     name: "",
@@ -116,7 +117,7 @@ const Form = () => {
         </label>
         <button className="btn-grad">Submit</button>
         {/* <button onClick={notify}>dfdf</button> */}
-        <Toastiner
+        <ToastContainer
           position="top-right"
           autoClose={3000}
           hideProgressBar={true}
