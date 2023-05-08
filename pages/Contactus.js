@@ -30,6 +30,7 @@ const Contactus = () => {
           <p>UPI ID : zebdermm@oksbi</p>
 
           <button className="btn btn-primary px-5">Scan QR Code</button>
+        <img src="./images/Dhan.jpeg" alt="Dhan"style={{opacity : "0.04",width : "300px" , position : "absolute" }}/>
         </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14410.144018880672!2d78.5177654554199!3d25.453771600000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397771bea8006d11%3A0x1c6c1e536b1e7e29!2sZebdermm!5e0!3m2!1sen!2sin!4v1683024166510!5m2!1sen!2sin" width="600" height="450" style={ {border:"0px solid black", allowfullscreen:"" ,loading:"lazy", referrerpolicy:"no-referrer-when-downgrade"}}></iframe>      </div>
       <Footer />

@@ -85,7 +85,6 @@ const Productdetails = ({ parsed }) => {
           </div> */}
           {/* ----------------------------QR payment--------------------- */}
 
-
         </div>
       </section>
       <Footer />

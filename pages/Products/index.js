@@ -114,6 +114,8 @@ const Products = ({ data3 }) => {
                   </ul>
                 );
               })}
+               <img src="./images/Dhan.jpeg" alt="Dhan"style={{opacity : "0.002",width : "300px" , position : "absolute" }}/>
+
           </div>
         </section>
       </Layout>
