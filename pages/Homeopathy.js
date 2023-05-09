@@ -1,29 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { useQuery } from "graphql-hooks";
+import * as constants from "../Components/Contants";
 
 const pathy = () => {
+    const { data } = useQuery(constants.homeopathy);
+
+
+
     return (
         <section className="gallery-main1" style={{ backgroundColor: "white" }}>
             <Header />
             <div className="about-header">
-                <h1>Zebdermm Wellness - pathy</h1>
+                <h1>Benefits of Homeopathy</h1>
             </div>
             <img src="./images/pathy.jpeg" alt="" />
             <div className="about-doctor-6">
-                <br />
-                <h5>Risk Free</h5>
-                <p>pathy is completely risk-free as it is not concentrated medicine and provides a minimal healing dose.</p>
-                <br />
-                <h5>Affordable</h5>
-                <p>pathy is an affordable line of treatment that can treat chronic diseases without expensive hospitalization and medication.</p>
-                <br />
-                <h5>Effective</h5>
-                <p>pathy is an effective medicine for chronic as well as acute illnesses. pathic medicine has a curative effect that can be felt instantly.</p>
-                <br />
-                <h5>Builds Resistance</h5>
-                <p>pathic medicine helps to build resistance in the patient as it not only heals, it helps to form an immune response against diseases.</p>
-                <br />
+
+
+
+                {
+                    data?.Homeopathy?.map((item)=>{
+                        return (<>
+                        <h5>{item.h_heading}</h5>
+                        <p>{item.h_parograph}</p>
+                        </>)
+                    })
+
+                }
             </div>
 
             <Footer />

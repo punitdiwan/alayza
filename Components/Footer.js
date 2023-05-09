@@ -77,12 +77,12 @@ const Footer = () => {
           <h5>Our Premium Services</h5>
           <Link href="/Treatments">Acne Treatment</Link>
           <Link href="/Treatments">
-            Intense pulse Linkght treatment for rosacea
+            Intense pulse Light treatment
           </Link>
           <Link href="/Treatments">Photo Facial</Link>
           <Link href="/Treatments">Laser Hair Reduction</Link>
           <Link href="/Treatments">Tattoo Removal</Link>
-          <Link href="/Treatments">Hydra facial</Link>
+          <Link href="/Treatments">Hydra Facial</Link>
           <Link href="/Treatments">BB Glow Treatment </Link>
 
 

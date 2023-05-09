@@ -13,7 +13,7 @@ const Gallery = () => {
         <Header />
         <div className="about-header">
           <h1>Gallery</h1>
-          <p>Dr. Suruchi Puri / Gallery</p>
+          <p>Dr. Zeba Quadiri</p>
         </div>
         <div className="gallery-div">
           {data?.Gallery?.map((item) => {

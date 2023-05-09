@@ -83,3 +83,13 @@ export const testimonial =`query{
     testimonial_data
   }
 }`
+
+
+export  const homeopathy = `
+query{
+  Homeopathy{
+    h_heading
+    h_parograph
+  }
+}
+`

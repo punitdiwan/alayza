@@ -13,7 +13,7 @@ const Results = () => {
       <Header />
       <div className="about-header" id="before-after">
         <h1>Before and Afters</h1>
-        <p>Dr. Zeba Quadiri / Gallery</p>
+        <p>Dr. Zeba Quadiri</p>
       </div>
       <section className="before-after-main">
         <div className="main">

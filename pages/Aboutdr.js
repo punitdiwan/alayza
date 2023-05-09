@@ -10,7 +10,7 @@ const Aboutdr = () => {
         <Header />
         <div className="about-header">
           <h1>About Doctor</h1>
-          <p>Dr. Zeba Quadiri / About Doctor</p>
+          <p>Dr. Zeba Quadiri </p>
               </div>
               <Aboutdoctor/>  
 
