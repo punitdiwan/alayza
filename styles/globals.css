@@ -852,15 +852,15 @@ li {
 }
 
 .gallery-div img {
-  width: 25vw;
-  height: 50vh;
+  width: 50%;
+  height: 50%;
 }
 
 .gallery-div1 img {
-  width: 55vw;
-  height: 50vh;
+  width: 50%;
+  height: 50%;
   margin-top: 5px;
-  margin-left: 1rem;
+  margin-left: 7rem;
   margin-bottom: 5px;
   border: 2px solid black;
   border-radius: 20px;
@@ -868,10 +868,10 @@ li {
 }
 
 .gallery-div2 img {
-  width: 55vw;
-  height: 50vh;
+  width: 50%;
+  height: 50%;
   margin-top: 5px;
-  margin-left: 30rem;
+  margin-left: 35rem;
   margin-bottom: 5px;
   border: 2px solid black;
   border-radius: 20px;
@@ -936,15 +936,7 @@ li {
   width: 60%;
 }
 
-.carousel-inner-1-main {
-  color: rgb(114, 112, 112);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: #03002f;
-}
+
 
 .derma-main {
   padding: 2rem;
@@ -2038,7 +2030,7 @@ form .btn-grad {
   }
 
   .logo img {
-    height: 3vh;
+    height: 4vh;
     width: 100%;
     margin-left: 0;
   }

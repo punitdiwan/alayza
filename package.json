@@ -31,8 +31,10 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.7.1",
     "react-multi-carousel": "^2.8.2",
+    "react-slick": "^0.29.0",
     "react-spinners": "^0.13.8",
     "react-toastify": "^9.1.1",
+    "slick-carousel": "^1.8.1",
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {

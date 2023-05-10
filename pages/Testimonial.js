@@ -9,6 +9,8 @@ import * as constants from "../Components/Contants";
 const Testimonial = () => {
   const { data } = useQuery(constants.testimonial);
 
+  
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -56,9 +58,9 @@ const Testimonial = () => {
       > */}
               <div className="jkl">
                   {
-                      data?.Testimonials?.map((item)=>{
+                      data?.Testimonials?.map((item)=>{ 
                         return(<>
-                         <div className="jkl1" style={{ backgroundColor: "white" }} key={item.id}>
+                         <div className="jkl1" style={{ backgroundColor: "white" }} >
                             <p>{item.testimonial_data}</p>
                          <div style={{ display: "flex", width: "100%", marginLeft: "1rem" }}>
                          <h6 style={{ margin: "1rem", textAlign: "right" }}>{item.testimonial_name}</h6>

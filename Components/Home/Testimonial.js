@@ -1,8 +1,14 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useQuery } from "graphql-hooks";
+import * as constants from "../../Components/Contants";
+
 
 const Testimonial = () => {
+  const { data } = useQuery(constants.testimonial);
+  const testinomials = data?.Testimonials
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -35,59 +41,22 @@ const Testimonial = () => {
         </div>
         <Carousel
           responsive={responsive}
-          infinite={true}
+          // infinite={true}
           autoPlay={true}
           autoPlaySpeed={3000}
           className="carousel-main-1"
         >
-          {/* <div className="carousel-inner-1-main"> */}
-            {/* <img src="https://picsum.photos/1200/400" /> */}
-            {/* <h6>
-              <em>
-                Good work and results of my laser hair removal , pretty
-                satisfied, thank you Doctor . I was recommended by my sister
-              </em>
-            </h6>
-            <p>✱ Results may vary person to person.</p>
-            <h4>Roshan Patel</h4> */}
-          {/* </div> */}
-          <div className="carousel-inner-1-main">
-            <h6>
-              <em>
-                I was taking hair loss treatment from the clinic . My results
-                are good and I In constant touch with the doctor for further
-                consultation, would really recommend
-              </em>
-            </h6>
-            <p>✱ Results may vary person to person.</p>
-            <h4>Rohit Suman</h4>
-            {/* <img src="https://picsum.photos/1200/400" /> */}
-          </div>
-          <div className="carousel-inner-1-main">
-            <h6>
-              <em>
-                They have best of the machine for laser hair removal as it gave
-                me results in 3 sittings, I was very frustrated because I took
-                previous treatment from some other laser center and with no
-                results,in this clinic my treatment was totally painless.thanks
-                Dr.suruchi puri for best technology and treatment.
-              </em>
-            </h6>
-            <p>✱ Results may vary person to person.</p>
-            <h4>Pradeep Shrivastava</h4>
-            {/* <img src="https://picsum.photos/1200/400" /> */}
-          </div>
-          <div className="carousel-inner-1-main">
-            <h6>
-              <em>
-                Good work and results of my laser hair removal , pretty
-                satisfied, thank you Doctor . I was recommended by my sister
-              </em>
-            </h6>
-            <p>✱ Results may vary person to person.</p>
-            <h4>Naveen Kumar</h4>
-            {/* <img src="https://picsum.photos/1200/400" /> */}
-          </div>
+          {
+            Array.isArray(testinomials) && testinomials.length > 0 && testinomials?.map((item) => {
+              return (
+                <div>
+                  <h6>{item.testimonial_data}</h6>
+                  <p>✱ Results may vary person to person.</p>
+                  <h4>{item.testimonial_name}</h4>
+                </div>
+              )
+            })
+          }
         </Carousel>
       </section>
     </>
@@ -95,3 +64,8 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
+
+
+
+

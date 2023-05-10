@@ -47,7 +47,7 @@ export default function Youtube() {
                       </div>
                     </div>
                   </Link>
-                  
+                  import React from "react";
                 </ul>
               </>)
             })
