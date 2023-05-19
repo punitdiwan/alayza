@@ -23,22 +23,25 @@ const Clinicsetup = () => {
                         })
                     }
                 </div> */}
+                <center>
 
-                <div className="gallery-div1" >
-                    <img src="./images/clinicsetup.jpeg" alt="" />
-                </div>
-                <div className="gallery-div2">
-                    <img src="./images/clinicsetup1.jpeg" alt="" />
-                </div>
-                <div className="gallery-div1">
-                    <img src="./images/clinicsetup22.jpeg" alt="" />
-                </div>
-                <div className="gallery-div2">
-                    <img src="./images/clinicsetup2.jpeg" alt="" />
-                </div>
-                <div className="gallery-div1">
-                    <img src="./images/clinicsetup11.jpeg" alt="" />
-                </div>
+                    <div className="gallery-div1" >
+                        <img src="./images/clinicsetup.jpeg" alt="" />
+                    </div>
+                    <div className="gallery-div2">
+                        <img src="./images/clinicsetup1.jpeg" alt="" />
+                    </div>
+                    <div className="gallery-div1">
+                        <img src="./images/clinicsetup22.jpeg" alt="" />
+                    </div>
+                    <div className="gallery-div2">
+                        <img src="./images/clinicsetup2.jpeg" alt="" />
+                    </div>
+                    <div className="gallery-div1">
+                        <img src="./images/clinicsetup11.jpeg" alt="" />
+                    </div>
+
+                </center>
 
 
                 <Footer />

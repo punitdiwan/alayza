@@ -847,23 +847,24 @@ li {
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
 }
 
 .gallery-div img {
-  width: 50%;
-  height: 50%;
+  width: 25%;
+  height: 25%;
 }
 
 .gallery-div1 img {
   width: 50%;
   height: 50%;
   margin-top: 5px;
-  margin-left: 7rem;
-  margin-bottom: 5px;
+  /* margin-left: 7rem; */
+  margin-bottom: 5px; 
   border: 2px solid black;
   border-radius: 20px;
+  
 
 }
 
@@ -871,7 +872,7 @@ li {
   width: 50%;
   height: 50%;
   margin-top: 5px;
-  margin-left: 35rem;
+  /* margin-right: -5rem; */
   margin-bottom: 5px;
   border: 2px solid black;
   border-radius: 20px;
@@ -1658,17 +1659,34 @@ form .btn-grad {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 /* @media only screen and (min-width: 1200px) {...} */
 
+@media only screen and (min-width: 993px) and (max-width :1199px) {
+
+  
+  
+  .logo img {
+    
+    /* margin-right: 5rem; */
+    height: 4vh;
+    width:fit-content;
+    /* margin-right: 3rem; */
+    margin-left: -4rem;
+    /* border: 2px solid red; */
+    margin-bottom: 1rem;
+  }
+}
+
 @media only screen and (max-width: 992px) {
+  
   .gallery-div1 img {
     width: 80vw;
     height: 65vw;
-    margin: 1rem 3rem;
+    /* margin: 1rem 3rem; */
   }
 
   .gallery-div2 img {
     width: 80vw;
     height: 65vw;
-    margin: 2rem 3rem;
+    /* margin: 2rem 3rem; */
   }
 
   .jkl {
@@ -1967,6 +1985,7 @@ form .btn-grad {
     align-items: initial;
 
   }
+ 
 
 }
 
@@ -1989,13 +2008,13 @@ form .btn-grad {
   .gallery-div1 img {
     width: 80vw;
     height: 65vw;
-    margin: 1rem 3rem;
+    /* margin: 1rem 3rem; */
   }
 
   .gallery-div2 img {
     width: 80vw;
     height: 65vw;
-    margin: 2rem 3rem;
+    /* margin: 2rem 3rem; */
   }
 
 
