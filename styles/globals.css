@@ -853,7 +853,7 @@ li {
 
 .gallery-div img {
   width: 25%;
-  height: 25%;
+  height: 350px;
 }
 
 .gallery-div1 img {
@@ -1640,6 +1640,12 @@ form .btn-grad {
   justify-content: center;
   flex-direction: column;
   margin-top: 10px;
+}
+
+.gallery_images{
+  border : 2px solid red;
+  height : 100px ;
+  width : 100px ;
 }
 
 

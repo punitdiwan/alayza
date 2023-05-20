@@ -23,7 +23,7 @@ const pathy = () => {
                 {
                     data?.Homeopathy?.map((item)=>{
                         return (<>
-                        <h5>{item.h_heading}</h5>
+                        <h4 style={{marginLeft: "2rem", fontWeight: "bolder"}}>{item.h_heading}</h4>
                         <p>{item.h_parograph}</p>
                         </>)
                     })
