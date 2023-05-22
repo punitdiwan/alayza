@@ -1,13 +1,22 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useQuery } from "graphql-hooks";
-import * as constants from "../../Components/Contants";
 
 
 const Testimonial = () => {
-  const { data } = useQuery(constants.testimonial);
-  const testinomials = data?.Testimonials
+
+  const [data, setData] = useState()
+
+
+  const getDirectorData = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/testimonials?fields=*.*`)
+    const data = await response.json()
+    setData(data.data)
+  }
+
+  useEffect(() => {
+    getDirectorData()
+  }, [])
 
   const responsive = {
     superLargeDesktop: {
@@ -41,13 +50,13 @@ const Testimonial = () => {
         </div>
         <Carousel
           responsive={responsive}
-          // infinite={true}
+          infinite={true}
           autoPlay={true}
           autoPlaySpeed={3000}
           className="carousel-main-1"
         >
           {
-            Array.isArray(testinomials) && testinomials.length > 0 && testinomials?.map((item) => {
+            Array.isArray(data) && data.length > 0 && data?.map((item) => {
               return (
                 <div>
                   <h6>{item.testimonial_data}</h6>

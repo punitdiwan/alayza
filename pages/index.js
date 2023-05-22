@@ -17,7 +17,7 @@ export default function Home() {
       <Carousel1 />
       <Dermatologistservice />
       <Meet />
-      <Ourresults />
+      {/* <Ourresults /> */}
       <Youtube />
       <Form />
       <Testimonial />

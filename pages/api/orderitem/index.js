@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
     // let data2 = dataNew.map((item) => item.orderId);
 
-    console.log(user.name, "djfsfghdsghfdjsgfjh");
+    // console.log(user.name, "djfsfghdsghfdjsgfjh");
     const dataResp = await prisma.orderitem.create({
       data: {
         totalAmt: total,

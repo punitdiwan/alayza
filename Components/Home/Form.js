@@ -23,13 +23,21 @@ const Form = () => {
     if (data.number === "") {
       setError("Enter the number");
     } else {
-      const response = await fetch("/api/appointment", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/appointments?fields=*.*`, {
         method: "POST",
-        body: JSON.stringify({ data }),
+        body: JSON.stringify({
+          name:data.name,
+          email:data.email,
+          number: data.number,
+          message: data.message,
+          date: data.Date
+        }),
         headers: {
           "Content-Type": "application/json",
         },
       });
+
+      const dataRes = await response.json() 
       setData({
         name: "",
         email: "",
@@ -115,7 +123,7 @@ const Form = () => {
               onChange={(e) => handleChange(e)}
             ></textarea>
           </label>
-          <button className="btn-grad">Submit</button>
+          <button type = "submit" className="btn-grad">Submit</button>
           {/* <button onClick={notify}>dfdf</button> */}
           <ToastContainer
             position="top-right"

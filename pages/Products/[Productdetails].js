@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-// import { FaRegStar } from "react-icons/fa";
 import Router from "next/router";
-// import { productData } from "./index";
-// import Link from "next/link";
-import prisma from "../../lib/prisma";
-// import { useRouter } from "next/router";
-
-import { useGlobalContext } from "../../Components/Context";
+// import prisma from "../../lib/prisma";
+// import { useGlobalContext } from "../../Components/Context";
 
 const Productdetails = ({ parsed }) => {
-
   const setCartItem = () => {
     const id = parsed.id;
     var cartItems = JSON.parse(localStorage.getItem("cart-value") || "[]");
@@ -47,21 +41,21 @@ const Productdetails = ({ parsed }) => {
         <br />
         <br />
         <div className="products-detail-page">
-          <img src={parsed?.image} alt="product" />
+          <img src={parsed?.data.product_image?.data?.full_url} alt="product" />
           <div className="products-detail-page-inner-1">
-            <h1>{parsed?.name}</h1>
+            <h1>{parsed?.data.product_name}</h1>
             {/* <p>
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> <FaRegStar />
               <FaRegStar /> 5 Reviews
             </p> */}
-            <p>Rs. {parsed?.price} </p>
+            <p>Rs. {parsed?.data.product_price} </p>
             <p>
-              {parsed?.description}
+              {parsed?.data.description}
             </p>
           </div>
           <div className="products-detail-page-inner-2">
-            <img src="/images/Qrcode.jpeg" alt="" />
+            <img src="/images/new-qr.jpeg" alt="" />
 
           </div>
           {/* <div className="products-detail-page-inner-2">
@@ -95,8 +89,9 @@ const Productdetails = ({ parsed }) => {
 export default Productdetails;
 
 export async function getStaticPaths() {
-  const productData1 = await prisma.product.findMany();
-  const paths = productData1.map((item) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/products?fields=*.*`) 
+  const data3 = await response.json()
+  const paths = data3.data.map((item) => {
     return {
       params: { Productdetails: item.id.toString() },
     };
@@ -109,14 +104,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const product = await prisma.product.findUnique({
-    where: {
-      id: parseInt(context.params.Productdetails),
-    },
-  });
+  // const product = await prisma.product.findUnique({
+  //   where: {
+  //     id: parseInt(context.params.Productdetails),
+  //   },
+  // });
 
-  const data = JSON.stringify(product);
-  const parsed = JSON.parse(data);
+  const id = parseInt(context.params.Productdetails);
+
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/products/${id}?fields=*.*`) 
+  const parsed = await response.json()
+  
+
+  // const data = JSON.stringify(product);
+  // const parsed = JSON.parse(data);
   // console.log("djsfgsgfdjsgjfgdjsgfhsgjfgsfd");
   return {
     props: {
