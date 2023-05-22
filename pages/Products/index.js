@@ -6,12 +6,11 @@ import Layout from "../../Components/Layout";
 import { PrismaClient } from "@prisma/client";
 
 export async function getStaticProps() {
-  const prisma = new PrismaClient();
-  const data1 = await prisma.product.findMany();
-  const data2 = JSON.stringify(data1);
-  const data3 = JSON.parse(data2);
 
-  // console.log("revalidating");
+
+  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/products?fields=*.*`) 
+  const data3 = await response.json()
+
   return {
     props: {
       data3,
@@ -21,6 +20,7 @@ export async function getStaticProps() {
 }
 
 const Products = ({ data3 }) => {
+
   const categoryData1 = [
     {
       name: "All",
@@ -38,7 +38,12 @@ const Products = ({ data3 }) => {
       name: "powder",
       id: "3",
     },
+    {
+      name: "oil",
+      id: "4",
+    },
   ];
+
 
   const handleChange = (e) => {
     setCategoryData({ ...categoryData, [e.target.name]: e.target.value });
@@ -47,12 +52,13 @@ const Products = ({ data3 }) => {
   const [prodData, setProdData] = useState(data3);
   const [categoryData, setCategoryData] = useState(false);
 
-  const filteredData = data3?.filter(
-    (item) => item?.category === categoryData?.category
+  const filteredData = data3?.data?.filter(
+    (item) => item?.category.toLowerCase() === categoryData?.category
   );
   if (categoryData?.category == "All") {
     setCategoryData(false);
   }
+
 
   return (
     <>
@@ -84,30 +90,30 @@ const Products = ({ data3 }) => {
                     <Link className="cards_item" href={`Products/${item.id}`}>
                       <div className="card">
                         <div className="card_image">
-                          <img src={item.image} />
+                          <img src={item.product_image?.data?.full_url} />
                         </div>
                         <div className="card_content">
                           <h3>{item.brand}</h3>
-                          <h2 className="card_title">{item.name}</h2>
-                          <h5>Rs. {item.price}</h5>
+                          <h2 className="card_title">{item.product_name}</h2>
+                          <h5>Rs. {item.product_price}</h5>
                         </div>
                       </div>
                     </Link>
                   </ul>
                 );
               })
-              : prodData?.map((item) => {
+              : prodData?.data?.map((item) => {
                 return (
                   <ul className="cards" key={item?.id}>
                     <Link className="cards_item" href={`Products/${item.id}`}>
                       <div className="card">
                         <div className="card_image">
-                          <img src={item.image} />
+                          <img src={item.product_image?.data?.full_url} />
                         </div>
                         <div className="card_content">
                           <h3>{item.brand}</h3>
-                          <h2 className="card_title">{item.name}</h2>
-                          <h5>Rs. {item.price}</h5>
+                          <h2 className="card_title">{item.product_name}</h2>
+                          <h5>Rs. {item.product_price}</h5>
                         </div>
                       </div>
                     </Link>

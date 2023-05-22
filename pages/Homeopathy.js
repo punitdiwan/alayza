@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { useQuery } from "graphql-hooks";
-import * as constants from "../Components/Contants";
 
 const pathy = () => {
-    const { data } = useQuery(constants.homeopathy);
+  const [data, setData] = useState()
+
+
+  const getDirectorData = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/homeopathy?fields=*.*`)
+    const data = await response.json()
+    setData(data.data)
+  }
+
+  useEffect(() => {
+    getDirectorData()
+  }, [])
 
 
 
@@ -21,10 +30,10 @@ const pathy = () => {
 
 
                 {
-                    data?.Homeopathy?.map((item)=>{
+                    data?.map((item)=>{
                         return (<>
-                        <h4 style={{marginLeft: "2rem", fontWeight: "bolder"}}>{item.h_heading}</h4>
-                        <p>{item.h_parograph}</p>
+                        <h4 style={{marginLeft: "2rem", fontWeight: "bolder", display : "inline", borderBottom : "5px  solid black"}}>{item.homeopathy_heading}</h4>
+                        <p>{item.homeopathy_data}</p>
                         </>)
                     })
 

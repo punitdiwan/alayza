@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     // let data2 = dataNew.map((item) => item.orderId);
 
-    console.log(orderDate[0], "email");
+    // console.log(orderDate[0], "email");
     const dataResp = await prisma.order.create({
       data: {
         totalAmt: total,
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
     });
     request
       .then((result) => {
-        console.log(result.body);
+        // console.log(result.body);
       })
       .catch((err) => {
         console.log(err);

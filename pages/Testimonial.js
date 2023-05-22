@@ -3,13 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { useQuery } from "graphql-hooks";
-import * as constants from "../Components/Contants";
-
 const Testimonial = () => {
-  const { data } = useQuery(constants.testimonial);
-
-  
 
   const responsive = {
     superLargeDesktop: {
@@ -56,7 +50,7 @@ const Testimonial = () => {
         className="cardslidersetup "
         style={{ backgroundColor: "lightgray", padding: "2rem" }}
       > */}
-              <div className="jkl">
+              {/* <div className="jkl">
                   {
                       data?.Testimonials?.map((item)=>{ 
                         return(<>
@@ -71,7 +65,7 @@ const Testimonial = () => {
                         </>)
                       })
                   }
-        </div>
+        </div> */}
         {/* <div className="jkl">
           <div className="jkl1" style={{ backgroundColor: "white" }}>
             <p style={{ margin: "1rem" }}>

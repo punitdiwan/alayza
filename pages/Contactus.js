@@ -15,7 +15,7 @@ const Contactus = () => {
       <div className="contact-us-clinic">
         <div className="contact-us-inner" style={{ margin: "0 auto" }}>
           <h1>Clinic Address</h1>
-          <img src="./images/heading-art-01.svg" />
+          <img   src="./images/heading-art-01.svg" />
           <p style={{ width: "70%" }}>
             188,Sangam Vihar Colony,Near Awas Vikas Jhansi,U.P - 284003
           </p>
@@ -27,7 +27,7 @@ const Contactus = () => {
           <img src="./images/heading-art-01.svg" />
           <img src="./images/Qrcode.v2.png" className="qr" /> <br/>
           <p>Name :H S S KAY ENTERPRISES</p>
-          <p>UPI ID : zebdermm@oksbi</p>
+          <p>UPI ID : zeba.quadiri19-2@oksbi</p>
 
           <button className="btn btn-primary px-5">Scan QR Code</button>
         <img src="./images/Dhan.jpeg" alt="Dhan"style={{opacity : "0.04",width : "300px" , position : "absolute" }}/>
