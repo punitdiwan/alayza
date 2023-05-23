@@ -10,14 +10,14 @@ const Aboutdoctor = () => {
   const [data, setData] = useState()
 
 
-  const getDirectorData = async () => {
+  const getAboutDrData = async () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/about_doctor?fields=*.*`)
     const data = await response.json()
     setData(data.data)
   }
 
   useEffect(() => {
-    getDirectorData()
+    getAboutDrData()
   }, [])
 
 

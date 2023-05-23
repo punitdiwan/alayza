@@ -96,7 +96,7 @@ function Header({ cart }) {
                 </NavDropdown.Item> */}
               </NavDropdown> : ""
             }
-
+{/* 
             <Link
               href="/Shoppingcart"
               className="cart"
@@ -105,7 +105,7 @@ function Header({ cart }) {
               <FaCartPlus />
               {cart1 > 0 ? <span>{cart1}</span> : ""}
             </Link>
-            <Link href="/Login" className="logout" onClick={clearToken}>{token ? "Logout" : "Login"}</Link>
+            <Link href="/Login" className="logout" onClick={clearToken}>{token ? "Logout" : "Login"}</Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
