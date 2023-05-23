@@ -77,7 +77,7 @@ const Footer = () => {
           <h5>Our Premium Services</h5>
           <Link href="/Treatments">Acne Treatment</Link>
           <Link href="/Treatments">
-            Intense pulse Light treatment
+            Intense Pulse Light Treatment
           </Link>
           <Link href="/Treatments">Photo Facial</Link>
           <Link href="/Treatments">Laser Hair Reduction</Link>
