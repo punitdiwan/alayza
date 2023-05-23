@@ -25,7 +25,7 @@ const Contactus = () => {
         <div className="contact-us-inner-1" style={{ margin: "5px 10px" }}>
           <h3>Online payment</h3>
           <img src="./images/heading-art-01.svg" />
-          <img src="./images/Qrcode.v2.png" className="qr" /> <br/>
+          <img src="./images/new-qr.jpeg" className="qr" /> <br/>
           <p>Name :H S S KAY ENTERPRISES</p>
           <p>UPI ID : zeba.quadiri19-2@oksbi</p>
 

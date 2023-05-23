@@ -23,15 +23,15 @@ const Footer = () => {
           <Link href="/Gallery">Gallery</Link>
           <Link href="/Results">Results</Link>
           <div>
-            <Link href="https://www.facebook.com/dr.zebaquadir?mibextid=ZbWKwL" target="_blank"><img src="./images/Facebook_icon.png" height="50px" width="50px" style={{ marginLeft: "1rem" }} /></Link>
+            <Link href="https://www.facebook.com/dr.zebaquadir?mibextid=ZbWKwL" target="_blank"><img src="/images/Facebook_icon.png" height="50px" width="50px" style={{ marginLeft: "1rem" }} /></Link>
 
 
 
-            <Link href="https://instagram.com/zebdermm?igshid=ZDdkNTZiNTM=" target="_blank"><img src="./images/Instagram.png" height="50px" width="55px" style={{ marginLeft: "1rem" }} /></Link>
+            <Link href="https://instagram.com/zebdermm?igshid=ZDdkNTZiNTM=" target="_blank"><img src="/images/Instagram.png" height="50px" width="55px" style={{ marginLeft: "1rem" }} /></Link>
 
 
 
-            <Link href="https://wa.me/c/917317618333" target="_blank"><img src="./images/whatsapp_Icon.png" height="50px" width="50px" style={{ marginLeft: "1rem" }} /></Link>
+            <Link href="https://wa.me/c/917317618333" target="_blank"><img src="/images/whatsapp_Icon.png" height="50px" width="50px" style={{ marginLeft: "1rem" }} /></Link>
           </div>
           {/* <li style={{ height: "3rem", width: "3rem", marginTop: "0rem", alignItems: "center" }}>
             <a href="https://www.facebook.com/dr.zebaquadir?mibextid=ZbWKwL" target="_blank">
