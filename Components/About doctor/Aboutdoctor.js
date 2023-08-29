@@ -11,7 +11,7 @@ const Aboutdoctor = () => {
 
 
   const getAboutDrData = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/about_doctor?fields=*.*`)
+    const response = await fetch('https://cms.maitretech.com//zebacms/items/about_doctor?fields=*.*')
     const data = await response.json()
     setData(data.data)
   }

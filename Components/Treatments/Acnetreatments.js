@@ -9,7 +9,7 @@ const Acnetreatments = () => {
 
 
   const getDirectorData = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/treatments?fields=*.*`)
+    const response = await fetch('https://cms.maitretech.com//zebacms/items/treatments?fields=*.*')
     const data = await response.json()
     setData(data.data)
   }

@@ -1,20 +1,24 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 
 const Results = () => {
-  const [data, setData] = useState()
-
+  const [data, setData] = useState();
 
   const getDirectorData = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/results?fields=*.*`)
-    const data = await response.json()
-    setData(data.data)
-  }
+  //changes
+  
+    const NEXT_PUBLIC_URL =
+      process.env.NEXT_PUBLIC_URL || "https://cms.maitretech.com/zebacms/items";
+    const response = await fetch(`${NEXT_PUBLIC_URL}/results?fields=*.*`);
+
+    const responseData = await response.json();
+    setData(responseData.data);
+  };
 
   useEffect(() => {
-    getDirectorData()
-  }, [])
+    getDirectorData();
+  }, []);
 
   return (
     <>
@@ -26,25 +30,16 @@ const Results = () => {
       <section className="before-after-main">
         <div className="main">
           <ul className="cards-new-1 results">
-            {
-              data?.map((item)=>{
-                return (<>
-                <li className="cards_item-1">
-              <div className="card_new-1">
-                <div className="card_image">
-                  <img
-
-                    src={item.result_image?.data?.full_url}
-
-                  />
-                  <h6>{item.result_name}</h6>
-
+            {data?.map((item) => (
+              <li className="cards_item-1" key={item.id}>
+                <div className="card_new-1">
+                  <div className="card_image">
+                    <img src={item.result_image?.data?.full_url} alt={item.result_name} />
+                    <h6>{item.result_name}</h6>
+                  </div>
                 </div>
-              </div>
-            </li>
-                </>)
-              })
-            }
+              </li>
+            ))}
           </ul>
         </div>
       </section>

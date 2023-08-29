@@ -7,7 +7,7 @@ const pathy = () => {
 
 
   const getDirectorData = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/homeopathy?fields=*.*`)
+    const response = await fetch('https://cms.maitretech.com/zebacms/items/homeopathy?fields=*.*')
     const data = await response.json()
     setData(data.data)
   }
