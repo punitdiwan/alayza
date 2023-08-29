@@ -8,7 +8,7 @@ import { PrismaClient } from "@prisma/client";
 export async function getStaticProps() {
 
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/products?fields=*.*`) 
+  const response = await fetch('https://cms.maitretech.com//zebacms/items/products?fields=*.*') 
   const data3 = await response.json()
 
   return {

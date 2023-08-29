@@ -89,7 +89,7 @@ const Productdetails = ({ parsed }) => {
 export default Productdetails;
 
 export async function getStaticPaths() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/products?fields=*.*`) 
+  const response = await fetch('https://cms.maitretech.com//zebacms/items/products?fields=*.*') 
   const data3 = await response.json()
   const paths = data3.data.map((item) => {
     return {
@@ -112,7 +112,8 @@ export async function getStaticProps(context) {
 
   const id = parseInt(context.params.Productdetails);
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/products/${id}?fields=*.*`) 
+  const response = await fetch('https://cms.maitretech.com//zebacms/items/products/' + id + '?fields=*.*');
+
   const parsed = await response.json()
   
 

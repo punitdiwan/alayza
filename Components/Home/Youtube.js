@@ -12,7 +12,7 @@ export default function Youtube() {
 
   const fetchProducts = async () => {
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/products?fields=*.*`) 
+    const response = await fetch('https://cms.maitretech.com//zebacms/items/products?fields=*.*') 
     const data1 = await response.json()
 
     setData(data1?.data)
