@@ -1,28 +1,28 @@
 import Carousel from "react-bootstrap/Carousel";
-import React, {useState, useEffect} from "react"
-// import { useQuery } from "graphql-hooks";
-// import * as constants from "../Contants";
-// import { useForm } from "react-hook-form";
+import React, { useState, useEffect } from "react";
 
 function Carousel1() {
-
-
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/slider?fields=*.*`);
+      const response = await fetch(
+        "https://cms.maitretech.com/zebacms/items/slider?fields=*.*.*"
+      );
       const jsonData = await response.json();
+      console.log("Fetched data:", jsonData);
 
-      const imageUrls = await Promise.all(jsonData.data[0].slider_images.map(async (item) => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_ASSETS}/${item.directus_files_id}`);
-        const fileData = await response.json();
-        return fileData.data.data;
-      }));
-
-      setData(imageUrls);
+      const sliderImages = jsonData?.data?.[0]?.slider_images;
+      if (sliderImages) {
+        const imageUrls = sliderImages.map(
+          (item) => item.directus_files_id.data.full_url
+        );
+        setData(imageUrls);
+      } else {
+        console.error("Slider images not found in response data.");
+      }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -30,12 +30,15 @@ function Carousel1() {
     fetchData();
   }, []);
 
-
   return (
     <Carousel fade>
       {data?.map((item, index) => (
         <Carousel.Item key={index} className="carousel_image_new">
-          <img className="d-block w-100" src={item.full_url} alt={`Slide ${index + 1}`} />
+          <img
+            className="d-block w-100"
+            src={item}
+            alt={`Slide ${index + 1}`}
+          />
         </Carousel.Item>
       ))}
     </Carousel>
