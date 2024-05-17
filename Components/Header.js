@@ -53,14 +53,14 @@ function Header({ cart }) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link href="/">HOME</Link>
-            <NavDropdown title="ABOUT" id="basic-nav-dropdown">
+            {/* <NavDropdown title="ABOUT" id="basic-nav-dropdown">
               <NavDropdown.Item className="dropdown1">
                 <Link href="/About">Our Vision</Link>
               </NavDropdown.Item>
               <NavDropdown.Item className="dropdown1">
                 <Link href="/Aboutdr">Our Director</Link>
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             {/* <Link href="/Treatments">TREATMENTS</Link>
             <Link href="/Results">RESULTS</Link>
             <Link href="/Gallery">GALLERY</Link>
@@ -72,11 +72,13 @@ function Header({ cart }) {
                 <Link href="/Clinicsetup">ORDERING MEDICINE ONLINE CONSULTATION</Link>
               </NavDropdown.Item>
             </NavDropdown> */}
-
+            <Link href="/About">OUR VISION</Link>
+            <Link href="/Aboutdr">OUR DIRECTOR</Link>
             <Link href="/Products">PRODUCTS</Link>
             {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
-            <Link href="/Contactus">CONTACT US</Link>
             <Link href="/Blogs">BLOGS</Link>
+            <Link href="/Contactus">CONTACT US</Link>
+            
             {
               token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
                 <NavDropdown.Item className="dropdown1">

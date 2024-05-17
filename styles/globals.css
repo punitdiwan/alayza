@@ -68,6 +68,10 @@ a {
   margin-left: 5rem;
   width: 100%;
   font-size: 12px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap:70px ;
   /* border: 2px solid red; */
 }
 
