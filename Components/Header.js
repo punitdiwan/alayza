@@ -73,12 +73,15 @@ function Header({ cart }) {
               </NavDropdown.Item>
             </NavDropdown> */}
             <Link href="/About">OUR VISION</Link>
+
+            
+            {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
             <Link href="/Aboutdr">OUR TEAM</Link>
             <Link href="/Products">PRODUCTS</Link>
             {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
-            
             <Link href="/Blogs">BLOGS</Link>
             <Link href="/Contactus">CONTACT US</Link>
+            
             {
               token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
                 <NavDropdown.Item className="dropdown1">

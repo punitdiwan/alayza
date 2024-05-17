@@ -71,6 +71,11 @@ a {
   display:  flex;
   align-items: center;
   gap: 50px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap:70px ;
+
   /* border: 2px solid red; */
 
 }
