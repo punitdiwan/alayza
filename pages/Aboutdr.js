@@ -9,7 +9,7 @@ const Aboutdr = () => {
       <section>
         <Header />
         <div className="about-header">
-          <h1>About Company</h1>
+          <h1>About Team</h1>
           <p>Alayza life science </p>
               </div>
               <Aboutdoctor/>  
