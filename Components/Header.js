@@ -46,8 +46,8 @@ function Header({ cart }) {
       <Container>
         
         <Navbar.Brand href="/" className="logo">
-          <img src="/images/nav_logo.png" alt="logo" />
-          {/* <em><h1 >Zebdermm</h1></em> */}
+          <img src="/images/logo.png" alt="logo" />
+          
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -55,27 +55,28 @@ function Header({ cart }) {
             <Link href="/">HOME</Link>
             <NavDropdown title="ABOUT" id="basic-nav-dropdown">
               <NavDropdown.Item className="dropdown1">
-                <Link href="/About">About Clinic</Link>
+                <Link href="/About">Our Vision</Link>
               </NavDropdown.Item>
               <NavDropdown.Item className="dropdown1">
-                <Link href="/Aboutdr">About Doctor</Link>
+                <Link href="/Aboutdr">Our Director</Link>
               </NavDropdown.Item>
             </NavDropdown>
-            <Link href="/Treatments">TREATMENTS</Link>
+            {/* <Link href="/Treatments">TREATMENTS</Link>
             <Link href="/Results">RESULTS</Link>
             <Link href="/Gallery">GALLERY</Link>
-            {/* <Link href="/Blogs">BLOGS</Link> */}
-            <Link href="/Homeopathy">HOMEOPATHY</Link>
+            <Link href="/Blogs">BLOGS</Link>
+            <Link href="/Homeopathy">HOMEOPATHY</Link> */}
 
-            <NavDropdown title="ORDERING MEDICINE" id="basic-nav-dropdown" style={{ color: "#03002f" }}>
+            {/* <NavDropdown title="ORDERING MEDICINE" id="basic-nav-dropdown" style={{ color: "#03002f" }}>
               <NavDropdown.Item className="dropdown1">
                 <Link href="/Clinicsetup">ORDERING MEDICINE ONLINE CONSULTATION</Link>
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
 
             <Link href="/Products">PRODUCTS</Link>
             {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
             <Link href="/Contactus">CONTACT US</Link>
+            <Link href="/Blogs">BLOGS</Link>
             {
               token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
                 <NavDropdown.Item className="dropdown1">

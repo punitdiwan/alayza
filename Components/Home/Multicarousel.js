@@ -28,30 +28,30 @@ const Multicarousel = () => {
       <Carousel
         responsive={responsive}
         infinite={true}
-        autoPlaySpeed={1000}
+        autoPlaySpeed={2000}
         autoPlay={true}
         showDots={true}
       >
         <div className="multi-carousel-image">
-          <img src="./images/gallery-1.jpeg" className="image" />
+          <img src="./images/1.jpg" className="image" />
+          {/* <div className="middle">
+            <div className="text">Read More</div>
+          </div> */}
+        </div>
+        {/* <div className="multi-carousel-image">
+          <img src="./images/new 4.jpg" className="image" />
+          <div className="middle">
+            <div className="text">Read More</div>
+          </div>
+        </div> */}
+        <div className="multi-carousel-image">
+          <img src="./images/stand 1.jpg" className="image" />
           {/* <div className="middle">
             <div className="text">Read More</div>
           </div> */}
         </div>
         <div className="multi-carousel-image">
-          <img src="./images/gallery-2.jpeg" className="image" />
-          {/* <div className="middle">
-            <div className="text">Read More</div>
-          </div> */}
-        </div>
-        <div className="multi-carousel-image">
-          <img src="./images/gallery-3.jpeg" className="image" />
-          {/* <div className="middle">
-            <div className="text">Read More</div>
-          </div> */}
-        </div>
-        <div className="multi-carousel-image">
-          <img src="./images/gallery-4.jpeg" className="image" />
+          <img src="./images/stand2.jpg" className="image" />
           {/* <div className="middle">
             <div className="text">Read More</div>
           </div> */}

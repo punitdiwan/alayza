@@ -12,7 +12,7 @@ export default function Youtube() {
 
   const fetchProducts = async () => {
 
-    const response = await fetch('https://cms.maitretech.com//zebacms/items/products?fields=*.*') 
+    const response = await fetch('https://cms.maitretech.com/alayza/items/products?fields=*.*') 
     const data1 = await response.json()
 
     setData(data1?.data)
@@ -37,12 +37,12 @@ export default function Youtube() {
                   <Link className="cards_item" href={`Products/${item.id}`}>
                     <div className="card">
                       <div className="card_image">
-                        <img src={item.product_image?.data?.full_url} />
+                        <img src={item.image?.data?.full_url} />
                       </div>
                       <div className="card_content">
                         <h3>{item.brand}</h3>
-                        <h2 className="card_title">{item.product_name}</h2>
-                        <h5>Rs. {item.product_price}</h5>
+                        <h2 className="card_title">{item.name}</h2>
+                        <h5>Rs. {item.price}</h5>
                       </div>
                     </div>
                   </Link>

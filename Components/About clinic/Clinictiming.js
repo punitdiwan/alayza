@@ -6,25 +6,13 @@ const Clinictiming = () => {
       <section className="clinic-timing-main">
         <div className="clinic-timing-1">
           <p>
-            We are professional "skin, hair & oral care" centre, running it
-            succesfully for more than 12 years. We
-            are providing all skin & hair care services such as skin peelings
-            and skin polishings for treatment of blemishes, acne & acne scars,
-            pigmentation & skin rejuvenation for improvement of skin complexion
-            & texture. Our hair care services include medical and surgical
-            treatment for Baldness, Mesotherapy, Microneedling and Autologous
-            PRP forhair regrowth.
+          Alayza firmly believes that nature holds the key to unlocking optimal health and wellness.
+           Alayza envisions a world where individuals are empowered to take charge of their health and make informed
+            choices that optimize their well-being, Alayza recognizing the importance of natural solutions, the company aims
+           to develop cutting-edge health supplements that harness the power of nature to promote vitality and longevity.
           </p>
-          <p>
-            We has an office based dermatology practice offering the best of
-            dermatological services in an ethical and evidence based manner,at
-            Janakpuri and at Vikaspuri. Utmost attention is taken to provide the
-            best medical care and maximum comfort to each and every patient who
-            seeks our care. Treatments available at our Clinic and basic
-            information on common skin conditions can be accessed in the
-            website.
-          </p>
-          <em>
+          
+          {/* <em>
           <h4>Virtual Clinic -   Aesthetic Clinic Set up Feel free to contact </h4>
           </em>
           <h2>Clinic Timings :</h2>
@@ -35,9 +23,9 @@ const Clinictiming = () => {
            <span> Monday<li> 11 Am to 9 pm</li>  </span>
            <span> Tuesday<li> 11 Am to 9 pm</li>  </span>
            <span> Wednesday<li> 11 Am to 9 pm</li>  </span>
-          <p>Sunday with appointment.</p>
+          <p>Sunday with appointment.</p> */}
         </div>
-        <img src="./images/about-us-service-middle-woman.png" alt="timing"/>
+        {/* <img src="./images/about-us-service-middle-woman.png" alt="timing"/> */}
       </section>
     </>
   );

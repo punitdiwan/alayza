@@ -10,7 +10,7 @@ const Blogs = () => {
         <Header />
         <div className="about-header">
           <h1>Blogs</h1>
-          <p>Dr. Zeba Quadiri/ Blogs</p>
+          <p>Alayza Life Science</p>
               </div>
               <Blogcard/>
 

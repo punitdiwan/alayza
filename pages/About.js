@@ -11,12 +11,12 @@ const About = () => {
       <section className="about-main">
         <Header />
         <div className="about-header">
-          <h1>About Clinic</h1>
-          <p>Dr. Zeba Quadiri / About Clinic</p>
+          <h1>Vision</h1>
+          <p>Alayza life science</p>
         </div>
         <Weoffer />
         <Clinictiming />
-        <Testimonial />
+        {/* <Testimonial /> */}
         <Footer />
       </section>
     </>

@@ -7,10 +7,11 @@ function Carousel1() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://cms.maitretech.com/zebacms/items/slider?fields=*.*.*"
+        "https://cms.maitretech.com/alayza/items/slider?fields=*.*.*"
       );
       const jsonData = await response.json();
       console.log("Fetched data:", jsonData);
+      setData(jsonData.data);
 
       const sliderImages = jsonData?.data?.[0]?.slider_images;
       if (sliderImages) {
@@ -36,7 +37,7 @@ function Carousel1() {
         <Carousel.Item key={index} className="carousel_image_new">
           <img
             className="d-block w-100"
-            src={item}
+            src={item?.sliderimage?.data?.full_url}
             alt={`Slide ${index + 1}`}
           />
         </Carousel.Item>

@@ -16,12 +16,12 @@ export default function Home() {
       <Header />
       <Carousel1 />
       <Dermatologistservice />
-      <Meet />
+      {/* <Meet /> */}
       {/* <Ourresults /> */}
       <Youtube />
-      <Form />
-      <Testimonial />
-      <Homecard />
+      {/* <Form /> */}
+      {/* <Testimonial /> */}
+      {/* <Homecard /> */}
       <Footer />
     </>
   );

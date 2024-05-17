@@ -39,7 +39,7 @@ a {
 
 #navbar {
   /* color: #00008B; */
-  background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%);
+  background-image:linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%);
   /* border-bottom: 1px solid grey; */
   z-index: 9;
   top: 0;
@@ -96,7 +96,7 @@ a {
 }
 
 .me-auto a:hover {
-  color: #3795BD;
+  color: #4dbd37;
 }
 
 
@@ -936,7 +936,7 @@ li {
 
 .carousel-main-1 {
   z-index: 1;
-  width: 60%;
+  width: 50%;
 }
 
 
@@ -1012,26 +1012,28 @@ li {
 .carousel_image_new img {
   /* padding: 1rem;
   margin: 0 auto; */
-  /* height: 30vh; */
+  height: 50vh;
 }
 
 .multi-carousel-image {
   cursor: pointer;
   position: relative;
+  margin: 15px;
 }
 
 
 
 .multi-carousel-image img {
-  height: 85vh;
-  width: 100%;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
+  height: 50vh;
+  width: 80%;
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  
 }
 
 .multi-carousel-image:hover img {
-  filter: grayscale(0);
-  -webkit-filter: grayscale(0);
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 
 .middle {
@@ -1635,7 +1637,7 @@ form .btn-grad {
 }
 
 .cardslidersetup {
-  width: 100%;
+  width: 50%;
   height: auto;
   display: flex;
   align-items: center;

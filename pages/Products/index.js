@@ -8,7 +8,7 @@ import { PrismaClient } from "@prisma/client";
 export async function getStaticProps() {
 
 
-  const response = await fetch('https://cms.maitretech.com//zebacms/items/products?fields=*.*') 
+  const response = await fetch('https://cms.maitretech.com/alayza/items/products?fields=*.*')
   const data3 = await response.json()
 
   return {
@@ -51,79 +51,57 @@ const Products = ({ data3 }) => {
 
   const [prodData, setProdData] = useState(data3);
   const [categoryData, setCategoryData] = useState(false);
+  const [product,setPro] = useState([])
 
-  const filteredData = data3?.data?.filter(
-    (item) => item?.category.toLowerCase() === categoryData?.category
-  );
-  if (categoryData?.category == "All") {
-    setCategoryData(false);
+  // const filteredData = data3?.data?.filter(
+  //   (item) => item?.category.toLowerCase() === categoryData?.category
+  // );
+  // if (categoryData?.category == "All") {
+  //   setCategoryData(false);
+  // }
+  
+  useEffect(()=>{
+    getData()
+  },[])
+  const getData = async()=>{
+    try {
+      const res = await fetch('https://cms.maitretech.com/alayza/items/products?fields=*.*')
+      const data = await res.json()
+      setPro(data.data)
+      console.log(data.data)
+    } catch (error) {
+      
+    }
   }
-
 
   return (
     <>
       <Layout>
-        <section className="products-main">
-          <div className="dropdown">
-            <label>Category</label>
-            <select
-              onChange={(e) => {
-                handleChange(e);
-              }}
-              name="category"
-            >
-              {categoryData1.map((item) => {
-                return (
-                  <option value={item.name} key={item.id}>
-                    {item.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
           <div className="products-main-1">
-            {categoryData
-              ? filteredData?.map((item) => {
-                return (
+              {
+                product.map((item)=>(
                   <ul className="cards" key={item.id}>
                     {/* {console.log(item.prod_id)} */}
                     <Link className="cards_item" href={`Products/${item.id}`}>
                       <div className="card">
                         <div className="card_image">
-                          <img src={item.product_image?.data?.full_url} />
+                          <img src={item?.image?.data?.full_url} />
                         </div>
                         <div className="card_content">
                           <h3>{item.brand}</h3>
-                          <h2 className="card_title">{item.product_name}</h2>
-                          <h5>Rs. {item.product_price}</h5>
+                          <h2 className="card_title">{item.name}</h2>
+                          <h5>RS {item.price}</h5>
                         </div>
                       </div>
                     </Link>
                   </ul>
-                );
-              })
-              : prodData?.data?.map((item) => {
-                return (
-                  <ul className="cards" key={item?.id}>
-                    <Link className="cards_item" href={`Products/${item.id}`}>
-                      <div className="card">
-                        <div className="card_image">
-                          <img src={item.product_image?.data?.full_url} />
-                        </div>
-                        <div className="card_content">
-                          <h3>{item.brand}</h3>
-                          <h2 className="card_title">{item.product_name}</h2>
-                          <h5>Rs. {item.product_price}</h5>
-                        </div>
-                      </div>
-                    </Link>
-                  </ul>
-                );
-              })}
-               <img src="./images/Dhan.jpeg" alt="Dhan"style={{opacity : "0.002",width : "300px" , position : "absolute" }}/>
+                ))
+              }
+               
+               
 
           </div>
-        </section>
+        
       </Layout>
     </>
   );

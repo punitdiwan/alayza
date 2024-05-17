@@ -6,28 +6,17 @@ const Meet = () => {
     <>
       <div className="meet-main">
         <div className="meet-1">
-          <p> Dermatologist</p>
-          <h1>Dr. Zeba Quadiri</h1>
+          <p></p>
+          <h1>Alayza Life Science</h1>
           <img src="./images/heading-art-01.svg" />
         </div>
         <div className="meet-2">
           <img src="./images/dr-img.jpeg" alt="About" />
           <div className="meet-3">
-            <h1>Dr. Zeba Quadiri</h1>
+            <h1>Alayza Life Science</h1>
             <p>
-              Dr. Zeba is a renowned and highly acclaimed homeopathic doctor and
-              aesthetician, who has more than 15 years of experience. Her
-              passion for this field first sparked when she happened to take a
-              trip to Kargil where she was stunned to see people's severe skin
-              issues, how they had very limited options to cure them, and had to
-              lead a life with those issues helplessly. Dr. Zeba's heart
-              immediately reached out to help them and that's when she
-              discovered her immense interest in treating skin- related issues
-              through pathy aesthetics and skincare products, that's how
-              zebdermm brand was born.
-              {/* She has passed out from prestigious Maulana Azad
-              Medical College and had her thesis on drug therapy in Male
-              Androgenetic Alopecia at LNJP HOSPITAL DELHI. */}
+              Dr. 
+              
             </p>
             <Link href="/Aboutdr" className="btn-grad" style={{ textDecoration: "none", color: "#03002f" }} >
               Read More

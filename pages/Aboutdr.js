@@ -9,8 +9,8 @@ const Aboutdr = () => {
       <section>
         <Header />
         <div className="about-header">
-          <h1>About Doctor</h1>
-          <p>Dr. Zeba Quadiri </p>
+          <h1>About Company</h1>
+          <p>Alayza life science </p>
               </div>
               <Aboutdoctor/>  
 

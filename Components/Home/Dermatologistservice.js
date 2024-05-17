@@ -6,8 +6,8 @@ const Dermatologistservice = () => {
   return (
     <>
       <div className="derma-main">
-        <p>What we offer</p>
-        <h1>Best Dermatologist Services</h1>
+        <h4>What we offer</h4>
+        <h6>Natural Health Supplements and Herbals Medicines</h6>
         <img src="./images/heading-art-01.svg" />
       </div>
       <Multicarousel />

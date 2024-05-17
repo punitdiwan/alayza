@@ -1,86 +1,54 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import Router from "next/router";
+import Router ,{useRouter} from "next/router";
 // import prisma from "../../lib/prisma";
 // import { useGlobalContext } from "../../Components/Context";
 
 const Productdetails = ({ parsed }) => {
-  const setCartItem = () => {
-    const id = parsed.id;
-    var cartItems = JSON.parse(localStorage.getItem("cart-value") || "[]");
-    // var cartItem = data; 
-
-    const existingData = cartItems.find((item) => item.id === id);
-    // const existingData = data.find((item) => item.id === id);
-
-
-    if (existingData) {
-      return existingData;
-    } else {
-      // setData([...data,parsed])
-      cartItems.push(parsed);
-      localStorage.setItem("cart-value", JSON.stringify(cartItems));
-      return parsed;
+  const [data,setDate]=useState({})
+const router = useRouter();
+ const {Productdetails } = router.query;
+ const id= Productdetails;
+  // console.log(slug)
+  useEffect(()=>{
+    getDate()
+  },[])
+  const getDate = async()=>{
+    try {
+      const res = await fetch(`https://cms.maitretech.com/alayza/items/products/${id}?fields=*.*`)
+      const data = await res.json()
+      console.log(data)
+      setDate(data.data)
+    } catch (error) {
+      console.log(error)
     }
-  };
-
-  // console.log(parsed,"parsed")
-
+  }
   return (
     <>
       {
         // setCart1({...cart1,parsed})
       }
       <Header />
-      <section className="products-details-main">
-        <br />
-        <button className="global-btn" onClick={() => Router.back()}>
-          Go Back
-        </button>
-        <br />
-        <br />
-        <div className="products-detail-page">
-          <img src={parsed?.data.product_image?.data?.full_url} alt="product" />
-          <div className="products-detail-page-inner-1">
-            <h1>{parsed?.data.product_name}</h1>
-            {/* <p>
-              <FaRegStar /> <FaRegStar />
-              <FaRegStar /> <FaRegStar />
-              <FaRegStar /> 5 Reviews
-            </p> */}
-            <p>Rs. {parsed?.data.product_price} </p>
-            <p>
-              {parsed?.data.description}
-            </p>
-          </div>
-          <div className="products-detail-page-inner-2">
-            <img src="/images/Qrcode.v2.png" alt="" />
-
-          </div>
-          {/* <div className="products-detail-page-inner-2">
-           
-            <p>Status: In Stock</p>
-            <p>Qty: 1</p>
-            <Link
-              href="/Shoppingcart"
-              type="button"
-              className="global-btn"
-              style={{
-                width: "100%",
-                textAlign: "center",
-                textDecoration: "none",
-              }}
-              onClick={setCartItem}
-            >
-              Add To Cart
-            </Link>
-
-          </div> */}
-          {/* ----------------------------QR payment--------------------- */}
-
+      <section className="about-doctor">
+        <div>
+            <div  className="about-doctor-1">
+              <div className="doctors-image">
+                <img
+                  src={data?.image?.data?.full_url}
+                  alt="about"
+                />
+              </div>
+              <div className="about-doctor-2">
+               
+                <h1>{data?.name}</h1>
+                <p>{data?.price}</p>
+                <p>{data?.description}</p>
+              </div>
+            </div>
         </div>
       </section>
+      
       <Footer />
     </>
   );
@@ -112,7 +80,7 @@ export async function getStaticProps(context) {
 
   const id = parseInt(context.params.Productdetails);
 
-  const response = await fetch('https://cms.maitretech.com//zebacms/items/products/' + id + '?fields=*.*');
+  const response = await fetch('https://cms.maitretech.com/zebacms/items/products/' + id + '?fields=.');
 
   const parsed = await response.json()
   
