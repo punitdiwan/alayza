@@ -102,7 +102,7 @@ const Index = () => {
         {/* <Form/> */}
 
       </section>
-      <Link href="/Blogs" className="btn-grad" style={{ width: "300px", display: 'flex', alignItems: 'center', flexDirection: 'column', marginLeft: '40%' }}>
+      <Link href="/Blog" className="btn-grad" style={{ width: "300px", display: 'flex', alignItems: 'center', flexDirection: 'column', marginLeft: '40%' }}>
         View All
       </Link>
     </>
