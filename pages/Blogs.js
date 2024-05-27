@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import Blogcard from '../Components/Blogs/Blogcard';
+import Index from '../Components/Blogs/Index';
 
 const Blogs = () => {
   return (
@@ -12,7 +12,7 @@ const Blogs = () => {
           <h1>Blogs</h1>
           <p>Alayza Life Science</p>
               </div>
-              <Blogcard/>
+              <Index/>
 
         <Footer />
       </section>
