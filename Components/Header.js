@@ -8,13 +8,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useGlobalContext } from "./Context";
-import { FaSearch } from "react-icons/fa";
 // import Header from './Admin/Header';
 
 function Header({ cart }) {
   const { cart1, setCart1 } = useGlobalContext();
   const [admin, setAdmin] = useState(false);
   const [token, setToken] = useState(false);
+
+
+
 
   const router = useRouter();
 
@@ -42,10 +44,10 @@ function Header({ cart }) {
   return (
     <Navbar expand="lg" id="navbar">
       <Container>
-
+        
         <Navbar.Brand href="/" className="logo">
           <img src="/images/logo.png" alt="logo" />
-
+          
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -72,24 +74,12 @@ function Header({ cart }) {
             </NavDropdown> */}
             <Link href="/About">OUR VISION</Link>
 
-
-            {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
             <Link href="/Aboutdr">OUR TEAM</Link>
             <Link href="/Products">PRODUCTS</Link>
             {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
-            <Link href="/Blog">BLOGS</Link>
+            
+            <Link href="/Blogs">BLOGS</Link>
             <Link href="/Contactus">CONTACT US</Link>
-            {/* <div style={{display:"flex",width:20 , }}>
-               
-              <input  style={{backgroundColor:'#005392',borderRadius:'50px',fontSize:12,color:'white'}}
-              type="text"
-                placeholder="Search"
-              
-                
-               />
-
-            </div> */}
-
 
             {
               token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
@@ -111,7 +101,7 @@ function Header({ cart }) {
                 </NavDropdown.Item> */}
               </NavDropdown> : ""
             }
-            {/* 
+{/* 
             <Link
               href="/Shoppingcart"
               className="cart"

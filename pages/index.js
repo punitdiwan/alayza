@@ -23,13 +23,10 @@ export default function Home() {
            <img style={{marginLeft:670}} src="./images/heading-art-01.svg" />
          </div> */}
       <Blogcard/>
-      
       {/* <Meet /> */}
       {/* <Ourresults /> */}
-     
       <Greadcard/>
       <Youtube />
-      
       {/* <Form /> */}
       {/* <Testimonial /> */}
       {/* <Homecard /> */}
