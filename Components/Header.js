@@ -42,8 +42,8 @@ function Header({ cart }) {
   };
 
   return (
-    <Navbar expand="lg" id="navbar">
-      <Container>
+    <Navbar expand="lg" id="navbar" style={{width:'100%'}}>
+      <Container style={{ display:'flex',alignItems:'center', justifyContent:'space-between', width:'100%',}}>
         
         <Navbar.Brand href="/" className="logo">
           <img src="/images/logo.png" alt="logo" />

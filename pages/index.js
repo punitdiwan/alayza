@@ -22,7 +22,7 @@ export default function Home() {
            <h1 style={{color:'#005392',marginLeft:725,marginTop:30}}>Blog</h1>
            <img style={{marginLeft:670}} src="./images/heading-art-01.svg" />
          </div> */}
-      <Blogcard/>
+      {/* <Blogcard/> */}
       {/* <Meet /> */}
       {/* <Ourresults /> */}
       <Greadcard/>

@@ -25,11 +25,13 @@ const Blog = () => {
     return (
         <>
             <Header />
+            <section className="youtube-main">
             <div className="product-1">
 
-                <h1 style={{ color: '#005392', marginLeft: 725, marginTop: 30 }}>Blogs</h1>
-                <img style={{ marginLeft: 670 }} src="./images/heading-art-01.svg" />
+                <h1 style={{ color: '#005392',  }}>Blogs</h1>
+                <img style={{  }} src="./images/heading-art-01.svg" />
             </div>
+            </section>
             <section className="blog-card-main" >
                 <div className="main" >
                     {/* <h1>Responsive Card Grid Layout</h1> */}

@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { AppProvider } from "../Components/Context";
 import { GraphQLClient, ClientContext } from 'graphql-hooks'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const url = process.env.REACT_APP_API_URL;
@@ -10,6 +12,9 @@ function MyApp({ Component, pageProps }) {
   const client = new GraphQLClient({
     url: "https://zebaecom.maitretech.com/graphql"
   })
+  function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />;
+  }
 
   return (
     <ClientContext.Provider value={client}>

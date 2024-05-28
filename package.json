@@ -37,9 +37,11 @@
     "react-spinners": "^0.13.8",
     "react-toastify": "^9.1.1",
     "slick-carousel": "^1.8.1",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^2.1.4",
     "eslint": "8.34.0",
     "prisma": "^4.11.0"
   }

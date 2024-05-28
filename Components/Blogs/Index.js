@@ -60,11 +60,13 @@ const Index = () => {
   }
   return (
     <>
+      <section className="youtube-main">
       <div className="product-1">
 
-        <h1 style={{ color: '#005392', marginLeft: '45%', marginTop: 30 }}>Blogs</h1>
-        <img style={{ marginLeft: '42%' }} src="./images/heading-art-01.svg" />
+        <h1 style={{ color: '#005392',  }}>Blogs</h1>
+        <img  src="./images/heading-art-01.svg" />
       </div>
+      </section>
       <section className="blog-card-main" >
         <div className="main" >
           {/* <h1>Responsive Card Grid Layout</h1> */}
@@ -102,9 +104,11 @@ const Index = () => {
         {/* <Form/> */}
 
       </section>
-      <Link href="/Blog" className="btn-grad" style={{ width: "300px", display: 'flex', alignItems: 'center', flexDirection: 'column', marginLeft: '40%' }}>
+      <section className="youtube-main">
+      <Link href="/Blog" className="btn-grad" style={{ width: "300px",  }}>
         View All
       </Link>
+      </section>
     </>
   );
 };

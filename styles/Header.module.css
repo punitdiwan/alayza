@@ -1,0 +1,28 @@
+/* Example custom styles for the header */
+.logo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .cart {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart span {
+    margin-left: 5px;
+    background-color: red;
+    border-radius: 50%;
+    padding: 0 5px;
+    color: white;
+    font-size: 0.8rem;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 767px) {
+    .navbar-brand {
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+  

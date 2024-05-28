@@ -11,11 +11,13 @@ const Greadcard = () => {
     const img8 = "./images/meditation2.jpg"
     return (
         <>
+        <section className="youtube-main">
         <div className="product-1">
            
-           <h1 style={{color:'#005392',marginLeft:'40%',marginTop:30}}>Life at Alayza</h1>
-           <img style={{marginLeft:'42%'}} src="./images/heading-art-01.svg" />
+           <h1 style={{color:'#005392',}}>Life at Alayza</h1>
+           <img style={{}} src="./images/heading-art-01.svg" />
          </div>
+         </section>
         <div className='GreadCard'>
             <div className='Gmain_card'>
                 <div className='gbody_card'>
