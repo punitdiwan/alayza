@@ -4,111 +4,85 @@ import Link from "next/link";
 import Header from '../Header'
 import Footer from '../Footer'
 
-
 const Index = () => {
-  const [toggle, settoggle] = useState(false)
-  const [blog, setBlog] = useState([])
-  const [data, setDate] = useState({})
+  const [toggle, setToggle] = useState(false);
+  const [blog, setBlog] = useState([]);
+  const [data, setData] = useState({});
+
   useEffect(() => {
-    getdata()
-  }, [])
-  const getdata = async () => {
+    getData();
+  }, []);
+
+  const getData = async () => {
     try {
-      const res = await fetch('https://cms.maitretech.com/alayza/items/blogs?fields=*.*')
-      const data = await res.json()
-      setBlog(data.data)
+      const res = await fetch('https://cms.maitretech.com/alayza/items/blogs?fields=*.*');
+      const result = await res.json();
+      setBlog(result.data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-  const getsDate = async (id) => {
+  };
+
+  const getDataById = async (id) => {
     try {
-      const res = await fetch(`https://cms.maitretech.com/alayza/items/blogs/${id}?fields=*.*`)
-      const data = await res.json()
-      console.log(data)
-      setDate(data.data)
-      settoggle(true)
+      const res = await fetch(`https://cms.maitretech.com/alayza/items/blogs/${id}?fields=*.*`);
+      const result = await res.json();
+      setData(result.data);
+      setToggle(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-  if (toggle) {
-    <>
-      <Header />
-      <section className="about-doctor">
-        <div>
-          <div className="about-doctor-1">
-            <div className="doctors-image">
-              <img
-                src={data?.image?.data?.full_url}
-                alt="about"
-              />
-            </div>
-            <div className="about-doctor-2">
+  };
 
-              <h1>{data?.title}</h1>
-              {/* <p>{data?.price}</p> */}
-              <p>{data?.detail}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </>
-
-  }
   return (
     <>
-      <section className="youtube-main">
-      <div className="product-1">
-
-        <h1 style={{ color: '#005392',  }}>Blogs</h1>
-        <img  src="./images/heading-art-01.svg" />
-      </div>
-      </section>
-      <section className="blog-card-main" >
-        <div className="main" >
-          {/* <h1>Responsive Card Grid Layout</h1> */}
-
-          <ul className="cards" >
-
-            {
-              blog?.map((item) => (
-
-                <li className="cards_item" key={item.id} onClick={() => getsDate(item.id)}>
-
-                  <div className="card">
-                    <div className="card_image">
-                      <img src={item?.image?.data?.full_url} />
-                    </div>
-                    <div className="card_content">
-                      <h2 className="card_title">
-                        {item.title}
-                      </h2>
-                      <p className="card_text">
-                        {item?.detail}
-                      </p>
-
-                      {/* <button className="btn-grad" style={{width: "100%",marginLeft: "0"}}>Read More</button> */}
-                    </div>
-                  </div>
-
-                </li>
-
-              ))
-            }
-
-          </ul>
-        </div>
-        {/* <Form/> */}
-
-      </section>
-      <section className="youtube-main">
-      <Link href="/Blog" className="btn-grad" style={{ width: "300px",  }}>
-        View All
-      </Link>
-      </section>
+      {/* <Header /> */}
+      {toggle ? (
+        <section className="about-doctor">
+          <div>
+            <div className="about-doctor-1">
+              <div className="doctors-image">
+                <img
+                  src={data?.image?.data?.full_url}
+                  alt="about"
+                />
+              </div>
+              <div className="about-doctor-2">
+                <h1>{data?.title}</h1>
+                <p>{data?.detail}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <>
+          <section className="youtube-main">
+            <div className="product-1">
+              <h1 style={{ color: '#005392' }}>Blogs</h1>
+              <img src="./images/heading-art-01.svg" alt="heading art" />
+            </div>
+          </section>
+          <section className="blog-card-main">
+            {blog?.map((item) => (
+              <div className="card" key={item.id} onClick={() => getDataById(item.id)}>
+                <div className="card_image">
+                  <img src={item?.image?.data?.full_url} alt={item.title} />
+                </div>
+                <div className="card_content">
+                  <h2 className="card_title">{item.title}</h2>
+                  {/* <p className="card_text">{item?.detail}</p> */}
+                </div>
+              </div>
+            ))}
+          </section>
+          <section className="youtube-main">
+            <Link href="/Blog" className="btn-grad" style={{ width: "300px" }}>
+              View All
+            </Link>
+          </section>
+        </>
+      )}
+      {/* <Footer /> */}
     </>
   );
 };

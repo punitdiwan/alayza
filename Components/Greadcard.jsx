@@ -1,14 +1,14 @@
 import React from 'react'
 
 const Greadcard = () => {
-    const img1 = "./images/meditation.jpg"
-    const img2 = "./images/happines.jpg"
-    const img3 = "./images/dedication.jpg"
-    const img4 = "./images/discipline.jpg"
-    const img5 = "./images/hardwork.jpg"
-    const img6 = "./images/meditation.jpg"
-    const img7 = "./images/meditation2.jpg"
-    const img8 = "./images/meditation2.jpg"
+    const img1 = "./images/stronger muscles.jpg"
+    const img2 = "./images/higher stamina.jpg"
+    const img3 = "./images/cancer.jpg"
+    const img4 = "./images/joint relief.jpg"
+    const img5 = "./images/weight loss.jpg"
+    const img6 = "./images/stronger muscles 2.jpg"
+    const img7 = "./images/gerd relief.jpg"
+    const img8 = "./images/Vitamin_B3_Deficiency.png"
     return (
         <>
         <section className="youtube-main">
@@ -30,39 +30,39 @@ const Greadcard = () => {
                         </div>
                     </div>
                     <div className='g_cart2' >
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>meditation</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>stronger muscles</p></div>
                         <img src={img1} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                     <div className='g_card1'>
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>happiness</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>higher stamina</p></div>
                         <img src={img2} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                 </div>
                 <div className='gbody_card'>
                     <div className='g_cart2'>
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>dedication</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>cancer treatment</p></div>
                         <img src={img3} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                     <div className='g_card1'>
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>discipline</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>joint relief</p></div>
                         <img src={img4} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                     <div className='g_card1'>
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>hardwork</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>weight loss</p></div>
                         <img src={img5} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                 </div>
                 <div className='gbody_card'>
                     <div className='g_card1'>
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>meditation</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>stronger muscles 2</p></div>
                         <img src={img6} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                     <div className='g_cart2'>
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>meditation2</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>gerd relief</p></div>
                         <img src={img7} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                     <div className='g_card1'>
-                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>meditation2</p></div>
+                        <div style={{ width: '100%', height: '100%', position: 'absolute', }} className='clol'><p>Vitamin_B3_Deficiency</p></div>
                         <img src={img8} alt="" style={{ width: "100%", height: '100%' }} />
                     </div>
                 </div>

@@ -52,7 +52,7 @@ function Header({ cart }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link href="/">HOME</Link>
+            <Link href="/"  style={{marginLeft:40}} >HOME</Link>
             {/* <NavDropdown title="ABOUT" id="basic-nav-dropdown">
               <NavDropdown.Item className="dropdown1">
                 
