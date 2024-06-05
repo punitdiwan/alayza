@@ -4,23 +4,16 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useGlobalContext } from "./Context";
-// import Header from './Admin/Header';
 
 function Header({ cart }) {
   const { cart1, setCart1 } = useGlobalContext();
   const [admin, setAdmin] = useState(false);
   const [token, setToken] = useState(false);
 
-
-
-
   const router = useRouter();
-
-
 
   const checkToken = () => {
     const tokenData = localStorage.getItem("Token");
@@ -30,10 +23,10 @@ function Header({ cart }) {
   };
 
   useEffect(() => {
-    const dataSum = localStorage.getItem("items")
-    setCart1(dataSum)
+    const dataSum = localStorage.getItem("items");
+    setCart1(dataSum);
     checkToken();
-  });
+  }, [setCart1]);
 
   const clearToken = () => {
     localStorage.removeItem("Token");
@@ -42,79 +35,24 @@ function Header({ cart }) {
   };
 
   return (
-    <Navbar expand="lg" id="navbar" style={{width:'100%'}}>
-      <Container style={{ display:'flex',alignItems:'center', justifyContent:'space-between', width:'100%',}}>
-        
+    <Navbar expand="lg" id="navbar" className="w-100">
+      <Container className="d-flex align-items-center justify-content-between w-100">
         <Navbar.Brand href="/" className="logo">
-          <img src="/images/logo.png" alt="logo" />
-          
+          <img src="/images/logo.png" alt="logo" className="img-fluid" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link href="/"  style={{marginLeft:40}} >HOME</Link>
-            {/* <NavDropdown title="ABOUT" id="basic-nav-dropdown">
-              <NavDropdown.Item className="dropdown1">
-                
-              </NavDropdown.Item>
-              <NavDropdown.Item className="dropdown1">
-                
-              </NavDropdown.Item>
-            </NavDropdown> */}
-            {/* <Link href="/Treatments">TREATMENTS</Link>
-            <Link href="/Results">RESULTS</Link>
-            <Link href="/Gallery">GALLERY</Link>
-            <Link href="/Blogs">BLOGS</Link>
-            <Link href="/Homeopathy">HOMEOPATHY</Link> */}
-
-            {/* <NavDropdown title="ORDERING MEDICINE" id="basic-nav-dropdown" style={{ color: "#03002f" }}>
-              <NavDropdown.Item className="dropdown1">
-                <Link href="/Clinicsetup">ORDERING MEDICINE ONLINE CONSULTATION</Link>
-              </NavDropdown.Item>
-            </NavDropdown> */}
-            <Link href="/About">OUR VISION</Link>
-
-            <Link href="/Aboutdr">OUR TEAM</Link>
-            <Link href="/Products">PRODUCTS</Link>
-            {/* <Link href="/Testimonial">TESTIMONIAL</Link> */}
-            
-            <Link href="/Blogs">BLOGS</Link>
-            <Link href="/Contactus">CONTACT US</Link>
-
-            {
-              token ? <NavDropdown title="MORE" id="basic-nav-dropdown">
-                <NavDropdown.Item className="dropdown1">
-                  <Link href="/Myprofile">My Profile</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item className="dropdown1">
-                  <Link href="/Myorder">My Orders</Link>
-                </NavDropdown.Item>
-                {/* <NavDropdown.Item className="dropdown1">
-                <Link href="/Login" onClick={clearToken}>
-                  {token ? "Logout" : "Login/SignUp"}
-                </Link>
-              </NavDropdown.Item> */}
-                {/* <NavDropdown.Item className="dropdown1">
-                  <Link href="/Admin" onClick={() => setAdmin(true)}>
-                  Admin
-                  </Link>
-                </NavDropdown.Item> */}
-              </NavDropdown> : ""
-            }
-{/* 
-            <Link
-              href="/Shoppingcart"
-              className="cart"
-              style={{ marginTop: "-0.1rem" }}
-            >
-              <FaCartPlus />
-              {cart1 > 0 ? <span>{cart1}</span> : ""}
-            </Link>
-            <Link href="/Login" className="logout" onClick={clearToken}>{token ? "Logout" : "Login"}</Link> */}
+          <Nav className="me-auto align-items-center">
+            <Link href="/" className="nav-link" style={{ marginLeft: 10 }}>HOME</Link>
+            <Link href="/About" className="nav-link">OUR VISION</Link>
+            <Link href="/Aboutdr" className="nav-link">OUR TEAM</Link>
+            <Link href="/Products" className="nav-link">PRODUCTS</Link>
+            <Link href="/Blogs" className="nav-link">BLOGS</Link>
+            <Link href="/Contactus" className="nav-link">CONTACT US</Link>
+          
           </Nav>
         </Navbar.Collapse>
       </Container>
-      {/* )} */}
     </Navbar>
   );
 }

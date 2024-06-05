@@ -12,6 +12,7 @@ import Homecard from "../Components/Home/Homecard";
 import Footer from "../Components/Footer";
 import Greadcard from "../Components/Greadcard";
 
+
 export default function Home() {
   return (
     <>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Form from '../Form';
+// import Form from '../Form';
 import Link from "next/link";
 import Header from '../Header'
 import Footer from '../Footer'
@@ -34,6 +34,7 @@ const Index = () => {
     }
   };
 
+  
   return (
     <>
       {/* <Header /> */}
@@ -67,16 +68,20 @@ const Index = () => {
               <div className="card" key={item.id} onClick={() => getDataById(item.id)}>
                 <div className="card_image">
                   <img src={item?.image?.data?.full_url} alt={item.title} />
+                  
                 </div>
                 <div className="card_content">
                   <h2 className="card_title">{item.title}</h2>
+                  <Link href="/Blogs" >
+                      <text style={{color:'black',fontFamily:'bold', fontSize:20 }} >Read More</text>
+                          </Link>
                   {/* <p className="card_text">{item?.detail}</p> */}
                 </div>
               </div>
             ))}
           </section>
           <section className="youtube-main">
-            <Link href="/Blog" className="btn-grad" style={{ width: "300px" }}>
+            <Link href="/Blogs" className="btn-grad" style={{ width: "300px" }}>
               View All
             </Link>
           </section>
