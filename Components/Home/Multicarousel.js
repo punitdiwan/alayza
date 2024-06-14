@@ -45,13 +45,49 @@ const Multicarousel = () => {
           </div>
         </div> */}
         <div className="multi-carousel-image">
-          <img src="./images/fa3.jpg" className="image" />
+          <img src="./images/m1.jpeg" className="image" />
           {/* <div className="middle">
             <div className="text">Read More</div>
           </div> */}
         </div>
         <div className="multi-carousel-image">
           <img src="./images/fa3.jpg" className="image" />
+          {/* <div className="middle">
+            <div className="text">Read More</div>
+          </div> */}
+        </div>
+        <div className="multi-carousel-image">
+          <img src="./images/m2.jpeg" className="image" />
+          {/* <div className="middle">
+            <div className="text">Read More</div>
+          </div> */}
+        </div>
+        <div className="multi-carousel-image">
+          <img src="./images/m3.jpeg" className="image" />
+          {/* <div className="middle">
+            <div className="text">Read More</div>
+          </div> */}
+        </div>
+        <div className="multi-carousel-image">
+          <img src="./images/m4.jpeg" className="image" />
+          {/* <div className="middle">
+            <div className="text">Read More</div>
+          </div> */}
+        </div>
+        <div className="multi-carousel-image">
+          <img src="./images/m5.jpeg" className="image" />
+          {/* <div className="middle">
+            <div className="text">Read More</div>
+          </div> */}
+        </div>
+        <div className="multi-carousel-image">
+          <img src="./images/m6.jpeg" className="image" />
+          {/* <div className="middle">
+            <div className="text">Read More</div>
+          </div> */}
+        </div>
+        <div className="multi-carousel-image">
+          <img src="./images/m7.jpeg" className="image" />
           {/* <div className="middle">
             <div className="text">Read More</div>
           </div> */}

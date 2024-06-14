@@ -47,6 +47,7 @@ function Header({ cart }) {
             <Link href="/About" className="nav-link">OUR VISION</Link>
             <Link href="/Aboutdr" className="nav-link">OUR TEAM</Link>
             <Link href="/Products" className="nav-link">PRODUCTS</Link>
+            <Link href="/Gallery" className="nav-link">GALLERY</Link>
             <Link href="/Blogs" className="nav-link">BLOGS</Link>
             <Link href="/Contactus" className="nav-link">CONTACT US</Link>
           

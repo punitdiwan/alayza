@@ -13,6 +13,7 @@ import Footer from "../Components/Footer";
 import Greadcard from "../Components/Greadcard";
 
 
+
 export default function Home() {
   return (
     <>
@@ -33,6 +34,7 @@ export default function Home() {
       {/* <Homecard /> */}
       <Blogcard/>
       <Dermatologistservice />
+     
       
       <Footer />
     </>

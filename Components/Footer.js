@@ -90,10 +90,10 @@ const Footer = () => {
         </div>
         <div className="footer-inner footer-inner-1">
           <h5>Office Location</h5>
-          <p>Phone- +91 755-4149740</p>
+          <p>Phone- +91 755-4149740 <br/> +91 7773008198</p>
           <p>E mail- infoatalayza@gmail.com</p>
           <Link href="/Contactus"><p style={{color : "#fff"}}>Find on Google Map</p></Link>
-          <p> MIG-57, Kotra Sultanabad, Near May Flower Public School,Bhopal 462003 (M.P.)</p>
+          <p>Address: <br/> Hn. 423, Sarvdharam colony bheema kunj,Kolar Road Bhopal, (462042)</p>
         </div>
       </section>
     </>
