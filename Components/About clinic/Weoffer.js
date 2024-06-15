@@ -26,7 +26,7 @@ const Weoffer = () => {
             <em>
               <p>Our Products are Manufactured at : cGMP. WHO, ISO 9001 Certiﬁed Plants</p>
               <p></p>
-              <p>Office Address :MIG-57, Kotra Sultanabad, Near May Flower Public School,Bhopal 462003 (M.P.)</p></em>
+              <p>Office Address :Hn. 423, Sarvdharam colony beema kunj,Kolar Road Bhopal, (462042)</p></em>
               {/* <span> <FaDotCircle /></span> */}
             </div>
             <div className="offer-inner">
