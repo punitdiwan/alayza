@@ -17,7 +17,7 @@ const Contactus = () => {
           <h1>Office Address</h1>
           <img   src="./images/heading-art-01.svg" />
           <p style={{ width: "50%" }}>
-          Address :Hn. 423, Sarvdharam colony bheema kunj,Kolar Road Bhopal, (462042)</p>
+          Address :Hn. 423, Sarvdharam colony beema kunj,Kolar Road Bhopal, (462042)</p>
           <p >Email: infoatalayza@gmail.com</p>
           <p >Call : +91 - 7554149740 <br/> +91 7773008198</p>
         </div>

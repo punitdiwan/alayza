@@ -93,7 +93,7 @@ const Footer = () => {
           <p>Phone- +91 755-4149740 <br/> +91 7773008198</p>
           <p>E mail- infoatalayza@gmail.com</p>
           <Link href="/Contactus"><p style={{color : "#fff"}}>Find on Google Map</p></Link>
-          <p>Address: <br/> Hn. 423, Sarvdharam colony bheema kunj,Kolar Road Bhopal, (462042)</p>
+          <p>Address: <br/> Hn. 423, Sarvdharam colony beema kunj,Kolar Road Bhopal, (462042)</p>
         </div>
       </section>
     </>

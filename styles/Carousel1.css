@@ -1,0 +1,6 @@
+.carousel-image-new img {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure the image is treated as a block element */
+  }
+  

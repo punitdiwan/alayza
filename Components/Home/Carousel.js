@@ -35,8 +35,8 @@ function Carousel1() {
     <Carousel fade>
       {data?.map((item, index) => (
         <Carousel.Item key={index} className="carousel_image_new">
-          <img
-            className="d-block w-100"
+          <img style={{width: '80%',margin: '0 auto',display:' block' }}
+            // className="d-block w-100"
             src={item?.sliderimage?.data?.full_url}
             alt={`Slide ${index + 1}`}
           />
@@ -47,3 +47,4 @@ function Carousel1() {
 }
 
 export default Carousel1;
+

@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "/styles/Carousel1.css"
 import "react-toastify/dist/ReactToastify.css";
 import { AppProvider } from "../Components/Context";
 import { GraphQLClient, ClientContext } from 'graphql-hooks'

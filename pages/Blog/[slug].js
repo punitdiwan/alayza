@@ -19,7 +19,7 @@ const BlogPage = () => {
   }, [router]);
   const getDate = async()=>{
     try {
-      const res = await fetch(`https://cms.maitretech.com/alayza/items/blogs/${id}?fields=*.*`)
+      const res = await fetch(`https://cms.maitre tech.com/alayza/items/blogs/${id}?fields=*.*`)
       const data = await res.json()
       console.log(data)
       setDate(data.data)
