@@ -45,7 +45,7 @@ a {
  justify-content: space-between;
  align-items: end;
   /* border-bottom: 1px solid grey; */
-  z-index:1;
+  z-index:100;
   top: 0;
   position: fixed;
   height: 15vh;
