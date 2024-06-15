@@ -45,10 +45,10 @@ const Gallery = () => {
         .one img {
           height: 100%;
           width: 100%;
-          object-fit: cover;
-          border: 2px solid #ddd; /* Add border to the images */
-          border-radius: 5px; /* Optional: Add some border radius for rounded corners */
-          padding: 5px; /* Optional: Add some padding around the images */
+          object-fit: contain; /* Ensure entire image is visible without cropping */
+          border: 2px solid #ddd;
+          border-radius: 5px;
+          padding: 5px;
         }
 
         @media screen and (max-width: 768px) {
