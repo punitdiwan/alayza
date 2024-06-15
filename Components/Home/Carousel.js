@@ -32,10 +32,11 @@ function Carousel1() {
   }, []);
 
   return (
+    <div style={{ marginTop: '15vh' }}>
     <Carousel fade>
       {data?.map((item, index) => (
         <Carousel.Item key={index} className="carousel_image_new">
-          <img style={{width: '80%',margin: '0 auto',display:' block' }}
+          <img style={{width: '80%',margin: '0 auto',display:' block', zIndex: 0}}
             // className="d-block w-100"
             src={item?.sliderimage?.data?.full_url}
             alt={`Slide ${index + 1}`}
@@ -43,6 +44,7 @@ function Carousel1() {
         </Carousel.Item>
       ))}
     </Carousel>
+    </div>
   );
 }
 

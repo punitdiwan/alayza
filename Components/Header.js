@@ -34,7 +34,7 @@ function Header({ cart }) {
     setToken(false);
   };
 
-  return (
+  return (     
     <Navbar expand="lg" id="navbar" className="w-100">
       <Container className="d-flex align-items-center justify-content-between w-100">
         <Navbar.Brand href="/" className="logo">
@@ -59,3 +59,4 @@ function Header({ cart }) {
 }
 
 export default Header;
+
