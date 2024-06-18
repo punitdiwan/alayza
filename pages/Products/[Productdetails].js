@@ -20,8 +20,10 @@ const Productdetails = ({ parsed }) => {
       const res = await fetch(
         `https://cms.maitretech.com/alayza/items/products/${id}?fields=*.*`
       );
-      const data = await res.json();
-      setData(data.data);
+      const result = await res.json();
+      if (result?.data) {
+        setData(result.data);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -42,10 +44,8 @@ const Productdetails = ({ parsed }) => {
               <h1>{data?.name}</h1>
               <p>{data?.price}</p>
               
-              {/* Render description paragraph if data.description is available */}
-              {data.description && (
-                <div dangerouslySetInnerHTML={{ __html: data.description }} />
-              )}
+              {/* Render description paragraph using a div with white-space: pre-line */}
+              <div style={{ whiteSpace: "pre-line" }}>{data?.description}</div>
             </div>
           </div>
         </div>

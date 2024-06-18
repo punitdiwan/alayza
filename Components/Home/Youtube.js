@@ -43,7 +43,7 @@ export default function Youtube() {
                       <div className="card_content">
                         <h3>{item.brand}</h3>
                         <h2 className="card_title">{item.name}</h2>
-                        <h5>Rs. {item.price}</h5>
+                        <h5> {item.price}</h5>
                       </div>
                     </div>
                   </Link>

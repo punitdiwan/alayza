@@ -50,7 +50,8 @@ const Index = () => {
               </div>
               <div className="about-doctor-2">
                 <h1>{data?.title}</h1>
-                <p>{data?.detail}</p>
+                <div style={{ whiteSpace: "pre-line" }}>{data?.detail}</div>
+                
               </div>
             </div>
           </div>

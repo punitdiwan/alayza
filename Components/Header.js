@@ -36,7 +36,7 @@ function Header({ cart }) {
 
   return (
     <div className="header-container">
-      <div className="bottom-component" style={{ paddingBottom: "100px" }}></div>
+      <div className="bottom-component" style={{ paddingBottom: "130px" }}></div>
       <Navbar expand="lg" id="navbar" className="w-100">
         <Container fluid>
           <Navbar.Brand href="/" className="logo">
@@ -56,7 +56,7 @@ function Header({ cart }) {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
+    </div>    
   );
 }
 

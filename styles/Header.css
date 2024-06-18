@@ -20,7 +20,7 @@ Header.css
   .logo img {
     height: 40px;     
   }
-  .custom-nav .nav-link {
+  .custom-nav .nav-link {      
     white-space: nowrap;
   }
   .logo-container {
