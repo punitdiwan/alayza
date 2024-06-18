@@ -35,31 +35,32 @@ function Header({ cart }) {
   };
 
   return (     
-    <div className="header-container">
+    <div className="header-container">      
       {/* Add padding to the bottom component */}
-      <div className="bottom-component" style={{ paddingBottom: "90px" }}>
+      <div className="bottom-component" style={{ paddingBottom: "100px" }}>
         {/* Your bottom component code goes here */}
       </div>
-
       <Navbar expand="lg" id="navbar" className="w-100">
-        <Container fluid>
-          <Navbar.Brand href="/" className="logo">
-            <img src="/images/logo.png" alt="logo" className="img-fluid" />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto align-items-center" style={{ marginLeft: '-20px' }}>
-              <Link href="/" className="nav-link">HOME</Link>
-              <Link href="/About" className="nav-link">OUR VISION</Link>
-              <Link href="/Aboutdr" className="nav-link">OUR TEAM</Link>
-              <Link href="/Products" className="nav-link">PRODUCTS</Link>
-              <Link href="/Gallery" className="nav-link">GALLERY</Link>
-              <Link href="/Blogs" className="nav-link">BLOGS</Link>
-              <Link href="/Contactus" className="nav-link">CONTACT US</Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+  <Container fluid>
+    <div className="d-flex align-items-center justify-content-between w-100">
+      <Navbar.Brand href="/" className="logo">
+        <img src="/images/logo.png" alt="logo" className="img-fluid" />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    </div>
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto align-items-center" style={{ marginLeft: '-20px' }}>
+        <Link href="/" className="nav-link">HOME</Link>
+        <Link href="/About" className="nav-link">OUR VISION</Link>
+        <Link href="/Aboutdr" className="nav-link">OUR TEAM</Link>
+        <Link href="/Products" className="nav-link">PRODUCTS</Link>
+        <Link href="/Gallery" className="nav-link">GALLERY</Link>
+        <Link href="/Blogs" className="nav-link">BLOGS</Link>
+        <Link href="/Contactus" className="nav-link">CONTACT US</Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
     </div>
   );
 }

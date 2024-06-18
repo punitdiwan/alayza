@@ -1,7 +1,7 @@
 Header.css
 .navbar {
     background-color: #fff;
-    width: 100%;
+    width: 90%;
     display: flex;
  justify-content: space-between;
  align-items: end;
@@ -14,7 +14,7 @@ Header.css
   }
   
   .nav-link {
-    margin-left: 2px;
+    margin-left: 20px;
   }
   
   .logo img {
