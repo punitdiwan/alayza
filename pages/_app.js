@@ -6,6 +6,7 @@ import { AppProvider } from "../Components/Context";
 import { GraphQLClient, ClientContext } from 'graphql-hooks'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
+import '/styles/Header.css'
 
 function MyApp({ Component, pageProps }) {
   const url = process.env.REACT_APP_API_URL;

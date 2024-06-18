@@ -50,7 +50,7 @@ a {
   position: fixed;
   height: 15vh;
   padding: 10 20px;
-  width: 90%;
+  width: 100%;
   /* background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #c49635 30%, #b48f39 40%, transparent 80%),radial-gradient(ellipse farthest-corner at left top, #e2dfdf 0%, #FFFFAC 8%, #D1B464 25%, #bd973f 62.5%, #cca447 100%); */
   /* border: 2px solid red; */
   color: #ffffff;
@@ -59,7 +59,7 @@ a {
 #basic-navbar-nav{
 
 flex: 0%;
-margin-left: 30%;
+margin-left: 20%;
 
 @media (max-width: 320px) {
   .navbar {

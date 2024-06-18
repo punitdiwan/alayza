@@ -90,7 +90,8 @@ const Products = ({ data3 }) => {
                         <div className="card_content">
                           <h3>{item.brand}</h3>
                           <h2 className="card_title">{item.name}</h2>
-                          <h5>RS {item.price}</h5>
+                          
+                          <h5> {item.price}</h5>
                         </div>
                       </div>
                     </Link>

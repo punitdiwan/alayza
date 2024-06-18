@@ -1,0 +1,49 @@
+Header.css
+.navbar {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+ justify-content: space-between;
+ align-items: end;
+  border-bottom: 1px solid grey;
+  z-index:100;
+  top: 0;
+  position: fixed;
+  height: 15vh;
+  padding: 10 20px;
+  }
+  
+  .nav-link {
+    margin-left: 2px;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  /* Add margin to the bottom of the navbar to prevent overlap */
+  .navbar-margin {
+    margin-bottom: 10px; /* Adjust the value as needed */
+  }
+  .navbar-container {
+    margin-bottom: 20px; /* Adjust the value as needed */
+  }
+  
+  
+  @media (max-width: 767.98px) {
+    .navbar-brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .navbar-collapse {
+      text-align: center;
+    }
+  
+    .nav-link {
+      margin: 5px 0;
+    }
+  }
+  

@@ -37,6 +37,7 @@
     "react-slick": "^0.29.0",
     "react-spinners": "^0.13.8",
     "react-toastify": "^9.1.1",
+    "sanitize-html": "^2.13.0",
     "slick-carousel": "^1.8.1",
     "sqlite3": "^5.1.6",
     "styled-components": "^6.1.11",
