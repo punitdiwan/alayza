@@ -27,7 +27,7 @@ const Gallery = () => {
     <>
       <style>{`
         .container-fluid {
-          padding: 20px;
+          padding: 5px;
         }
 
         .first {

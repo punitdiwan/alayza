@@ -6,105 +6,70 @@ import Layout from "../../Components/Layout";
 import { PrismaClient } from "@prisma/client";
 
 export async function getStaticProps() {
+  try {
+    const response = await fetch(
+      "https://cms.maitretech.com/alayza/items/products?fields=*.*"
+    );
+    const data3 = await response.json();
 
-
-  const response = await fetch('https://cms.maitretech.com/alayza/items/products?fields=*.*')
-  const data3 = await response.json()
-
-  return {
-    props: {
-      data3,
-    },
-    revalidate: 10,
-  };
+    return {
+      props: {
+        data3,
+      },
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        data3: null,
+      },
+    };
+  }
 }
 
 const Products = ({ data3 }) => {
+  const [product, setProduct] = useState([]);
 
-  const categoryData1 = [
-    {
-      name: "All",
-      id: "0",
-    },
-    {
-      name: "cream",
-      id: "1",
-    },
-    {
-      name: "lotion",
-      id: "2",
-    },
-    {
-      name: "powder",
-      id: "3",
-    },
-    {
-      name: "oil",
-      id: "4",
-    },
-  ];
-
-
-  const handleChange = (e) => {
-    setCategoryData({ ...categoryData, [e.target.name]: e.target.value });
-  };
-
-  const [prodData, setProdData] = useState(data3);
-  const [categoryData, setCategoryData] = useState(false);
-  const [product,setPro] = useState([])
-
-  // const filteredData = data3?.data?.filter(
-  //   (item) => item?.category.toLowerCase() === categoryData?.category
-  // );
-  // if (categoryData?.category == "All") {
-  //   setCategoryData(false);
-  // }
-  
-  useEffect(()=>{
-    getData()
-  },[])
-  const getData = async()=>{
-    try {
-      const res = await fetch('https://cms.maitretech.com/alayza/items/products?fields=*.*')
-      const data = await res.json()
-      setPro(data.data)
-      console.log(data.data)
-    } catch (error) {
-      
+  useEffect(() => {
+    if (data3 && data3.data) {
+      setProduct(data3.data);
     }
-  }
+  }, [data3]);
 
   return (
-    <>
-      <Layout>
-          <div className="products-main-1">
-              {
-                product.map((item)=>(
-                  <ul className="cards" key={item.id}>
-                    {/* {console.log(item.prod_id)} */}
-                    <Link className="cards_item" href={`Products/${item.id}`}>
-                      <div className="card">
-                        <div className="card_image">
-                          <img src={item?.image?.data?.full_url} />
-                        </div>
-                        <div className="card_content">
-                          <h3>{item.brand}</h3>
-                          <h2 className="card_title">{item.name}</h2>
-                          
-                          <h5> {item.price}</h5>
-                        </div>
-                      </div>
-                    </Link>
-                  </ul>
-                ))
-              }
-               
-               
-
-          </div>
-        
-      </Layout>
-    </>
+    <Layout>
+      <div style={{ textAlign: 'center' }}>
+        <h1>Products</h1>
+      </div>
+      <div className="products-main-1">
+        {product.length > 0 ? (
+          product.map((item) => (
+            <ul className="cards" key={item.id}>
+              <Link href={`Products/${item.id}`}>
+                <div className="card">
+                  <div className="card_image">
+                    <img
+                      src={item?.image?.data?.full_url}
+                      alt={item.name}
+                      className="product-image"
+                      style={{ height: "200px", objectFit: "fill" }} // Set a fixed height for the image box
+                    />
+                  </div>
+                  <div className="card_content" style={{ height: "200px" }}> {/* Set a fixed height for the text box */}
+                    <h3>{item.brand}</h3>
+                    <h2 className="card_title">{item.name}</h2>
+                    <h5>{item.price}</h5>
+                  </div>
+                </div>
+              </Link>
+            </ul>
+          ))
+        ) : (
+          <p>No products available.</p>
+        )}
+      </div>
+    </Layout>
   );
 };
 

@@ -59,7 +59,7 @@ a {
 #basic-navbar-nav{
 
 flex: 0%;
-margin-left: 20%;
+margin-left: 10%;
 
 @media (max-width: 320px) {
   .navbar {
@@ -153,10 +153,10 @@ margin-left: 20%;
 
 .me-auto {
   /* margin-left: 40rem; */
-  width: '100%';
-  font-size: 14px;
+  width: '120%';
+  font-size: 13px;
   font-family: 'Bold';
-  margin-right: '20%';
+  margin-right: '10%';
   flex: 2 ;
   display:  flex;
   align-items: "center";
@@ -284,7 +284,15 @@ margin-left: 20%;
   height: fit-content;
   text-align: center;
   border: 2px solid rgba(16, 72, 253, 0.5);
+
 }
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* or 'cover' depending on the desired effect */
+}
+
 
 .card_image:hover::after {
   color: #fff;
@@ -1802,9 +1810,9 @@ form .btn-grad {
     
     /* margin-right: 5rem; */
     height: 6vh;
-    width : 200px;
+    width : 150px;
     /* margin-right: 3rem; */
-    margin-left: -4rem;
+    margin-left: -1rem;
     /* border: 2px solid red; */
     margin-bottom: 1rem;
   }

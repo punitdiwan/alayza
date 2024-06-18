@@ -15,10 +15,6 @@ const Productdetails = ({ parsed }) => {
     }
   }, [id]);
 
-  useEffect(() => {
-    console.log("Description:", data.description);
-  }, [data.description]);
-
   const getDate = async () => {
     try {
       const res = await fetch(
@@ -29,7 +25,9 @@ const Productdetails = ({ parsed }) => {
     } catch (error) {
       console.log(error);
     }
-  };   
+  };
+
+  console.log("Data:", data); // Log data for debugging
 
   return (
     <>
@@ -43,6 +41,7 @@ const Productdetails = ({ parsed }) => {
             <div className="about-doctor-2">
               <h1>{data?.name}</h1>
               <p>{data?.price}</p>
+              
               {/* Render description paragraph if data.description is available */}
               {data.description && (
                 <div dangerouslySetInnerHTML={{ __html: data.description }} />

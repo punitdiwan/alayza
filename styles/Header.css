@@ -14,12 +14,20 @@ Header.css
   }
   
   .nav-link {
-    margin-left: 20px;
+    margin-left: 10px;
   }
   
   .logo img {
-    height: 40px;
+    height: 40px;     
   }
+  .custom-nav .nav-link {
+    white-space: nowrap;
+  }
+  .logo-container {
+    max-width: 100px; /* Adjust the max-width as needed */
+    overflow: hidden;
+  }
+  
   
   /* Add margin to the bottom of the navbar to prevent overlap */
   .navbar-margin {
@@ -28,6 +36,11 @@ Header.css
   .navbar-container {
     margin-bottom: 20px; /* Adjust the value as needed */
   }
+  .custom-nav {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
   
   
   @media (max-width: 767.98px) {
