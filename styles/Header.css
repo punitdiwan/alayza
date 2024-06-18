@@ -1,62 +1,41 @@
-Header.css
-.navbar {
-    background-color: #fff;
-    width: 90%;
+.header-container {
+  width: 100%;
+}
+
+.custom-navbar {
+  width: 100%;
+}
+
+.logo {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .navbar-collapse {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-toggler {
+    margin-left: auto;
+  }
+
+  .custom-navbar {
+    flex-direction: column;
+  }
+
+  .navbar-toggler {
     display: flex;
- justify-content: space-between;
- align-items: end;
-  border-bottom: 1px solid grey;
-  z-index:100;
-  top: 0;
-  position: fixed;
-  height: 15vh;
-  padding: 10 20px;
+    align-items: center;
   }
-  
-  .nav-link {
-    margin-left: 10px;
-  }
-  
-  .logo img {
-    height: 40px;     
-  }
-  .custom-nav .nav-link {      
-    white-space: nowrap;
-  }
-  .logo-container {
-    max-width: 100px; /* Adjust the max-width as needed */
-    overflow: hidden;
-  }
-  
-  
-  /* Add margin to the bottom of the navbar to prevent overlap */
-  .navbar-margin {
-    margin-bottom: 10px; /* Adjust the value as needed */
-  }
-  .navbar-container {
-    margin-bottom: 20px; /* Adjust the value as needed */
-  }
-  .custom-nav {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-  
-  
-  
-  @media (max-width: 767.98px) {
-    .navbar-brand {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-  
-    .navbar-collapse {
-      text-align: center;
-    }
-  
-    .nav-link {
-      margin: 5px 0;
-    }
-  }
-  
+}

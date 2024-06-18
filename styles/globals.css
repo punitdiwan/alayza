@@ -58,8 +58,7 @@ a {
 }
 #basic-navbar-nav{
 
-flex: 0%;
-margin-left: 10%;
+flex: 1;
 
 @media (max-width: 320px) {
   .navbar {
@@ -138,7 +137,7 @@ margin-left: 10%;
   width: 125%;
   /* margin-right: 3rem; */
   margin-left: 1rem;
-  gap: 20%;
+  gap: 2%;
   margin-right: 30%;
   /* border: 2px solid red; */
 }
@@ -152,7 +151,7 @@ margin-left: 10%;
  
 
 .me-auto {
-  /* margin-left: 40rem; */
+  margin-left: 6rem;
   width: '120%';
   font-size: 13px;
   font-family: 'Bold';
@@ -1810,7 +1809,7 @@ form .btn-grad {
     
     /* margin-right: 5rem; */
     height: 6vh;
-    width : 150px;
+    width : 100px;
     /* margin-right: 3rem; */
     margin-left: -1rem;
     /* border: 2px solid red; */

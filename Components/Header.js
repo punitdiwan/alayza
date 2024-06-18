@@ -1,9 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Link from "next/link";
-import { FaCartPlus } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useGlobalContext } from "./Context";
@@ -36,15 +34,14 @@ function Header({ cart }) {
 
   return (
     <div className="header-container">
-      <div className="bottom-component" style={{ paddingBottom: "130px" }}></div>
-      <Navbar expand="lg" id="navbar" className="w-100">
-        <Container fluid>
+      <Navbar expand="lg" className="custom-navbar">
+        <Container fluid className="d-flex justify-content-between align-items-center">
           <Navbar.Brand href="/" className="logo">
             <img src="/images/logo.png" alt="logo" className="img-fluid" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+          <Nav className="me-auto">
               <Link href="/" className="nav-link me-3">HOME</Link>
               <Link href="/About" className="nav-link me-3">OUR VISION</Link>
               <Link href="/Aboutdr" className="nav-link me-3">OUR TEAM</Link>
@@ -56,7 +53,7 @@ function Header({ cart }) {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>    
+    </div>
   );
 }
 
