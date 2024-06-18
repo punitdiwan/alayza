@@ -7,7 +7,7 @@ const Layout = ({ children, data_header }) => {
   return (
     <div>
       <Head>
-        <title>Zeba Derma</title>
+        <title>Alayza Life Science</title>
         <link rel="icon" type="image/jpg" href="./images/mouse.jpg" />
       </Head>
       <Header />

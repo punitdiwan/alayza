@@ -42,7 +42,7 @@ const Productdetails = ({ parsed }) => {
             </div>
             <div className="about-doctor-2">
               <h1>{data?.name}</h1>
-              <p>{data?.price}</p>
+              <h5 >{data?.price}</h5>
               
               {/* Render description paragraph using a div with white-space: pre-line */}
               <div style={{ whiteSpace: "pre-line" }}>{data?.description}</div>
