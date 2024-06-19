@@ -48,7 +48,7 @@ const Products = ({ data3 }) => {
             <ul className="cards" key={item.id}>
               <Link href={`Products/${item.id}`}>
                 <div className="card">
-                  <div className="card_image">    
+                  <div className="card_image">         
                     <img
                       src={item?.image?.data?.full_url}
                       alt={item.name}
@@ -56,8 +56,8 @@ const Products = ({ data3 }) => {
                       style={{ height: "200px", objectFit: "fill" }} // Set a fixed height for the image box
                     />
                   </div>
-                  <div className="card_content" style={{ height: "150px" }}> {/* Set a fixed height for the text box */}
-                    <h3>{item.brand}</h3>
+                  <div className="card_content" style={{ height: "140px" }}> {/* Set a fixed height for the text box */}
+                    {/* <h3>{item.brand}</h3> */}
                     <h2 className="card_title" style={{color:"#016b66"}}>{item.name}</h2>
                     <h5>{item.price}</h5>
                   </div>
