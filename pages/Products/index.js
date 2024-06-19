@@ -56,9 +56,9 @@ const Products = ({ data3 }) => {
                       style={{ height: "200px", objectFit: "fill" }} // Set a fixed height for the image box
                     />
                   </div>
-                  <div className="card_content" style={{ height: "200px" }}> {/* Set a fixed height for the text box */}
+                  <div className="card_content" style={{ height: "150px" }}> {/* Set a fixed height for the text box */}
                     <h3>{item.brand}</h3>
-                    <h2 className="card_title">{item.name}</h2>
+                    <h2 className="card_title" style={{color:"#016b66"}}>{item.name}</h2>
                     <h5>{item.price}</h5>
                   </div>
                 </div>

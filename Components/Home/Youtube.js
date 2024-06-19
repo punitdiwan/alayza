@@ -38,11 +38,12 @@ export default function Youtube() {
                   <Link className="cards_item" href={`Products/${item.id}`}>
                     <div className="card">
                       <div className="card_image">
-                        <img src={item.image?.data?.full_url} />
+                        <img src={item.image?.data?.full_url}
+                        style={{ height: "200px", objectFit: "fill" }} />
                       </div>
-                      <div className="card_content">
+                      <div className="card_content" style={{ height: "150px" }}>
                         <h3>{item.brand}</h3>
-                        <h2 className="card_title">{item.name}</h2>
+                        <h2 className="card_title" style={{color:"#016b66"}}>{item.name}</h2>
                         <h5> {item.price}</h5>
                       </div>
                     </div>

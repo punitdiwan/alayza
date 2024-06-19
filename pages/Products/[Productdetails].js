@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
-const Productdetails = ({ parsed }) => {
+const Productdetails = () => {
   const [data, setData] = useState({});
   const router = useRouter();
-  const { Productdetails } = router.query;
-  const id = Productdetails;
+  const { Productdetails: id } = router.query;
 
   useEffect(() => {
     if (id) {
-      getDate();
+      fetchData();
     }
   }, [id]);
 
-  const getDate = async () => {
+  const fetchData = async () => {
     try {
       const res = await fetch(
         `https://cms.maitretech.com/alayza/items/products/${id}?fields=*.*`
@@ -25,27 +24,24 @@ const Productdetails = ({ parsed }) => {
         setData(result.data);
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching data:", error);
     }
   };
 
-  console.log("Data:", data); // Log data for debugging
-
   return (
     <>
-      <Header />
+      <Header />       
       <section className="about-doctor">
         <div>
           <div className="about-doctor-1">
             <div className="doctors-image">
-              <img src={data?.image?.data?.full_url} alt="about" />
+              <img src={data?.image?.data?.full_url} alt={data?.name || "about"} />
             </div>
             <div className="about-doctor-2">
-              <h1>{data?.name}</h1>
-              <h5 >{data?.price}</h5>
-              
-              {/* Render description paragraph using a div with white-space: pre-line */}
-              <div style={{ whiteSpace: "pre-line" }}>{data?.description}</div>
+              <h1 style={{color:"#016b66"}}>{data?.name}</h1>
+              <h5 style={{ whiteSpace: "pre-line" }}>{data?.price}</h5>
+              {/* Render HTML content */}
+              <div dangerouslySetInnerHTML={{ __html: data?.description }}></div>
             </div>
           </div>
         </div>
