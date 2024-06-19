@@ -48,7 +48,7 @@ const Products = ({ data3 }) => {
             <ul className="cards" key={item.id}>
               <Link href={`Products/${item.id}`}>
                 <div className="card">
-                  <div className="card_image">
+                  <div className="card_image">    
                     <img
                       src={item?.image?.data?.full_url}
                       alt={item.name}
