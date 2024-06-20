@@ -58,7 +58,7 @@ const Products = ({ data3 }) => {
                   </div>
                   <div className="card_content" style={{ height: "140px" }}> {/* Set a fixed height for the text box */}
                     {/* <h3>{item.brand}</h3> */}
-                    <h2 className="card_title" style={{color:"#016b66"}}>{item.name}</h2>
+                    <h2 className="card_title" style={{color:"#016b66",fontSize:20}}>{item.name}</h2>
                     <h5>{item.price}</h5>
                   </div>
                 </div>
