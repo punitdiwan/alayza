@@ -330,8 +330,8 @@ h6 {
 
 .card_image img {
   border: 5px solid #3795BD;
-  height: 30vh;
-  width: 60%;
+  height: 35vh;
+  width: 35vh;
 }
 
 .card-main {
@@ -849,6 +849,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
+  justify-content: center;
 }
 
 .cards_item {
@@ -875,6 +876,8 @@ li {
   flex-direction: column;
   justify-content: space-between;
   /* gap: 1rem; */
+  /* align-items: center; */
+  width: 35vh !important;
   overflow: hidden;
   background: #fff;
   border-radius: 8px;
@@ -1273,7 +1276,9 @@ li {
   margin: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 1.5rem;
   align-items: center;
   padding: 0;
   /* border: 2px solid red; */
@@ -2030,7 +2035,8 @@ form .btn-grad {
   }
 
   .about-doctor-1 img {
-    width: 70%;
+    width: 100%;
+    height: auto;
   }
 
   .about-doctor-2 {
@@ -2286,7 +2292,7 @@ form .btn-grad {
 
   .cards .card_image img {
     width: 100%;
-    height: 200px;
+    height: auto;
     object-fit: cover;
   }
 
@@ -2346,6 +2352,7 @@ form .btn-grad {
 
   .cards_item-1 {
     width: 100%;
+    /* margin: auto; */
   }
 
   .gallery-div {

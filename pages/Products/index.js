@@ -40,7 +40,7 @@ const Products = ({ data3 }) => {
   return (
     <Layout>
       <div style={{ textAlign: 'center' }}>
-        <h1>Products</h1>
+        <h1 className="text-uppercase">Products</h1>
       </div>
       <div className="products-main-1">
         {product.length > 0 ? (
@@ -53,7 +53,7 @@ const Products = ({ data3 }) => {
                       src={item?.image?.data?.full_url}
                       alt={item.name}
                       className="product-image"
-                      style={{ height: "200px", objectFit: "fill" }} // Set a fixed height for the image box
+                       // Set a fixed height for the image box
                     />
                   </div>
                   <div className="card_content" style={{ height: "140px" }}> {/* Set a fixed height for the text box */}

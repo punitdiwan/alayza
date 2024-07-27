@@ -34,7 +34,7 @@ const Productdetails = () => {
       <section className="about-doctor">
         <div>
           <div className="about-doctor-1">
-            <div className="doctors-image">
+            <div className="doctors-image ">
               <img src={data?.image?.data?.full_url} alt={data?.name || "about"} />
             </div>
             <div className="about-doctor-2">
