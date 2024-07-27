@@ -83,7 +83,7 @@ const Products = ({ data3 }) => {
                   <ul className="cards" key={item.id}>
                     {/* {console.log(item.prod_id)} */}
                     <Link className="cards_item" href={`Products/${item.id}`}>
-                      <div className="card">
+                      <div className="card ">
                         <div className="card_image">
                           <img src={item?.image?.data?.full_url} />
                         </div>
