@@ -769,13 +769,14 @@ li {
   padding: 20px;
   color: #03002f;
   /* border: 2px solid red; */
-
+  
 }
 
 .about-doctor-1 {
   display: flex;
   padding: 2rem;
   gap: 1rem;
+  /* align-items: center; */
   /* border: 2px solid red; */
   /* width: 60%; */
 
@@ -783,7 +784,7 @@ li {
 
 .about-doctor-1 img {
   width: 20vw;
-  height: 60vh;
+  height: 20vw;
 }
 
 .about-doctor-3 form {
@@ -2035,8 +2036,8 @@ form .btn-grad {
   }
 
   .about-doctor-1 img {
-    width: 100%;
-    height: auto;
+    width: 50vw;
+    height: 50vw;
   }
 
   .about-doctor-2 {
@@ -2388,4 +2389,32 @@ form .btn-grad {
     height : 7vh;
     width : 200px;
   }
+}
+
+.doctors-images{
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  justify-content: center;
+  align-items: center;
+}
+
+.doctors-images h2{
+  text-align: center;
+  color: #02027a;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.doctors-images h3{
+  text-align: center;
+  color: #ec0808;
+  font-weight: bold;
+  font-size: 28px;
+}
+.doctors-images h4{
+  text-align: center;
+  font-weight: bold;
+  color: #ec0808;
+  font-size: 22px;
 }
