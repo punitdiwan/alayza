@@ -1,27 +1,22 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "../Form";
 // import { useQuery } from "graphql-hooks";
 // import * as constants from "../../Components/Contants";
 
 const Aboutdoctor = () => {
-
-
-
-  const [data, setData] = useState()
-
+  const [data, setData] = useState();
 
   const getAboutDrData = async () => {
-    const response = await fetch("https://cms.maitretech.com/alayza/items/about?fields=*.*.*")
-    const data = await response.json()
-    setData(data.data)
-  }
+    const response = await fetch(
+      "https://cms.maitretech.com/alayza/items/about?fields=*.*.*"
+    );
+    const data = await response.json();
+    setData(data.data);
+  };
 
   useEffect(() => {
-    getAboutDrData()
-  }, [])
-
-
-
+    getAboutDrData();
+  }, []);
 
   // const { data } = useQuery(constants.about);
 
@@ -31,11 +26,11 @@ const Aboutdoctor = () => {
         <div>
           {data?.map((item) => (
             <div key={item.id} className="about-doctor-1">
-              <div className="doctors-image">
-                <img
-                  src={item?.image?.data?.full_url}
-                  alt="about"
-                />
+              <div className="doctors-images">
+                <img src={item?.image?.data?.full_url} alt="about" />
+                <h2 className="">{item.name}</h2>
+                <h3>{item.position}</h3>
+                <h4>+91-{item.phone}</h4>
               </div>
               <div className="about-doctor-2">
                 <p></p>
